@@ -1,0 +1,27 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+import Nav from './Nav'
+
+function Dashboard() {
+
+    return (
+      <div className="Dashboard">
+        <header>
+            <h2>My DIY Dashboard</h2>
+            <Nav />
+        </header>
+        
+            <div className="buttons">
+                {/* <button>My DIY Tools</button> */}
+                <button><Link to='/supplies'>My DIY Supplies</Link></button>
+                {/* <button>My DIY Projects</button> */}
+            
+        </div>
+      </div>
+    );
+  }
+  
+
+
+export default Dashboard;
