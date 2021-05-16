@@ -16,9 +16,9 @@ export default function Landing() {
                 <p>Doin' It Yourself!!!</p>
             </div>
             <div className='buttons'>
-                <button>Sign Up Link</button>
+                {/* <button>Sign Up Link</button> */}
                 <button>Demo Link</button>
-                <button>Log In Link</button>
+                {/* <button>Log In Link</button> */}
             </div>
         </div>
     )

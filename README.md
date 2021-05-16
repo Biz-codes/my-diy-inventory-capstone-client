@@ -125,10 +125,10 @@ This app is for
 
 
 ### 3. Functionality
-The app's functionality includes:
-* 
-* 
-* 
+The app's functionality (v1.0) includes:
+* use a demo version of the "My DIY Dashboard" and "My DIY Supplies" pages
+* add supplies to the "My DIY Supplies" inventory 
+* navigate between pages
 * 
 * 
 * 
@@ -170,6 +170,14 @@ Sign Up Page
 
 ### 8. Development Roadmap
 This is v1.0 of the app, but future enhancements are expected to include:
-* add functionality to 
-* add functionality to 
-* add functionality to 
+* add functionality to allow users to sign up for and log into an account (v1.1)
+* add functionality to allow users to save their "My DIY Supplies" inventory into a database (v2.0)
+* improve css styling and add images (v2.1)
+* add functionality to allow users to create and save a "My DIY Tools" inventory into a database (v2.2)
+* add functionality to allow users to create and save a "My DIY Projects" inventory into a database(v2.3)
+* add functionality to allow users to select items from their tools and supplies databases to add to their projects (v3.0)
+* add functionality to allow users to create a shopping list for items they are missing for a project (v3.1)
+* add functionality for users to retrieve forgotten log in information
+* add functionality for users to upload pictures of their projects
+* add icons and/or images for common inventory items
+* add databases shared among users to add tools, supplies and projects that other users have added
