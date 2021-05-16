@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+import Landing from './Landing'
 import './App.css';
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
         <h1>My DIY Inventory</h1>
       </header>
       <main>
-        <p>Landing Page Component</p>
+        <Landing />
       </main>
       <footer>footer</footer>
     </div>

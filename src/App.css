@@ -208,7 +208,7 @@ header nav ul.nav-items li:last-child {
 Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
 */
-section {
+div {
   width: 70%;
   margin: 30px auto;
   padding-top: 20px;
@@ -218,15 +218,15 @@ section {
   font-family: "Roboto", serif;
 }
 
-section.table {
+div.table {
     text-align: left;
 }
 
-section.projects {
+div.projects {
   display: block;
 }
 
-section.projects div.project-container {
+/* section.projects div.project-container {
   margin-bottom: 5%;
   margin-top: 2%;
   border-bottom: 1px solid #ccc;
@@ -253,7 +253,7 @@ section.projects div.project-container div.project-column {
 
 section.projects div.project-container div.project-column img {
   width: 100%;
-}
+} */
 
 /* -------------------------------------
 Footer styles (Main Module)
