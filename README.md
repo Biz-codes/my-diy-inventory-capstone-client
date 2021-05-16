@@ -1,70 +1,175 @@
-# Getting Started with Create React App
+# My DIY Inventory 
+Are you DIY-Fabulous?!
+Of couse you are!
+What about DIY-Organized?
+...
+When you start a project, do you find yourself scrambling to figure out what supplies you have around before you can get started?
+Welcome to the virtual filing cabinet you have been needing to keep track of all your DIY supplies, tools and projects!
+Whether you are a DIY Builder, Crafter, Artiste, etcetera, a My DIY Inventory account will lessen your stressin' when organizing your projects,
+freeing up your creative brain to enjoy
+Doin' It Yourself!!!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### 1. Working Prototype 
+You can access a working prototype of the app here: biz-codes.github.io/my-diy-inventory/
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 2. User Stories
+User Stories
+This app is for 
+* New users
+* Returning users
+* Administrators
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+###### Landing Page (Importance - High) (Est: 0.5h)
+* as a new user
+* I want to land on the main page of this application and use navigation,
+* so I can access a demo or go to the sign up page.
 
-### `npm test`
+###### Landing Page (Importance - High) (Est: 0.5h)
+* as a new user
+* I want to be able to click on a demo
+* So I can decide if I want to create an account.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+###### Landing Page (Importance - High) (Est: 0.5h)
+* as a returning user
+* I want to land on the main page of this application and use navigation
+* So I can get to my login.
 
-### `npm run build`
+###### Landing Page (Importance - Low) (Est: 0.5h)
+* as an administrator
+* I want to land on the main page of this application and use navigation,
+* So I can get to my login.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###### Sign Up Page (Importance - High) (Est: 3h)
+* as a new user
+* I want fill out and submit a form,
+* so I can sign up for an account.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+###### Login  Page (Importance - High) (Est: 3h)
+* as a returning user
+* I want to enter my username and password,
+* So I can log in to my account.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+###### Login  Page (Importance - Low) (Est: 0.5h)
+* as a returning user
+* I want to click on a link if I forget my username and/or password,
+* So I can retrieve my login information.
 
-### `npm run eject`
+###### Forgot Login Info Page (Importance - Low) (Est: 3h)
+* as a returning user
+* I want to enter my e-mail in a form,
+* so I can receive an e-mail about retrieving my login information.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+###### "My DIY Dashboard" Page (Importance - High) (Est: 2h)
+* as a new or returning user
+* I want to click on icons to visit "My DIY Tools", "My DIY Supplies", or "My DIY Projects",
+* so I can access my stored information on those pages.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+###### "My DIY Dashboard" Page (Importance - Low) (Est: 3h)
+* as an administrator
+* I want to access user info,
+* so I can manage retrieval of login information.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+###### "My DIY Tools" Page (Importance - High) (Est: 2h)
+* as a returning user
+* I want to see a list of the tools I have saved, in alphabetical order, along with descriptions and quantities,
+* so I can see which tools I have available for my project.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+###### "My DIY Tools" Page (Importance - High) (Est: 1h)
+* as a new or returning user
+* I want to add tools to my list,
+* so I can keep my inventory of tools complete.
 
-## Learn More
+###### "My DIY Tools" Page (Importance - High) (Est: 1h)
+* as a returning user
+* I want to edit or delete tools in my list,
+* so I can keep my inventory of tools accurate.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+###### "My DIY Supplies" Page (Importance - High) (Est: 2h)
+* as a returning user
+* I want to see a list of the supplies I have saved, in alphabetical order, along with descriptions and quantities,
+* so I can see what supplies I have available for my project.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+###### "My DIY Supplies" Page (Importance - High) (Est: 1h)
+* as a new or returning user
+* I want to add supplies to my list,
+* so I can keep my inventory of supplies complete.
 
-### Code Splitting
+###### "My DIY Supplies" Page (Importance - High) (Est: 1h)
+* as a returning user
+* I want to see a list of the supplies I have saved, in alphabetical order, along with descriptions and quantities,
+* so I can see what supplies I have available for my project.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+###### "My DIY Projects" Page (Importance - Medium) (Est: 2h)
+* as a returning user
+* I want to see a list of the projects I have saved, in alphabetical order,
+* so I can click on them to edit or delete project details.
 
-### Analyzing the Bundle Size
+###### "My DIY Projects" Page (Importance - Medium) (Est: 2h)
+* as a new or returning user
+* I want to click on a link to create a new project,
+* so I can go to that form.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+###### Create Project Page (Importance - Medium) (Est: 2h)
+* as a new or returning user
+* I want to complete a form with project directions, tools needed and supplies needed,
+* so I can save the project details.
 
-### Making a Progressive Web App
+###### Edit Project Page (Importance - Medium) (Est: 2h)
+* as a returning user
+* I want to edit project directions, tools (w/quantities) and supplies (w/quantities),
+* so I can use these details to plan and execute my project.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 3. Functionality
+The app's functionality includes:
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* use accessibility features such as text-to-speech and navigation via keyboard
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 4. Technology 
+* Front-End: HTML5, CSS3, JavaScript, JQuery, React, APIs
+* Back-End: Node, Express, PostgreSQL
+
+
+### 5. Wireframes 
+Landing Page, Sign Up Page, Log In Page, & "My DIY Dashboard" Page
+:-------------------------:
+![Landing Page, Sign Up Page, Log In Page, & "My DIY Dashboard" Page](/github-images/wireframes/landing-signup-login-dashboard-pages.jpg)
+"My DIY Tools" Page, "My DIY Supplies" Page, "My DIY Projects" Page, and Create/Edit Project Page
+!["My DIY Tools" Page, "My DIY Supplies" Page, "My DIY Projects" Page, and Create/Edit Project Page](/github-images/wireframes/tools-supplies-projects-create-edit-pages.jpg)
+User Flows, page 1
+![User Flows, page 1](/github-images/wireframes/user-flows-1.jpg)
+User Flows, page 2
+![User Flows, page 2](/github-images/wireframes/user-flows-2.jpg)
+
+### 6. API Documentation 
+
+
+
+### 7. Screenshots 
+Landing Page
+:-------------------------:
+![Landing Page]()
+Sign Up Page
+![Sign Up Page]()
+
+
+
+### 8. Development Roadmap
+This is v1.0 of the app, but future enhancements are expected to include:
+* add functionality to 
+* add functionality to 
+* add functionality to 
