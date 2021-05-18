@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import supplies from '../dummy'
 import SupplyItem from './SupplyItem'
+import { Link } from 'react-router-dom'
 
 import Nav from '../Nav'
 
@@ -8,7 +9,6 @@ class Supplies extends Component {
   state = {
     supplies_inventory: supplies,
   };
-
 
   render() {
     const { supplies_inventory } = this.state
@@ -28,7 +28,9 @@ class Supplies extends Component {
             />
           ))}
         </div>
-        <button>Add Supply</button>
+        <button>
+            <Link to='/add-supply'>Add Supply</Link>
+        </button>
       </div>
     );
   }
