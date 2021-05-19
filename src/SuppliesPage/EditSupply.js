@@ -16,7 +16,22 @@ export default class EditSupply extends Component {
 
    static contextType = DIYContext;
 
+    state = {
+        id: '',
+        supply_name: '',
+        details: '',
+        quantity: 1,
+    };
 
+    componentDidMount() {
+        const { supplyId } = this.props.match.params;
+        this.setState({
+            id: this.state.id,
+            supply_name: this.state.supply_name,
+            details: this.state.details,
+            quantity: this.state.quantity,
+        })
+    }
     
     handleEditSupply = (e) => {
         const { name, value } = e.target;
@@ -27,13 +42,13 @@ export default class EditSupply extends Component {
         e.preventDefault();
         const { supply_name, details, quantity } = e.target;
         const editedSupply = {
-            id: { },
+            id: supplyId,
             supply_name: supply_name.value,
             details: details.value,
             quantity: quantity.value
         }
         console.log(editedSupply);
-        this.context.setInventory([...this.context.inventory, editedSupply])
+        this.context.handleEditSupply([...this.context.inventory, editedSupply])
         
     }
     
@@ -44,6 +59,8 @@ export default class EditSupply extends Component {
     render() {
 
         return (
+            const { supply_name, details, quantity } = this.state
+            <div className='edit-form'> 
             <form onSubmit={e => this.handleSubmit(e)}>
                 <h3>Edit this supply:</h3>
                 
@@ -71,7 +88,7 @@ export default class EditSupply extends Component {
                 
                 
                 <div className='buttons'>
-                    <button onClick={this.handleClickCancel}>
+                    <button type='button' onClick={this.handleClickCancel}>
                         Cancel
                     </button>
                     <button type='submit'>
@@ -80,6 +97,7 @@ export default class EditSupply extends Component {
                 </div>
                 
             </form>
+            </div>
         )
     }
 }
