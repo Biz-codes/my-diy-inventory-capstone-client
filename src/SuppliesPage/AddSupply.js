@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import supplies from '../dummy'
+import DIYContext from '../DIYContext'
 
 
 export default class AddSupply extends Component {
-    state = {
-        supplies: supplies,
-    }
+   static contextType = DIYContext;
 
     
     handleAddSupply = (e) => {
@@ -22,14 +20,14 @@ export default class AddSupply extends Component {
             details: details.value,
             quantity: quantity.value
         }
-        this.setState({
-            supplies: supplies.push(newSupply)
-        })
+        console.log(newSupply);
+        this.context.setInventory([...this.context.inventory, newSupply])
+        
     }
     
 
     render() {
-        const supplies = this.state.supplies
+
         return (
             <form onSubmit={e => this.handleSubmit(e)}>
                 <h3>Add a supply to your inventory!</h3>

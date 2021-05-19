@@ -7,10 +7,15 @@ function Dashboard() {
 
     return (
       <div className="Dashboard">
-        <header>
-            <h2>My DIY Dashboard</h2>
-            <Nav />
-        </header>
+        <div className='nested-nav'>
+            <div className='page-heading'>
+              <h2>My DIY Dashboard</h2>
+            </div>
+            <div className='page-heading'>
+              <Nav />
+            </div>
+            
+        </div>
         
             <div className="buttons">
                 {/* <button>My DIY Tools</button> */}

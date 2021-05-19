@@ -5,8 +5,8 @@ import { faPlaneArrival, faCompass, faWarehouse } from '@fortawesome/free-solid-
 
 export default function Nav() {
   return (
-    <nav className='nav'>      
-        {/* <NavLink to='/supplies'>Supplies Icon</NavLink> */}
+    <div className='nav-icons'>      
+        
         <NavLink to='/supplies'><FontAwesomeIcon icon={faWarehouse} /></NavLink>
         {' '}
         <NavLink to='/dashboard'><FontAwesomeIcon icon={faCompass} /></NavLink>
@@ -14,6 +14,6 @@ export default function Nav() {
         <NavLink to='/'><FontAwesomeIcon icon={faPlaneArrival} /></NavLink>
         {' '}
         
-    </nav>
+    </div>
   );
 }

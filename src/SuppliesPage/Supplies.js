@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import supplies from '../dummy'
 import SupplyItem from './SupplyItem'
 import { Link } from 'react-router-dom'
-
+import DIYContext from '../DIYContext'
 import Nav from '../Nav'
 
 class Supplies extends Component {
-  state = {
-    supplies_inventory: supplies,
-  };
+  
+  
+static contextType = DIYContext 
 
   render() {
-    const { supplies_inventory } = this.state
+    console.log(this.context)
     return (
       <div className="supplies">
         <header>
@@ -19,7 +19,7 @@ class Supplies extends Component {
             <Nav />
         </header>
         <div>
-          {supplies_inventory.supplies.map(supply => (
+          {this.context.inventory.map(supply => (
             <SupplyItem 
               key={supply.id}
               supply_name={supply.supply_name}
