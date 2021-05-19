@@ -1,39 +1,39 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import DIYContext from '../DIYContext'
-import uuid from 'react-uuid'
+import PropTypes from 'prop-types'
 
 
-export default class AddSupply extends Component {
+export default class EditSupply extends Component {
     static propTypes = {
+        match: PropTypes.shape({
+          params: PropTypes.object,
+        }),
         history: PropTypes.shape({
           push: PropTypes.func,
         }).isRequired,
       };
-   
-   
-    static contextType = DIYContext;
+
+   static contextType = DIYContext;
+
 
     
-    handleAddSupply = (e) => {
+    handleEditSupply = (e) => {
         const { name, value } = e.target;
         this.setState({ [name]: value })
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        
-        
         const { supply_name, details, quantity } = e.target;
-        const newSupply = {
-            id: uuid(),
+        const editedSupply = {
+            id: { },
             supply_name: supply_name.value,
             details: details.value,
             quantity: quantity.value
         }
-        console.log(newSupply);
-        this.context.setInventory([...this.context.inventory, newSupply])
-        this.props.history.push('/supplies')
+        console.log(editedSupply);
+        this.context.setInventory([...this.context.inventory, editedSupply])
         
     }
     
@@ -45,25 +45,28 @@ export default class AddSupply extends Component {
 
         return (
             <form onSubmit={e => this.handleSubmit(e)}>
-                <h3>Add a supply to your inventory!</h3>
+                <h3>Edit this supply:</h3>
                 
                     <label htmlFor="supply_name">supply name:</label>
                     <input
                         type='text'
                         name='supply_name'
-                        onChange={this.handleAddSupply}
+                        value={supply_name}
+                        onChange={this.handleEditSupply}
                     />
-                    <label htmlFor='details'>details:</label>
+                    <label htmlFor='details'>details</label>
                     <input
                         type='text'
                         name='details'
-                        onChange={this.handleAddSupply}
+                        value={this.context.value}
+                        onChange={this.handleEditSupply}
                     />
-                    <label htmlFor='quantity'>quantity:</label>
+                    <label htmlFor='quantity'>quantity</label>
                     <input 
                         type='number'
                         name='quantity'
-                        onChange={this.handleAddSupply}
+                        value={this.context.value}
+                        onChange={this.handleEditSupply}
                     />
                 
                 

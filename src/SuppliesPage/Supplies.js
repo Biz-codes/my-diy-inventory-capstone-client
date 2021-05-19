@@ -1,26 +1,27 @@
-import React, { Component } from 'react';
-import supplies from '../dummy'
-import SupplyItem from './SupplyItem'
-import { Link } from 'react-router-dom'
-import DIYContext from '../DIYContext'
-import Nav from '../Nav'
+import React, { Component } from "react";
+import SupplyItem from "./SupplyItem";
+import { Link } from "react-router-dom";
+import DIYContext from "../DIYContext";
+import Nav from "../Nav";
 
 class Supplies extends Component {
-  
-  
-static contextType = DIYContext 
+  static contextType = DIYContext;
 
   render() {
-    console.log(this.context)
+    console.log(this.context);
     return (
       <div className="supplies">
-        <header>
+        <div className="nested-nav">
+          <div className="page-heading">
             <h2>My DIY Supplies</h2>
+          </div>
+          <div className="page-heading">
             <Nav />
-        </header>
+          </div>
+        </div>
         <div>
-          {this.context.inventory.map(supply => (
-            <SupplyItem 
+          {this.context.inventory.map((supply) => (
+            <SupplyItem
               key={supply.id}
               supply_name={supply.supply_name}
               details={supply.details}
@@ -29,14 +30,11 @@ static contextType = DIYContext
           ))}
         </div>
         <button>
-            <Link to='/add-supply'>Add Supply</Link>
+          <Link to="/add-supply">Add Supply</Link>
         </button>
       </div>
     );
   }
-    
 }
-  
-
 
 export default Supplies;

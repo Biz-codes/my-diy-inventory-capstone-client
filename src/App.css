@@ -108,10 +108,10 @@ button {
     border: 2px solid #000046;
 }
 
-/* button:hover {
-    background-color: #EFC43F;
-    color: black;
-} */
+button:hover {
+    color: #2ea4b6;
+    
+}
 
 button[type=submit] {
     background-color: #2ea4b6;
@@ -119,7 +119,7 @@ button[type=submit] {
 }
 
 button[type=submit]:hover {
-    color: #C01C17;
+    color: #e77212;
 }
 
 label {

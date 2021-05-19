@@ -3,25 +3,25 @@ export default {
         {
             id: 1,
             supply_name: 'fabric - cotton - jersey knit',
-            description: 'blue, yards',
+            details: 'blue, yards',
             quantity: 3,
         },
         {
             id: 2,
             supply_name: 'nails',
-            description: '...',
+            details: '...',
             quantity: 50,
         },
         {
             id: 3,
             supply_name: 'origami paper',
-            description: 'multicolor, sheets',
+            details: 'multicolor, sheets',
             quantity: 30,
         },
         {
             id: 4,
             supply_name: 'thread',
-            description: 'green, spools',
+            details: 'green, spools',
             quantity: 1,
         },
 
