@@ -66,8 +66,8 @@ General styles (General Module, wrapping around the modules below)
 body {
   font-family: sans-serif;
   font-size: 20px;
-  color: #000046;
-  background-color: #e0d0c1;
+  color: #000022;
+  background-color: #ebe6e2;
   text-align: center;
   line-height: 1.5;
   height: auto;
@@ -96,16 +96,16 @@ h6 {
 input,
 select,
 button {
-    border: 1px solid #42332a;
+    border: 1px solid #251c16;
     padding: 10px 25px;
     margin: 5px;
     border-radius: 15px;
-    color: #000046;
+    color: #000022;
 }
 
 button {
     background-color: #c29a7d;
-    border: 2px solid #000046;
+    border: 2px solid #000022;
 }
 
 button:hover {
@@ -115,7 +115,7 @@ button:hover {
 
 button[type=submit] {
     background-color: #2ea4b6;
-    border: 2px solid #42332a;
+    border: 2px solid #251c16;
 }
 
 button[type=submit]:hover {
@@ -159,7 +159,7 @@ header {
 }
 
 header h1 {
-  color: #000046;
+  color: #000022;
   margin-top: 10px;
   font-size: 214%;
 }
@@ -234,8 +234,8 @@ div {
 .page-heading {
   width: 50%;
   padding: 10px;
-  border: 2px solid #42332a;
-  color: #000046;
+  border: 2px solid #251c16;
+  color: #000022;
   font-size: 150%;
   justify-content: center;
   align-items: center;
@@ -303,7 +303,7 @@ footer a {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  color: #000046;
+  color: #000022;
 }
 
 footer a:hover {

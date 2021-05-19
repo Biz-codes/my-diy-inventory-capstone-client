@@ -6,14 +6,22 @@ import PropTypes from 'prop-types'
 
 export default class EditSupply extends Component {
     static propTypes = {
-        match: PropTypes.shape({
-          params: PropTypes.object,
-        }),
         history: PropTypes.shape({
           push: PropTypes.func,
         }).isRequired,
       };
 
+      
+      componentDidMount() {
+        const  editSupply = (supply_id) => {
+        console.log(supply_id)
+        const value= { 
+        editSupply
+      }
+      
+
+    }
+}
    static contextType = DIYContext;
 
     state = {
@@ -23,15 +31,15 @@ export default class EditSupply extends Component {
         quantity: 1,
     };
 
-    componentDidMount() {
-        const { supplyId } = this.props.match.params;
-        this.setState({
-            id: this.state.id,
-            supply_name: this.state.supply_name,
-            details: this.state.details,
-            quantity: this.state.quantity,
-        })
-    }
+    // componentDidMount() {
+    //     const { supplyId } = this.props.match.params;
+    //     this.setState({
+    //         id: this.state.id,
+    //         supply_name: this.state.supply_name,
+    //         details: this.state.details,
+    //         quantity: this.state.quantity,
+    //     })
+    // }
     
     handleEditSupply = (e) => {
         const { name, value } = e.target;
@@ -40,15 +48,17 @@ export default class EditSupply extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { supply_name, details, quantity } = e.target;
+        const { supply_id } = this.props.match.params
+        console.log(supply_id)
+        const { id, supply_name, details, quantity } = e.target;
         const editedSupply = {
-            id: supplyId,
+            
             supply_name: supply_name.value,
             details: details.value,
             quantity: quantity.value
         }
         console.log(editedSupply);
-        this.context.handleEditSupply([...this.context.inventory, editedSupply])
+        this.context.handleEditSupply(editedSupply)
         
     }
     
@@ -57,9 +67,9 @@ export default class EditSupply extends Component {
       };
 
     render() {
-
+        const { supplyId, supply_name, details, quantity } = this.state
         return (
-            const { supply_name, details, quantity } = this.state
+            
             <div className='edit-form'> 
             <form onSubmit={e => this.handleSubmit(e)}>
                 <h3>Edit this supply:</h3>
@@ -68,7 +78,7 @@ export default class EditSupply extends Component {
                     <input
                         type='text'
                         name='supply_name'
-                        value={supply_name}
+                        value={this.state.supply_name}
                         onChange={this.handleEditSupply}
                     />
                     <label htmlFor='details'>details</label>

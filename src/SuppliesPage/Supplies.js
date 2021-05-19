@@ -5,10 +5,18 @@ import DIYContext from "../DIYContext";
 import Nav from "../Nav";
 
 class Supplies extends Component {
+  static defaultProps = {
+    match: {
+        params: {}
+    }
+  }
+  
   static contextType = DIYContext;
 
   render() {
-    console.log(this.context);
+    const { supply_id } = this.props.match.params
+    const { inventory } = this.context
+    // console.log(this.context);
     return (
       <div className="supplies">
         <div className="nested-nav">
@@ -23,9 +31,11 @@ class Supplies extends Component {
           {this.context.inventory.map((supply) => (
             <SupplyItem
               key={supply.id}
+              id={supply.id}
               supply_name={supply.supply_name}
               details={supply.details}
               quantity={supply.quantity}
+
             />
           ))}
         </div>

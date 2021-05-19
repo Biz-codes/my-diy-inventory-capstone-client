@@ -9,12 +9,24 @@ import DIYContext from "./DIYContext";
 import EditSupply from './SuppliesPage/EditSupply'
 import supplies from './dummy'
 
+
+
 function App() {
   const [inventory, setInventory] = useState(supplies.supplies)
+  const deleteSupply = (supply_id) => {
+    
+    const newSupplies = inventory.filter(supply => {
+      return supply.id !== supply_id;
+    });
+      setInventory(newSupplies)
+    }
   const value= { 
     inventory,
-    setInventory
+    setInventory,
+    deleteSupply
   }
+
+  
 
   return (
     <DIYContext.Provider value={value}>

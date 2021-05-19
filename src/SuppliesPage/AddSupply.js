@@ -31,7 +31,7 @@ export default class AddSupply extends Component {
             details: details.value,
             quantity: quantity.value
         }
-        console.log(newSupply);
+        
         this.context.setInventory([...this.context.inventory, newSupply])
         this.props.history.push('/supplies')
         
