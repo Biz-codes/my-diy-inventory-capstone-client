@@ -104,8 +104,15 @@ button {
 }
 
 button {
-    background-color: #c29a7d;
+    background-color: #c09e85;
     border: 2px solid #000022;
+}
+
+button.big-buttons {
+  /* background-image: url('./images/supplies-background.jpg'); */
+  font-size: 150%;
+  padding: 50px;
+  border-radius: 20px;
 }
 
 button:hover {

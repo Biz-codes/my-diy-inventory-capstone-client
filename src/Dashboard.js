@@ -17,9 +17,9 @@ function Dashboard() {
             
         </div>
         
-            <div className="buttons">
+            <div >
                 {/* <button>My DIY Tools</button> */}
-                <button><Link to='/supplies'>My DIY Supplies</Link></button>
+                <button className="big-buttons"><Link to='/supplies'>My DIY Supplies</Link></button>
                 {/* <button>My DIY Projects</button> */}
             
         </div>

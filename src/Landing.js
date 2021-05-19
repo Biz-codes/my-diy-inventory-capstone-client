@@ -20,7 +20,7 @@ export default function Landing() {
                 
                 
             <div className='content' aria-live='polite'>
-                    <button>
+                    <button className="big-buttons">
                         <Link to='/dashboard'>Demo</Link>
                     </button>
                     {/* <button>Sign Up Link</button> */}
