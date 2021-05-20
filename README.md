@@ -20,14 +20,9 @@ Doin' It Yourself!!!
 This app is for two types of users: a visitor and a logged-in user
 
 ###### Landing Page (Importance - High) (Est: 0.5h)
-* as a new user
-* I want to land on the main page of this application and use navigation,
+* as a visitor
+* I want to land on the main page of this application and click buttons,
 * so I can access a demo or go to the sign up page.
-
-###### Landing Page (Importance - High) (Est: 0.5h)
-* as a new user
-* I want to be able to click on a demo
-* So I can decide if I want to create an account.
 
 ###### Landing Page (Importance - High) (Est: 0.5h)
 * as a returning user
@@ -35,7 +30,7 @@ This app is for two types of users: a visitor and a logged-in user
 * So I can get to my login.
 
 ###### Sign Up Page (Importance - High) (Est: 3h)
-* as a new user
+* as a visitor
 * I want fill out and submit a form,
 * so I can sign up for an account.
 
@@ -45,34 +40,25 @@ This app is for two types of users: a visitor and a logged-in user
 * So I can log in to my account.
 
 ###### "My DIY Dashboard" Page (Importance - High) (Est: 2h)
-* as a new or returning user
+* as a logged-in user
 * I want to click on icons to visit "My DIY Tools", "My DIY Supplies", or "My DIY Projects",
 * so I can access my stored information on those pages.
 
 ###### "My DIY Tools" Page (Importance - High) (Est: 2h)
-* as a returning user
+* as a logged-in user
 * I want to manage a list of the tools I have saved, in alphabetical order, along with descriptions and quantities,
 * so I can manage which tools I have available for my project.
 
 ###### "My DIY Supplies" Page (Importance - High) (Est: 2h)
-* as a returning user
+* as a logged-in user
 * I want to manage a list of the supplies I have saved, in alphabetical order, along with descriptions and quantities,
 * so I can manage what supplies I have available for my project.
 
 ###### "My DIY Projects" Page (Importance - Medium) (Est: 2h)
-* as a returning user
+* as a logged-in user
 * I want to manage a list of the projects I have saved, in alphabetical order,
 * so I can click on them to manage project details.
 
-###### Create Project Page (Importance - Medium) (Est: 2h)
-* as a new or returning user
-* I want to complete a form with project directions, tools needed and supplies needed,
-* so I can save the project details.
-
-###### Edit Project Page (Importance - Medium) (Est: 2h)
-* as a returning user
-* I want to edit project directions, tools (w/quantities) and supplies (w/quantities),
-* so I can use these details to plan and execute my project.
 
 
 
@@ -81,8 +67,8 @@ The app's functionality (v1.0) includes:
 * use a demo version of the "My DIY Dashboard" and "My DIY Supplies" pages
 * add supplies to the "My DIY Supplies" inventory 
 * navigate between pages
-* 
-* 
+* edit a supply
+* delete a supply
 * 
 * 
 * 
@@ -111,20 +97,57 @@ User Flows, page 2
 
 
 ### 6. Front-end Structure - React Components Map (to do later)
-* (Example) __Index.js__ (stateless)
+* __index.js__ (stateless)
+    * __DIYContext__
     * __App.js__ (stateful)
-        * __LandingPage.js__ (stateful) - gets the _"prop name"_ and the _"callback prop name"_ from the __App.js__
-            * __Login.js__ (stateful) -
-            * __Register.js__ (stateful) -
-        * __Navbar.js__ (stateless) -
+        * __Landing.js__ (stateless) - gets the _"prop name"_ and the _"callback prop name"_ from the __App.js__
+            * __LogIn.js__ (stateful) -
+            * __SignUp.js__ (stateful) -
+            * __Dashboard.js__ (stateless)
+                * __Nav.js__ (stateless)
+                * __Supplies.js__  (stateful) -
+                    * __AddSupply.js__ (stateless)
+                    * __SupplyItem.js__ (stateless)
+                        * __EditSupply.js__ (stateless)
+                * __Tools.js__ (stateful)
+                    * __AddTool.js__ (stateless)
+                    * __ToolItem.js__ (stateless)
+                        * __EditTool.js__ (stateless)
+                * __Projects.js__ (stateful)
+                    * __AddProject.js__ (stateless)
+                    * __ProjectItem.js__ (stateless)
+                        * __EditProject.js__ (stateless)
 
 
 
 ### 7. Back-end Structure - Business Objects (to do later)
-* (Example) Users (database table)
+* Users (database table)
     * id (auto-generated)
     * username (email validation)
     * password (at least 8 chars, at least one alpha and a special character validation)
+    * name (full name, at least 3 chars)
+* Supplies (database table)
+    * id (auto-generated)
+    * user_id (foreign key to users table)
+    * supply_name (varchar255 NOT NULL)
+    * details (text)
+    * quantity (integer NOT NULL default 0)
+* Tools (database table)
+    * id (auto-generated)
+    * user_id (foreign key to users table)
+    * tool_name (varchar255 NOT NULL)
+    * details (text)
+    * quantity (integer NOT NULL default 0)
+* Projects (database table)
+    * id (auto-generated)
+    * user_id (foreign key to users table)
+    * project_name (varchar255 NOT NULL)
+    * tools_needed (text)
+    * supplies_needed (text)
+    * instructions (text)
+    * delivery_date ()
+    * done (bool, default false)
+    
 
 
 
