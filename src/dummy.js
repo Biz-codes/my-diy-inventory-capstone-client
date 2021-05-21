@@ -1,4 +1,5 @@
 export default {
+    
     supplies: [
         {
             id: 1,

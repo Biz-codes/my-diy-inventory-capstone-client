@@ -32,7 +32,7 @@ export default class AddSupply extends Component {
             quantity: quantity.value
         }
         
-        this.context.setInventory([...this.context.inventory, newSupply])
+        this.context.setSupplies([...this.context.inventory, newSupply])
         this.props.history.push('/supplies')
         
     }

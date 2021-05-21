@@ -7,11 +7,16 @@ export default function Nav() {
   return (
     <div className='nav-icons'>      
         
-        <NavLink to='/supplies'><FontAwesomeIcon icon={faWarehouse} /></NavLink>
-        {' '}
-        <NavLink to='/dashboard'><FontAwesomeIcon icon={faCompass} /></NavLink>
-        {' '}
-        <NavLink to='/'><FontAwesomeIcon icon={faPlaneArrival} /></NavLink>
+        <div>
+          <NavLink to='/supplies'><FontAwesomeIcon icon={faWarehouse} className="nav-icon"/> supplies</NavLink>
+        </div>
+        <div>
+          <NavLink to='/dashboard'><FontAwesomeIcon icon={faCompass} className="nav-icon"/> dashboard</NavLink>
+        </div>
+        <div>
+          <NavLink to='/'><FontAwesomeIcon icon={faPlaneArrival} className="nav-icon"/> landing page</NavLink>
+        </div>
+        
         {' '}
         
     </div>

@@ -14,8 +14,8 @@ class Supplies extends Component {
   static contextType = DIYContext;
 
   render() {
-    const { supply_id } = this.props.match.params
-    const { inventory } = this.context
+    // const { supply_id } = this.props.match.params
+    // const { supplies_inventory } = this.context
     // console.log(this.context);
     return (
       <div className="supplies">
@@ -28,7 +28,7 @@ class Supplies extends Component {
           </div>
         </div>
         <div>
-          {this.context.inventory.map((supply) => (
+          {this.context.supplies_inventory.map((supply) => (
             <SupplyItem
               key={supply.id}
               id={supply.id}
