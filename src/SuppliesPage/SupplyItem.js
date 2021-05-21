@@ -23,9 +23,9 @@ export default class SupplyItem extends Component {
         <h3>{this.props.supply_name}</h3>
         <p>Details: {this.props.details}</p>
         <p>Quantity: {this.props.quantity}</p>
-        <button>
+        {/* <button>
           <Link to="/edit-supply">Edit</Link>
-        </button>
+        </button> */}
         <button
           type="button"
           className="delete"

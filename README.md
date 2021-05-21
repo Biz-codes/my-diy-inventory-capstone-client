@@ -106,17 +106,17 @@ User Flows, page 2
             * __Dashboard.js__ (stateless)
                 * __Nav.js__ (stateless)
                 * __Supplies.js__  (stateful) -
-                    * __AddSupply.js__ (stateless)
+                    * __AddSupply.js__ (stateful)
                     * __SupplyItem.js__ (stateless)
-                        * __EditSupply.js__ (stateless)
+                        * __EditSupply.js__ (stateful)
                 * __Tools.js__ (stateful)
-                    * __AddTool.js__ (stateless)
+                    * __AddTool.js__ (stateful)
                     * __ToolItem.js__ (stateless)
-                        * __EditTool.js__ (stateless)
+                        * __EditTool.js__ (stateful)
                 * __Projects.js__ (stateful)
-                    * __AddProject.js__ (stateless)
+                    * __AddProject.js__ (stateful))
                     * __ProjectItem.js__ (stateless)
-                        * __EditProject.js__ (stateless)
+                        * __EditProject.js__ (stateful)
 
 
 
@@ -213,7 +213,6 @@ This is v1.0 of the app, but future enhancements are expected to include:
 * improve css styling and add images (v2.1)
 * add functionality to allow users to create and save a "My DIY Tools" inventory into a database (v2.2)
 * add functionality to allow users to create and save a "My DIY Projects" inventory into a database(v2.3)
-* add functionality to allow users to select items from their tools and supplies databases to add to their projects (v3.0)
 * add functionality to allow users to create a shopping list for items they are missing for a project (v3.1)
 * add functionality for users to retrieve forgotten log in information
 * add functionality for users to upload pictures of their projects

@@ -6,7 +6,7 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AddSupply from "./SuppliesPage/AddSupply";
 import DIYContext from "./DIYContext";
-import EditSupply from './SuppliesPage/EditSupply'
+// import EditSupply from './SuppliesPage/EditSupply'
 import supplies from './dummy'
 
 
@@ -41,7 +41,7 @@ function App() {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/supplies" component={Supplies} />
             <Route path="/add-supply" component={AddSupply} />
-            <Route path="/edit-supply" component={EditSupply} />
+            {/* <Route path="/edit-supply" component={EditSupply} /> */}
           </Switch>
 
           <footer>footer</footer>
