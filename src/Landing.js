@@ -12,8 +12,9 @@ export default function Landing() {
                 <p>What about DIY-Organized?</p>
                 <p>...</p>
                 <p>When you start a project, do you find yourself scrambling to figure out what supplies you have around before you can get started?</p>
+                <p>Do you ever get home from a supply run, only to realize that you overbought one thing but forgot to buy something else?</p>
                 <p>Welcome to the virtual filing cabinet you have been needing to keep track of all your DIY supplies!</p>
-                <p>Whether you are a DIY Builder, Crafter, Artiste, etcetera, a My DIY Inventory account will lessen your stressin' when organizing your projects,</p>
+                <p>Whether you are a DIY Builder, Crafter, Artiste, Gardener, Baker, etcetera, a My DIY Inventory account will lessen your stressin' when organizing your projects,</p>
                 <p>freeing up your creative brain to enjoy</p>
                 <p>Doin' It Yourself!!!</p>
             </div>

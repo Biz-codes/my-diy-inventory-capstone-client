@@ -4,8 +4,9 @@ Of couse you are!
 What about DIY-Organized?
 ...
 When you start a project, do you find yourself scrambling to figure out what supplies you have around before you can get started?
+Do you ever get home from a supply run, only to realize that you overbought one thing but forgot to buy something else?
 Welcome to the virtual filing cabinet you have been needing to keep track of all your DIY supplies, tools and projects!
-Whether you are a DIY Builder, Crafter, Artiste, etcetera, a My DIY Inventory account will lessen your stressin' when organizing your projects,
+Whether you are a DIY Builder, Crafter, Artiste, Gardener, Baker, etcetera, a My DIY Inventory account will lessen your stressin' when organizing your projects,
 freeing up your creative brain to enjoy
 Doin' It Yourself!!!
 
@@ -208,11 +209,11 @@ Register Page
 
 ### 10. Development Roadmap (to do later)
 This is v1.0 of the app, but future enhancements are expected to include:
-* add functionality to allow users to sign up for and log into an account (v1.1)
 * add functionality to allow users to save their "My DIY Supplies" inventory into a database (v2.0)
-* improve css styling and add images (v2.1)
+* add functionality to allow users to sign up for and log into an account (v2.1)
 * add functionality to allow users to create and save a "My DIY Tools" inventory into a database (v2.2)
 * add functionality to allow users to create and save a "My DIY Projects" inventory into a database(v2.3)
+* improve css styling and add images (v2.4)
 * add functionality to allow users to create a shopping list for items they are missing for a project (v3.1)
 * add functionality for users to retrieve forgotten log in information
 * add functionality for users to upload pictures of their projects
