@@ -20,10 +20,10 @@ function Dashboard() {
         
         <div className="inventory-buttons">
                 
-                <button className="supplies-button" >
+                <div className="supplies-button" >
                   <Link to='/supplies' >My DIY Supplies</Link>
-                </button>
-                {/* <button>My DIY Projects</button> */}
+                </div>
+                <button>My DIY Projects (COMING SOON!)</button>
                 <button className="tools-button">My DIY Tools (COMING SOON!)</button>
             
         </div>

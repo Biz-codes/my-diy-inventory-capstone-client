@@ -25,12 +25,8 @@ export default function Landing() {
                     <button className="big-buttons">
                         <Link to='/dashboard'>Demo</Link>
                     </button>
-                    {/* <button>Sign Up Link</button> */}
-                    {/* <button> */}
-                        
-                        {/* My DIY Dashboard */}
-                     {/* </button> */}
-                {/* <button>Log In Link</button> */}
+                    <button>Sign Up (COMING SOON!)</button>
+                    <button>Log In (COMING SOON!)</button>
                 </div>
             
                 
