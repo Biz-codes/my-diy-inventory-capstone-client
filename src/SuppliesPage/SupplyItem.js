@@ -21,11 +21,19 @@ export default class SupplyItem extends Component {
     return (
       <div className="supply-item">
         <h3>{this.props.supply_name}</h3>
-        <p>Details: {this.props.details}</p>
-        <p>Quantity: {this.props.quantity}</p>
-        {/* <button>
+        <div className="specs">
+          <div className="specs-column">
+            <p>Details: <br /> {this.props.details}</p>
+          </div>
+          <div className="specs-column">
+            <p>Quantity: <br /> {this.props.quantity}</p>
+          </div>
+        </div>
+        
+        
+        <button>
           <Link to="/edit-supply">Edit</Link>
-        </button> */}
+        </button>
         <button
           type="button"
           className="delete"

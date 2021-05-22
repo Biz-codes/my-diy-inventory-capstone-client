@@ -22,7 +22,7 @@ class Supplies extends Component {
       <div className="supplies">
         <div className="nested-nav">
           <div className="page-heading">
-            <h2>My DIY Supplies</h2>
+            <h2 className="page-title">My DIY Supplies</h2>
           </div>
           <div className="page-heading">
             <Nav />

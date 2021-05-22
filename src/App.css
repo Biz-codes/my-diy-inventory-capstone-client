@@ -16,7 +16,7 @@ Is a short set of CSS rules that resets the styling of all HTML elements to a co
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
+    /* font-size: 100%; */
     /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
     box-sizing: border-box;
     /*reset Chrome user agent styles*/
@@ -70,9 +70,10 @@ font-family: 'Catamaran', sans-serif;*/
 
 
 body {
-  font-family: sans-serif;
+  font-family: 'Annie Use Your Telescope', sans-serif;
   font-size: 20px;
-  color: #13498a;
+  color: black;
+  font-weight: bold;
   background-color: #ebe6e2;
   text-align: center;
   line-height: 1.5;
@@ -82,12 +83,8 @@ body {
 
 a {
   text-decoration: none;
-  color: #000046;
+  color: black;
 }
-
-/* a.supplies-button {
-  color: #2becf0;
-} */
 
 a:hover {
   color: #bd1e0f;
@@ -96,74 +93,45 @@ a:hover {
 h1,
 h2,
 h3,
-h4,
 h5,
 h6 {
-    font-family: serif;
+  font-family: 'Special Elite', cursive;
 }
 
+h3 {
+  font-size: 90%
+}
+
+h4 {
+  font-size: 150%;
+  color: #f0530a;
+}
 
 input,
 select,
 button {
-    border: 1px solid #251c16;
+    border: 1px solid black;
     padding: 10px 25px;
     margin: 5px;
-    border-radius: 15px;
-    color: #000046;
-}
-
-button {
-    /* background-color: #c09e85; */
-    border: 2px solid #000022;
-}
-
-.inventory-buttons {
-  display: flex;
-  flex-direction: column;
-}
-
-button.supplies-button {
-  background-image: url(sewing-supplies.jpg);
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  /* opacity: 0.5; */
-  font-size: 25px;
-  padding: 50px;
-  border-radius: 20px;
-}
-
-button.tools-button {
-  background-image: url(sewing-supplies.jpg);
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  /* opacity: 0.5; */
-  font-size: 25px;
-  padding: 50px;
-  border-radius: 20px;
+    border-radius: 5px;
+    color: black;
 }
 
 button:hover {
-    color: #2ea4b6;
-    
+  color: #bd1e0f;
 }
 
 button[type=submit] {
-    background-color: #2ea4b6;
-    border: 2px solid #251c16;
+  /* border: 2px solid black; */
 }
 
 button[type=submit]:hover {
-    color: #e77212;
+  color: #bd1e0f;
 }
 
 label {
-    display: block;
-    margin: 10px;
+  display: block;
+  margin: 10px;
 }
 
 /*
@@ -200,132 +168,195 @@ header {
 header h1 {
   color: #13498a;
   margin-top: 10px;
-  font-size: 214%;
+  font-size: 200%;
 }
 
 header.nested {
   display: float;
 }
 
-/* header nav {
-  position: fixed;
-  display: block;
-  width: 100%;
-  top: 0;
-  float: right;
-  background-color: #2ea4b6;
-  color: #000046;
-} */
-
-
-
-
-
-/* header nav ul.nav-items,
-header nav div.logo {
-  display: inline-block;
-  width: auto;
-}
-
-header nav div.logo {
-  padding: 0px 20px;
-  color: #000046;
-  font-family: "Caveat", cursive;
-  font-size: 155%;
-}
-
-header nav ul.nav-items {
-  list-style-type: none;
-  float: right;
-}
-
-header nav ul.nav-items li {
-  display: inline-block;
-  width: auto;
-  padding: 10px 20px;
-  border-right: 2px solid #e0d0c1;
-}
-
-header nav ul.nav-items li:last-child {
-  border-right: 0;
-} */
-
 /* -------------------------------------
 Content styles (Main Module)
-(all the styles inside the < sections > or < aside > tags)
 */
 div {
-  width: 90%;
+  width: 95%;
   margin: 10px auto;
   padding-top: 10px;
   padding-bottom: 10px;
-  /* border-bottom: 2px solid #2ea4b6; */
   text-align: center;
-  font-family: "Roboto", serif;
 }
+
+/* Landing styles */
+
+div.landing {
+  position: relative; 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+
+div.landing::before {
+  content: "";
+  background-image: url(hero.jpg);
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  opacity: 0.5;
+  position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+}
+
+div.hook {
+  position: relative
+}
+
+div.landing-buttons {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+button.demo-button {
+  background-color: #f0e981;
+  padding: 50px;
+  font-size: 200%;
+  border-radius: 10px;
+  font-family: 'Special Elite', cursive;
+}
+
+button.landing-button {
+  background-color: #f0e981;
+  padding: 40px;
+  font-size: 100%;
+  border-radius: 10px;
+  font-family: 'Special Elite', cursive;
+}
+
+/* Dashboard, Supplies, Tools, and Projects pages */
 
 .nested-nav {  
   display: flex;
   padding: 0;
-  
+  flex-direction: column;
 }
 
 .page-heading {
   display: flex;
-  width: 50%;
+  margin-bottom: 0;
   padding: 10px;
-  border: 2px solid #251c16;
-  color: #000022;
-  /* font-size: 150%; */
+  border: 2px solid #13498a;;
+  color: black;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
 }  
 
+
+
 .nav-icons {
-  text-decoration: none;
+  list-style-type: none;
   
 }
-/* div.table {
-    text-align: left;
+
+/* Dashboard styles */
+
+.inventory-buttons {
+  display: flex;
+  flex-direction: column;
 }
 
-div.projects {
-  display: block;
-} */
+div.supplies-entrance, 
+div.tools-entrance,
+div.projects-entrance {
+  position: relative; 
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+div.supplies-entrance::before {
+  content: "";
+  background-image: url(sewing-supplies.jpg);
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+  border-radius: 20px;
+  border: 2px solid #0ad1f0
+}
+
+div.tools-entrance::before {
+  content: "";
+  background-image: url(carpenter-tools.jpg);
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+  border-radius: 20px;
+  border: 2px solid #f0530a
+}
+
+div.projects-entrance::before {
+  content: "";
+  background-image: url(garden-project.jpg);
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+  border-radius: 20px;
+  border: 2px solid #59eca3
+}
+
+button.entrance-button {
+  position: relative;
+  background-color: #ebe6e2;
+  padding: 10px;
+  font-size: 100%;
+  font-family: 'Special Elite', cursive;
+  border-radius: 10px;
+}
+
+/* Supplies styles */
 
 .supply-item {
-  border: 2px solid #2ea4b6;
+  border: 3px solid #0ad1f0;
   border-radius: 5px;
+  padding: 10px;
 }
 
-/* section.projects div.project-container {
-  margin-bottom: 5%;
-  margin-top: 2%;
-  border-bottom: 1px solid #ccc;
+div.specs {
+  display: flex;
+  margin: 5px;
 }
 
-section.projects div.project-container:last-child {
-  border-bottom: 0;
+div.specs-column {
+  text-align: left;
+  border-left: 1px dashed #0ad1f0;
+  border-right: 1px dashed #0ad1f0;
+  padding: 5px;
 }
-
-section.projects div.project-container h4 {
-  margin-bottom: 15px;
-  font-size: 120%;
-}
-
-section.projects div.project-container div.project-column {
-  display: inline-block;
-  width: 48%;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-  margin-bottom: 1rem;
-  vertical-align: top;
-  padding-left: 20px;
-}
-
-section.projects div.project-container div.project-column img {
-  width: 100%;
-} */
 
 /* -------------------------------------
 Footer styles (Main Module)
@@ -336,29 +367,27 @@ footer {
   margin-top: 50px;
   margin-bottom: 15px;
   border: 0px;
+  color: #13498a;
+}
+
+footer ul li {
+  display: inline-block;
+  width: auto;
+  padding: 5px 10px;
 }
 
 footer a {
-  display: block;
-  position: fixed;
   bottom: 30px;
   right: 30px;
-  color: #000022;
+  color: #13498a;
 }
 
 footer a:hover {
-  color: #2ea4b6;
+  color: #0ad1f0;
 }
 
 
 /* -------------------------------------
-place all the desktop styles above this line
-
-Responsive styles
-(the very last module in the CSS, contains all the media queries and it is dealing with the compatibility with mobiles and tablets)
-
-place all the mobile tables styles below this line
-*/
 
 /* mobile first approach = (the website was built initialy for mobiles and it will be adapted for desktop)
 This is the ideal way to built websites because it is much easier to adapt from a small screen and low computing power (mobiles) to a large screen and high computing power (desktops)
@@ -370,6 +399,28 @@ This is the ideal way to built websites because it is much easier to adapt from 
     body {
         border: 3px solid purple;
     }
+
+    header {
+      font-size: 90%;
+    }
+
+    button.demo-button {
+      font-size: 150%;
+      padding: 30px;
+    }
+
+    div.supplies-entrance, 
+    div.tools-entrance,
+    div.projects-entrance {
+      height: 30vh;
+
+    }
+
+
+    button.entrance-button {
+      width: 120px;
+    }
+
 }
 
 /*iPhone landscape*/

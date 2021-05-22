@@ -1,15 +1,41 @@
-// import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
-// import DIYContext from '../DIYContext'
-// import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import DIYContext from '../DIYContext'
+import PropTypes from 'prop-types'
 
 
-// export default class EditSupply extends Component {
-//     static propTypes = {
-//         history: PropTypes.shape({
-//           push: PropTypes.func,
-//         }).isRequired,
-//       };
+export default class EditSupply extends Component {
+    static propTypes = {
+        history: PropTypes.shape({
+          push: PropTypes.func,
+        }).isRequired,
+      };
+
+      handleClickCancel = () => {
+                this.props.history.push('/supplies')
+              };
+        
+
+    render() {
+        return (
+        <div>
+            <h2>COMING SOON</h2>
+            <div className='buttons'>
+                     <button type='button' onClick={this.handleClickCancel}>
+                         Cancel
+                     </button>
+                     {/* <button type='submit'>
+                         Save
+                     </button> */}
+                 </div>
+        </div>
+        )
+    }
+
+    
+}
+
+
 
       
 //       componentDidMount() {
@@ -62,10 +88,7 @@
         
 //     }
     
-//     handleClickCancel = () => {
-//         this.props.history.push('/supplies')
-//       };
-
+//     
 //     render() {
 //         const { supplyId, supply_name, details, quantity } = this.state
 //         return (
@@ -97,14 +120,7 @@
 //                     />
                 
                 
-//                 <div className='buttons'>
-//                     <button type='button' onClick={this.handleClickCancel}>
-//                         Cancel
-//                     </button>
-//                     <button type='submit'>
-//                         Save
-//                     </button>
-//                 </div>
+//                 
                 
 //             </form>
 //             </div>

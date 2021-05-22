@@ -7,8 +7,11 @@ import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AddSupply from "./SuppliesPage/AddSupply";
 import DIYContext from "./DIYContext";
-// import EditSupply from './SuppliesPage/EditSupply'
+import EditSupply from './SuppliesPage/EditSupply'
 import supplies from './dummy'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faGithub} from "@fortawesome/free-brands-svg-icons"
 
 
 
@@ -57,10 +60,29 @@ function App() {
             <Route path="/dashboard" component={Dashboard} />
             <Route path="/supplies" component={Supplies} />
             <Route path="/add-supply" component={AddSupply} />
-            {/* <Route path="/edit-supply" component={EditSupply} /> */}
+            <Route path="/edit-supply" component={EditSupply} />
           </Switch>
 
-          <footer>footer</footer>
+          <footer>
+            <p>app by Biz</p>          
+            <ul className="nav-icons">
+              <li>
+                <a href="mailto:elizabeth.biz.hight@gmail.com?subject=Responding%20to%20Your%20Portfolio!">
+                  <FontAwesomeIcon icon={faEnvelope} className="nav-icon"/>                    
+                </a>
+              </li>
+              <li>
+                  <a href="www.linkedin.com/in/elizabeth-biz-hight" target="_blank">
+                    <FontAwesomeIcon icon={faLinkedin} className="nav-icon"/>
+                  </a>
+              </li>
+              <li>
+                <a href="https://github.com/biz-codes" target="_blank">
+                  <FontAwesomeIcon icon={faGithub} className="nav-icon"/>
+                </a>
+            </li>
+        </ul>
+          </footer>
         </BrowserRouter>
       </div>
     </DIYContext.Provider>
