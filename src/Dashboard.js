@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './sewing-supplies.jpg'
 
 import Nav from './Nav'
 
@@ -17,10 +18,13 @@ function Dashboard() {
             
         </div>
         
-            <div >
-                {/* <button>My DIY Tools</button> */}
-                <button className="big-buttons"><Link to='/supplies'>My DIY Supplies</Link></button>
+        <div className="inventory-buttons">
+                
+                <button className="supplies-button" >
+                  <Link to='/supplies' >My DIY Supplies</Link>
+                </button>
                 {/* <button>My DIY Projects</button> */}
+                <button className="tools-button">My DIY Tools (COMING SOON!)</button>
             
         </div>
       </div>

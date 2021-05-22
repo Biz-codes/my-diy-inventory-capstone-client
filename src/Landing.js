@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 
+
 export default function Landing() {
 
     return (
         <div className="landing">
             <div className='hook'>
                 <p>Are you DIY-Fabulous?!</p>
-                <p>Of couse you are!</p>
+                <p>Of course you are!</p>
                 <p>What about DIY-Organized?</p>
                 <p>...</p>
                 <p>When you start a project, do you find yourself scrambling to figure out what supplies you have around before you can get started?</p>

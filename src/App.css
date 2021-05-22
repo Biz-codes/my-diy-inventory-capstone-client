@@ -63,15 +63,21 @@ General styles (General Module, wrapping around the modules below)
 (the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules below (h2, h3, h4, h5, h6, p, a, ul, li))
 */
 
+/* font-family: 'Annie Use Your Telescope', cursive;
+font-family: 'Caveat', cursive;
+font-family: 'Special Elite', cursive; 
+font-family: 'Catamaran', sans-serif;*/
+
+
 body {
   font-family: sans-serif;
   font-size: 20px;
-  color: #000022;
+  color: #13498a;
   background-color: #ebe6e2;
   text-align: center;
   line-height: 1.5;
   height: auto;
-  border: 3px solid #e0d0c1;
+  border: 3px solid #ebe6e2;
 }
 
 a {
@@ -79,8 +85,12 @@ a {
   color: #000046;
 }
 
+/* a.supplies-button {
+  color: #2becf0;
+} */
+
 a:hover {
-  color: #2ea4b6;
+  color: #bd1e0f;
 }
 
 h1,
@@ -100,17 +110,39 @@ button {
     padding: 10px 25px;
     margin: 5px;
     border-radius: 15px;
-    color: #000022;
+    color: #000046;
 }
 
 button {
-    background-color: #c09e85;
+    /* background-color: #c09e85; */
     border: 2px solid #000022;
 }
 
-button.big-buttons {
-  /* background-image: url('./images/supplies-background.jpg'); */
-  font-size: 150%;
+.inventory-buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+button.supplies-button {
+  background-image: url(sewing-supplies.jpg);
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  /* opacity: 0.5; */
+  font-size: 25px;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+button.tools-button {
+  background-image: url(sewing-supplies.jpg);
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  /* opacity: 0.5; */
+  font-size: 25px;
   padding: 50px;
   border-radius: 20px;
 }
@@ -166,7 +198,7 @@ header {
 }
 
 header h1 {
-  color: #000022;
+  color: #13498a;
   margin-top: 10px;
   font-size: 214%;
 }

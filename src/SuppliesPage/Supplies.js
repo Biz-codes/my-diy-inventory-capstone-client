@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import DIYContext from "../DIYContext";
 import Nav from "../Nav";
 
+
 class Supplies extends Component {
   static defaultProps = {
     match: {
