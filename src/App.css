@@ -71,7 +71,7 @@ font-family: 'Catamaran', sans-serif;*/
 
 body {
   font-family: 'Annie Use Your Telescope', sans-serif;
-  font-size: 20px;
+  font-size: 30px;
   color: black;
   font-weight: bold;
   background-color: #ebe6e2;
@@ -98,13 +98,8 @@ h6 {
   font-family: 'Special Elite', cursive;
 }
 
-h3 {
-  font-size: 90%
-}
-
 h4 {
-  font-size: 150%;
-  color: #f0530a;
+  font-family: 'Annie Use Your Telescope, sans-serif';
 }
 
 input,
@@ -127,6 +122,9 @@ button[type=submit] {
 
 button[type=submit]:hover {
   color: #bd1e0f;
+}
+a button {
+width: 90%
 }
 
 label {
@@ -169,6 +167,19 @@ header h1 {
   color: #13498a;
   margin-top: 10px;
   font-size: 200%;
+}
+
+h2 {
+  font-size: 125%;
+}
+
+h3 {
+  font-size: 90%
+}
+
+h4 {
+  font-size: 150%;
+  color: #f0530a;
 }
 
 header.nested {
@@ -219,7 +230,7 @@ div.hook {
 div.landing-buttons {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 button.demo-button {
@@ -260,7 +271,10 @@ button.landing-button {
 
 
 .nav-icons {
+  display: flex;
   list-style-type: none;
+  text-align: left;
+  font-size: 20px;
   
 }
 
@@ -278,7 +292,8 @@ div.projects-entrance {
   height: 15vh;
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
+  margin: 10px;
 }
 
 div.supplies-entrance::before {
@@ -332,7 +347,7 @@ div.projects-entrance::before {
 button.entrance-button {
   position: relative;
   background-color: #ebe6e2;
-  padding: 10px;
+  padding: 20px;
   font-size: 100%;
   font-family: 'Special Elite', cursive;
   border-radius: 10px;
@@ -355,7 +370,7 @@ div.specs-column {
   text-align: left;
   border-left: 1px dashed #0ad1f0;
   border-right: 1px dashed #0ad1f0;
-  padding: 5px;
+  padding: 10px;
 }
 
 /* -------------------------------------
@@ -368,10 +383,12 @@ footer {
   margin-bottom: 15px;
   border: 0px;
   color: #13498a;
+  
 }
 
 footer ul li {
   display: inline-block;
+  
   width: auto;
   padding: 5px 10px;
 }
@@ -398,15 +415,25 @@ This is the ideal way to built websites because it is much easier to adapt from 
 @media only screen and (min-width: 320px) {
     body {
         border: 3px solid purple;
+        font-size: 20px;
     }
 
     header {
       font-size: 90%;
     }
 
+    div.landing-buttons {
+      flex-direction: column;
+    }
+
     button.demo-button {
       font-size: 150%;
       padding: 30px;
+    }
+
+    .nav-icons {
+      flex-direction: column;
+      
     }
 
     div.supplies-entrance, 
@@ -416,10 +443,7 @@ This is the ideal way to built websites because it is much easier to adapt from 
 
     }
 
-
-    button.entrance-button {
-      width: 120px;
-    }
+   
 
 }
 
@@ -427,14 +451,31 @@ This is the ideal way to built websites because it is much easier to adapt from 
 @media only screen and (min-width: 480px) {
     body {
         border: 3px solid green;
+        font-size: 24px;
     }
+
+    
 }
 
 /*Android landscape*/
 @media only screen and (min-width: 640px) {
     body {
         border: 3px solid pink;
+        font-size: 26px;
     }
+
+    div.landing-buttons {
+      flex-direction: row;
+    }
+
+    .nested-nav {
+      flex-direction: row;
+    }
+
+    div.page-heading {
+      margin: 10px;
+    }
+    
 }
 
 /*iPad potrait*/
@@ -442,13 +483,39 @@ This is the ideal way to built websites because it is much easier to adapt from 
     body {
         border: 3px solid red;
     }
+
+    .inventory-buttons {
+      flex-direction: row;
+    }
+
+.nav-icons {
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 18px;
+  }
 }
 
-/*iPad lanscape / small laptop*/
+/*iPad landscape / small laptop*/
 @media only screen and (min-width: 1024px) {
     body {
         border: 3px solid blue;
+        font-size: 30px;
     }
+
+  header h1 {
+    font-size: 250%;
+  }
+
+  .nav-icons {
+    font-size: 26px;
+  }
+
+}
+
+@media only screen and (min-width: 1400px) {
+  .nav-icons {
+    font-size: 32px;
+  }
 }
 
 /*large desktop*/
@@ -456,4 +523,5 @@ This is the ideal way to built websites because it is much easier to adapt from 
     body {
         border: 3px solid yellow;
     }
+
 }

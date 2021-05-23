@@ -65,20 +65,20 @@ function App() {
 
           <footer>
             <p>app by Biz</p>          
-            <ul className="nav-icons">
+            <ul className="contact">
               <li>
                 <a href="mailto:elizabeth.biz.hight@gmail.com?subject=Responding%20to%20Your%20Portfolio!">
-                  <FontAwesomeIcon icon={faEnvelope} className="nav-icon"/>                    
+                  <FontAwesomeIcon icon={faEnvelope} className="contact-icon"/>                    
                 </a>
               </li>
               <li>
                   <a href="www.linkedin.com/in/elizabeth-biz-hight" target="_blank">
-                    <FontAwesomeIcon icon={faLinkedin} className="nav-icon"/>
+                    <FontAwesomeIcon icon={faLinkedin} className="contact-icon"/>
                   </a>
               </li>
               <li>
                 <a href="https://github.com/biz-codes" target="_blank">
-                  <FontAwesomeIcon icon={faGithub} className="nav-icon"/>
+                  <FontAwesomeIcon icon={faGithub} className="contact-icon"/>
                 </a>
             </li>
         </ul>

@@ -23,15 +23,16 @@ export default function Landing() {
                 
                 
             <div className='landing-buttons' aria-live='polite'>
-                    <button className="demo-button">
-                        <Link to='/dashboard'>Demo</Link>
-                    </button>
+                    
+                    <Link to='/dashboard'>
+                        <button className="demo-button">Demo</button>
+                    </Link>
                     <button className="landing-button">Sign Up (COMING SOON!)</button>
                     <button className="landing-button">Log In (COMING SOON!)</button>
             </div>
             
             <footer>
-                <a href='https://www.freepik.com/photos/wood'>photo created by gpointstudio</a>
+            <a href='https://www.freepik.com/photos/wood'>Wood photo created by gpointstudio</a>
             </footer>     
             
         </div>
