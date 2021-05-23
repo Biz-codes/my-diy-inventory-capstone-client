@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import DIYContext from '../DIYContext'
+
 import uuid from 'react-uuid'
 
 
@@ -10,9 +10,6 @@ export default class AddSupply extends Component {
           push: PropTypes.func,
         }).isRequired,
       };
-   
-   
-    static contextType = DIYContext;
 
     
     handleAddSupply = (e) => {

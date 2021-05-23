@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import ValidationError from './validationError'
+import ValidationError from './ValidationError'
 import AuthApiService from './services/auth-api-service'
 import TokenService from './services/token-service.js'
 
@@ -30,7 +30,7 @@ export default class SignUp extends Component {
 
     changeName(name) {
         this.setState({
-            name: { valeu: name, touched: true },
+            name: { value: name, touched: true },
         });
     }
 
@@ -121,7 +121,7 @@ export default class SignUp extends Component {
          // console.log(data);
   
           let { name, username, password} = data;
-          //console.log(userName, password, repeatPassword);
+        //   console.log(name, username, password);
           //validate user data
   
         this.setState({ error: null })
@@ -132,7 +132,7 @@ export default class SignUp extends Component {
         })
     
         .then(response => {
-            //console.log('user:', response)
+            // console.log('user:', response)
             // userName.value = ''
             // password.value = ''
             // repeatPassword.value = ''
@@ -154,14 +154,15 @@ export default class SignUp extends Component {
                     <label htmlFor="name">name:</label>
                     <input                         
                         type="text" 
-                        name='name'  
+                        name="name"  
+                        id="name"
                         placeholder='Type your name.'
                         onChange={(e) =>
                                 this.changeName(e.target.value)
                         }
                         required
                     />
-                    {this.state.userName.touched && (
+                    {this.state.username.touched && (
                             <ValidationError
                                 message={this.validateName()}
                             />
@@ -170,10 +171,11 @@ export default class SignUp extends Component {
                     <label htmlFor="username">username:</label>
                     <input 
                         type="text" 
-                        name='username' 
+                        name="username"
+                        id="username"
                         placeholder='Enter a valid e-mail.' 
                         onChange={(e) =>
-                                this.changeusername(e.target.value)
+                                this.changeUsername(e.target.value)
                         }
                         required
                     />
@@ -186,7 +188,8 @@ export default class SignUp extends Component {
                     <label htmlFor="password">password:</label>
                     <input 
                         type="password" 
-                        name='password' 
+                        name="password"
+                        id="password"
                         placeholder='Create a password.' 
                         onChange={(e) =>
                                 this.changePassword(e.target.value)
@@ -198,10 +201,11 @@ export default class SignUp extends Component {
                             message={this.validatePassword()}
                         />
                     )}
-                    <label>Retype Password</label>
+                    <label>retype password:</label>
                         <input
                             type="password"
                             name="passwordpassword"
+                            id="passwordpassword"
                             placeholder="Retype the password."
                             onChange={(e) =>
                                 this.updateRepeatPassword(e.target.value)
@@ -224,7 +228,7 @@ export default class SignUp extends Component {
 
                 </form>
                 <div>
-                    <Link to='/auth/login'>Already have an account?</Link>
+                    <Link to='/users/login'>Already have an account?</Link>
                 </div>
             </div>
         )

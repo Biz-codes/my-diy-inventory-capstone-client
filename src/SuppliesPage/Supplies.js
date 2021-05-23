@@ -1,23 +1,48 @@
 import React, { Component } from "react";
 import SupplyItem from "./SupplyItem";
 import { Link } from "react-router-dom";
-import DIYContext from "../DIYContext";
 import Nav from "../Nav";
-
+import config from "../config"
+import TokenService from "../services/token-service"
 
 class Supplies extends Component {
-  static defaultProps = {
-    match: {
-        params: {}
-    }
-  }
+  constructor(props) {
+    super(props);
+    this.state = {
+        suppliesByUserId: [],
+        supplies: [],
+    };
+}
+
+  componentDidMount() {
+    this.showSupplies()
+    let currentUser = TokenService.getUserId();
+    // console.log(currentUser)
   
-  static contextType = DIYContext;
+    //if the user is not logged in, send him to landing page
+    if (!TokenService.hasAuthToken()){
+      window.location = '/'
+  }
+  let getSupplies = `${config.API_ENDPOINT}/supplies/${currentUser}`;
+
+//   fetch(getDietByUserId)
+//       .then((dietsInList) => dietsInList.json())
+//       .then((dietsInList) => {
+//           console.log(dietsInList)
+//           this.setState({
+//               dietsByUserId: dietsInList,
+//           });
+//           //console.log(this.state);
+//       })
+
+//       .catch((error) => this.setState({ error }));
+  
+}
+
+
 
   render() {
-    // const { supply_id } = this.props.match.params
-    // const { supplies_inventory } = this.context
-    // console.log(this.context);
+    
     return (
       <div className="supplies">
         <div className="nested-nav">

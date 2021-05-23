@@ -99,7 +99,7 @@ h6 {
 }
 
 h4 {
-  font-family: 'Annie Use Your Telescope, sans-serif';
+  font-family: 'Annie Use Your Telescope', sans-serif;
 }
 
 input,
@@ -231,10 +231,14 @@ div.landing-buttons {
   position: relative;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 button.demo-button {
   background-color: #f0e981;
+  height: 15vh;
+  width: 200px;
   padding: 50px;
   font-size: 200%;
   border-radius: 10px;
@@ -243,8 +247,10 @@ button.demo-button {
 
 button.landing-button {
   background-color: #f0e981;
+  height: 15vh;
+  width: 200px;
   padding: 40px;
-  font-size: 100%;
+  font-size: 150%;
   border-radius: 10px;
   font-family: 'Special Elite', cursive;
 }
@@ -431,6 +437,11 @@ This is the ideal way to built websites because it is much easier to adapt from 
       padding: 30px;
     }
 
+    button.landing-button {
+      font-size: 120%;
+      padding: 30px;
+    }
+
     .nav-icons {
       flex-direction: column;
       
@@ -464,10 +475,6 @@ This is the ideal way to built websites because it is much easier to adapt from 
         font-size: 26px;
     }
 
-    div.landing-buttons {
-      flex-direction: row;
-    }
-
     .nested-nav {
       flex-direction: row;
     }
@@ -482,6 +489,10 @@ This is the ideal way to built websites because it is much easier to adapt from 
 @media only screen and (min-width: 768px) {
     body {
         border: 3px solid red;
+    }
+
+    div.landing-buttons {
+      flex-direction: row;
     }
 
     .inventory-buttons {
@@ -504,6 +515,12 @@ This is the ideal way to built websites because it is much easier to adapt from 
 
   header h1 {
     font-size: 250%;
+  }
+
+  button.demo-button, 
+  button.landing-button {
+    width: 250px;
+    margin: 20px;
   }
 
   .nav-icons {

@@ -24,11 +24,17 @@ export default function Landing() {
                 
             <div className='landing-buttons' aria-live='polite'>
                     
+                    
+                    <Link to='/signup'>
+                        <button className="landing-button">Sign Up</button>
+                    </Link>
                     <Link to='/dashboard'>
                         <button className="demo-button">Demo</button>
                     </Link>
-                    <button className="landing-button">Sign Up (COMING SOON!)</button>
-                    <button className="landing-button">Log In (COMING SOON!)</button>
+                    <Link to='users/login'>
+                        <button className="landing-button">Log In</button>
+                    </Link>
+                    
             </div>
             
             <footer>

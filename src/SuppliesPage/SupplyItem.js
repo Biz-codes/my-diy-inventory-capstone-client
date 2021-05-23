@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DIYContext from "../DIYContext";
+
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -10,7 +10,7 @@ export default class SupplyItem extends Component {
     },
   };
 
-  static contextType = DIYContext;
+  
 
   render() {
     const { supplies = [] } = this.context;

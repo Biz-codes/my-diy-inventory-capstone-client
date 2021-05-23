@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import DIYContext from '../DIYContext'
+
 import PropTypes from 'prop-types'
 
 
