@@ -5,157 +5,157 @@ import TokenService from "../services/token-service";
 import ValidationError from "../ValidationError";
 
 export default class EditSupply extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       supply_name: {
-//         value: "",
-//         touched: false,
-//       },
-//       details: {
-//         value: "",
-//         touched: false,
-//       },
-//       quantity: {
-//         value: "",
-//         touched: false,
-//       },
-//     };
-//   }
+  constructor(props) {
+    super(props);
+    this.state = {
+      supply_name: {
+        value: "",
+        touched: false,
+      },
+      details: {
+        value: "",
+        touched: false,
+      },
+      quantity: {
+        value: "",
+        touched: false,
+      },
+    };
+  }
 
-//   changeSupplyName(supply_name) {
-//     this.setState({
-//       supply_name: { value: supply_name, touched: true },
-//     });
-//   }
+  changeSupplyName(supply_name) {
+    this.setState({
+      supply_name: { value: supply_name, touched: true },
+    });
+  }
 
-//   changeDetails(details) {
-//     this.setState({
-//       details: { value: details, touched: true },
-//     });
-//   }
+  changeDetails(details) {
+    this.setState({
+      details: { value: details, touched: true },
+    });
+  }
 
-//   changeQuantity(quantity) {
-//     this.setState({
-//       quantity: { value: quantity, touched: true },
-//     });
-//   }
+  changeQuantity(quantity) {
+    this.setState({
+      quantity: { value: quantity, touched: true },
+    });
+  }
 
-//   validateSupplyName() {
-//     const supply_name = this.state.supply_name.value.trim();
-//     if (supply_name.length === 0) {
-//       return <p className="input-error">Supply name is required</p>;
-//     } else if (supply_name.length < 2) {
-//       return (
-//         <p className="input-error">
-//           Supply name must be at least 2 characters long
-//         </p>
-//       );
-//     }
-//   }
+  validateSupplyName() {
+    const supply_name = this.state.supply_name.value.trim();
+    if (supply_name.length === 0) {
+      return <p className="input-error">Supply name is required</p>;
+    } else if (supply_name.length < 2) {
+      return (
+        <p className="input-error">
+          Supply name must be at least 2 characters long
+        </p>
+      );
+    }
+  }
 
-//   validateDetails() {
-//     const details = this.state.details.value.trim();
-//     if (details.length === 0) {
-//       return (
-//         <p className="input-error">Details about the supply are required</p>
-//       );
-//     } else if (details.length < 2) {
-//       return (
-//         <p className="input-error">
-//           Details must be at least 2 characters long
-//         </p>
-//       );
-//     }
-//   }
+  validateDetails() {
+    const details = this.state.details.value.trim();
+    if (details.length === 0) {
+      return (
+        <p className="input-error">Details about the supply are required</p>
+      );
+    } else if (details.length < 2) {
+      return (
+        <p className="input-error">
+          Details must be at least 2 characters long
+        </p>
+      );
+    }
+  }
 
-//   validateQuantity() {
-//     const quantity = this.state.quantity.value.trim();
-//     if (quantity === null) {
-//       return <p className="input-error">Quantity is required</p>;
-//     }
-//   }
+  validateQuantity() {
+    const quantity = this.state.quantity.value.trim();
+    if (quantity === null) {
+      return <p className="input-error">Quantity is required</p>;
+    }
+  }
 
-//   componentDidMount() {
-//     let currentUser = TokenService.getUserId();
-//     // console.log(currentUser);
+  componentDidMount() {
+    let currentUser = TokenService.getUserId();
+    // console.log(currentUser);
 
-//     //if the user is not logged in, send him to landing page
-//     if (!TokenService.hasAuthToken()) {
-//       window.location = "/";
-//     }
+    //if the user is not logged in, send him to landing page
+    if (!TokenService.hasAuthToken()) {
+      window.location = "/";
+    }
 
-//     const supply_id = this.props.match.params.supply_id;
+    const supply_id = this.props.match.params.supply_id;
 
-//     let getSupplySpecsUrl = `${config.API_ENDPOINT}/supplies/${supply_id}`;
+    let getSupplySpecsUrl = `${config.API_ENDPOINT}/supplies/${supply_id}`;
 
-//     fetch(getSupplySpecsUrl)
-//       .then((supplySpecs) => supplySpecs.json())
-//       .then((supplySpecs) => {
-//         // console.log(supplySpecs)
-//         this.setState({
-//           supplySpecs: supplySpecs,
-//         });
-//         // console.log(this.state);
-//       })
+    fetch(getSupplySpecsUrl)
+      .then((supplySpecs) => supplySpecs.json())
+      .then((supplySpecs) => {
+        // console.log(supplySpecs)
+        this.setState({
+          supplySpecs: supplySpecs,
+        });
+        // console.log(this.state);
+      })
 
-//       .catch((error) => this.setState({ error }));
-//   }
+      .catch((error) => this.setState({ error }));
+  }
 
-//   updateItem(event) {
-//     // console.log('hello there')
-//     event.preventDefault();
-//     const data = {};
+  updateItem(event) {
+    // console.log('hello there')
+    event.preventDefault();
+    const data = {};
 
-//     const formData = new FormData(event.target);
+    const formData = new FormData(event.target);
 
-//     for (let value of formData) {
-//       data[value[0]] = value[1];
-//     }
+    for (let value of formData) {
+      data[value[0]] = value[1];
+    }
 
-//     let user_id = TokenService.getUserId();
+    let user_id = TokenService.getUserId();
 
-//     let { supply_name, details, quantity } = data;
+    let { supply_name, details, quantity } = data;
 
-//     let payload = {
-//       user_id: user_id,
-//       supply_name: supply_name,
-//       details: details,
-//       quantity: quantity,
-//     };
-//     console.log(payload);
+    let payload = {
+      user_id: user_id,
+      supply_name: supply_name,
+      details: details,
+      quantity: quantity,
+    };
+    console.log(payload);
 
-//     //     console.log(this.props)
+    //     console.log(this.props)
 
-//     let { supply_id } = data;
-//     console.log(supply_id);
+    let { supply_id } = data;
+    console.log(supply_id);
 
-//     fetch(`${config.API_ENDPOINT}/supplies/${supply_id}`, {
-//       method: "PATCH",
-//       headers: {
-//         "content-type": "application/json",
-//       },
-//       body: JSON.stringify(payload),
-//     })
-//       .then((response) => response.json())
-//       .then((responseJson) => {
-//         window.location = "/supplies";
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   }
+    fetch(`${config.API_ENDPOINT}/supplies/${supply_id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => response.json())
+      .then((responseJson) => {
+        window.location = "/supplies";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   render() {
   
-    // const showSupplySpecs = this.state.getById((supply, key) => {
+    const showSupplySpecs = this.state.getById((supply, key) => {
 
     
     return (    
-        <div className="edit-supply" >
-        {/* key={key} */}
-            <h3>COMING SOON</h3>
-          {/* <h3>Update this supply.</h3>
+        <div className="edit-supply" key={key}>
+        
+            {/* <h3>COMING SOON</h3> */}
+          <h3>Update this supply.</h3>
           <form className="edit-supply-form" onSubmit={this.updateSupply}>
             <label htmlFor="supply_name">supply name:</label>
             <input
@@ -190,22 +190,22 @@ export default class EditSupply extends Component {
             />
             {this.state.quantity.touched && (
               <ValidationError message={this.validateQuantity()} />
-            )} */}
+            )}
             <div className="buttons">
               <NavLink to="/supplies">
                 <button>Cancel</button>
               </NavLink>
-              {/* <button type="submit">Save</button> */}
+              <button type="submit">Save</button>
             </div>
-          {/* </form> */}
+          </form>
         </div>
     )
-//   })
+  })
 
-//   return (
-//       <div>
-//           { showSupplySpecs }
-//       </div>
-//   )
+  return (
+      <div>
+          { showSupplySpecs }
+      </div>
+  )
 }
 }
