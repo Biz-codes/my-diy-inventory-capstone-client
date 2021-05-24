@@ -95,9 +95,9 @@ export default class EditSupply extends Component {
     let getSupplySpecsUrl = `${config.API_ENDPOINT}/supplies/${supply_id}`;
 
     fetch(getSupplySpecsUrl)
-      .then((getById) => supplySpecs.json())
+      .then((getById) => getById.json())
       .then((getById) => {
-        // console.log(supplySpecs)
+        // console.log(getById)
         this.setState({
           getById: getById,
         });
@@ -157,12 +157,12 @@ export default class EditSupply extends Component {
   }
 
   render() {
-  
-    const showSupplySpecs = this.state.getById((supply, key) => {
+  let showSupplySpecs = ''
+    showSupplySpecs =  
 
     
-    return (    
-        <div className="edit-supply" key={key}>
+       
+        <div className="edit-supply" >
         
             {/* <h3>COMING SOON</h3> */}
           <h3>Update this supply.</h3>
@@ -209,8 +209,8 @@ export default class EditSupply extends Component {
             </div>
           </form>
         </div>
-    )
-  })
+    
+  
 
   return (
       <div>
