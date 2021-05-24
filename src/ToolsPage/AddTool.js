@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom'
 import TokenService from "../services/token-service";
 import ValidationError from '../ValidationError'
 
-export default class AddSupply extends Component {
+export default class AddTool extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      supply_name: {
+      tool_name: {
         value: "",
         touched: false,
       },
@@ -23,9 +23,9 @@ export default class AddSupply extends Component {
     };
   }
 
-  changeSupplyName(supply_name) {
+  changeToolName(tool_name) {
     this.setState({
-      supply_name: { value: supply_name, touched: true },
+      tool_name: { value: tool_name, touched: true },
     });
   }
 
@@ -41,14 +41,14 @@ export default class AddSupply extends Component {
     });
   }
 
-  validateSupplyName() {
-    const supply_name = this.state.supply_name.value.trim();
-    if (supply_name.length === 0) {
-      return <p className="input-error">Supply name is required</p>;
-    } else if (supply_name.length < 2) {
+  validateToolName() {
+    const tool_name = this.state.tool_name.value.trim();
+    if (tool_name.length === 0) {
+      return <p className="input-error">Tool name is required</p>;
+    } else if (tool_name.length < 2) {
       return (
         <p className="input-error">
-          Supply name must be at least 2 characters long
+          Tool name must be at least 2 characters long
         </p>
       );
     }
@@ -58,7 +58,7 @@ export default class AddSupply extends Component {
     const details = this.state.details.value.trim();
     if (details.length === 0) {
       return (
-        <p className="input-error">Details about the supply are required</p>
+        <p className="input-error">Details about the tool are required</p>
       );
     } else if (details.length < 2) {
       return (
@@ -86,7 +86,7 @@ export default class AddSupply extends Component {
     }
   }
 
-  addSupply(e) {
+  addTool(e) {
     e.preventDefault();
 
     const data = {};
@@ -99,17 +99,17 @@ export default class AddSupply extends Component {
 
     let user_id = TokenService.getUserId();
 
-    let { supply_name, details, quantity } = data;
+    let { tool_name, details, quantity } = data;
 
     let payload = {
       user_id: user_id,
-      supply_name: supply_name,
+      tool_name: tool_name,
       details: details,
       quantity: quantity,
     }
     console.log(payload)
 
-    fetch(`${config.API_ENDPOINT}/supplies`, {
+    fetch(`${config.API_ENDPOINT}/tools`, {
         method: "POST",
         body: JSON.stringify(payload),
         headers: { "content-type": "application/json" },
@@ -117,7 +117,7 @@ export default class AddSupply extends Component {
 
         .then((res) => res.json())
         .then((resJson) => {
-          window.location = "/supplies";
+          window.location = "/tools";
         })
         .catch((err) => {
           console.log(err);
@@ -127,19 +127,19 @@ export default class AddSupply extends Component {
 
   render() {
     return (
-      <div className="add-supply">
-        <h3>Add a supply to your inventory!</h3>
-        <form className="add-supply-form" onSubmit={this.addSupply}>
-          <label htmlFor="supply_name">supply name:</label>
+      <div className="add-tool">
+        <h3>Add a tool to your inventory!</h3>
+        <form className="add-tool-form" onSubmit={this.addTool}>
+          <label htmlFor="tool_name">tool name:</label>
           <input
             type="text"
-            id="supply_name"
-            name="supply_name"
-            onChange={(e) => this.changeSupplyName(e.target.value)}
+            id="tool_name"
+            name="tool_name"
+            onChange={(e) => this.changeToolName(e.target.value)}
             required
           />
-          {this.state.supply_name.touched && (
-            <ValidationError message={this.validateSupplyName()} />
+          {this.state.tool_name.touched && (
+            <ValidationError message={this.validateToolName()} />
           )}
           <label htmlFor="details">details:</label>
           <input
@@ -164,7 +164,7 @@ export default class AddSupply extends Component {
             <ValidationError message={this.validateQuantity()} />
           )}
           <div className="buttons">
-            <NavLink to="/supplies">
+            <NavLink to="/tools">
               <button>Cancel</button>
             </NavLink>
             <button type="submit">Save</button>
