@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SupplyItem from "./SupplyItem";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import DIYContext from "../DIYContext";
 import Nav from "../Nav";
 
@@ -40,7 +40,7 @@ class Supplies extends Component {
           ))}
         </div>
         <button>
-          <Link to="/add-supply">Add Supply</Link>
+          <NavLink to="/add-supply">Add Supply</NavLink>
         </button>
       </div>
     );

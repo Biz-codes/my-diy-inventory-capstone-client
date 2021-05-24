@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Nav from "./Nav";
 import TokenService from "./services/token-service.js"
 
@@ -38,12 +38,12 @@ class Dashboard extends Component {
 
         <div className="inventory-buttons">
           <div className="supplies-entrance">
-            <Link to="/supplies">
+            <NavLink to="/supplies">
               <button className="entrance-button">
                 My DIY <br />
                 Supplies
               </button>
-            </Link>
+            </NavLink>
           </div>
           <div className="projects-entrance">
             <button className="entrance-button">

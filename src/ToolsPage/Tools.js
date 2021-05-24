@@ -1,6 +1,6 @@
 // import React, { Component } from "react";
 // import ToolItem from "./ToolItem";
-// import { Link } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 // import DIYContext from "../DIYContext";
 // import Nav from "../Nav";
 
@@ -39,7 +39,7 @@
 //           ))}
 //         </div>
 //         {/* <button>
-//           <Link to="/add-tool">Add Tool</Link>
+//           <NavLink to="/add-tool">Add Tool</NavLink>
 //         </button> */}
 //       </div>
 //     );

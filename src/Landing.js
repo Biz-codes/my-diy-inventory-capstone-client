@@ -28,7 +28,7 @@ export default function Landing() {
                     <Link to='/signup'>
                         <button className="landing-button">Sign Up</button>
                     </Link>
-                    <Link to='/dashboard'>
+                    <Link to='/users/login'>
                         <button className="demo-button">Demo</button>
                     </Link>
                     <Link to='users/login'>

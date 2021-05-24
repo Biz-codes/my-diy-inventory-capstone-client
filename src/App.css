@@ -361,6 +361,10 @@ button.entrance-button {
 
 /* Supplies styles */
 
+div.supplies {
+  display: flex;
+}
+
 .supply-item {
   border: 3px solid #0ad1f0;
   border-radius: 5px;
@@ -442,11 +446,7 @@ This is the ideal way to built websites because it is much easier to adapt from 
       padding: 30px;
     }
 
-    .nav-icons {
-      flex-direction: column;
-      
-    }
-
+    
     div.supplies-entrance, 
     div.tools-entrance,
     div.projects-entrance {
@@ -454,6 +454,11 @@ This is the ideal way to built websites because it is much easier to adapt from 
 
     }
 
+
+    .nav-icons {
+      flex-direction: column;
+      
+    }
    
 
 }
@@ -475,9 +480,13 @@ This is the ideal way to built websites because it is much easier to adapt from 
         font-size: 26px;
     }
 
-    .nested-nav {
+    /* div.supplies {
       flex-direction: row;
-    }
+    } */
+
+    /* .nested-nav {
+      flex-direction: row;
+    } */
 
     div.page-heading {
       margin: 10px;

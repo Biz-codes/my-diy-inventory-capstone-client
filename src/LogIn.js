@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ValidationError from "./ValidationError"
 import AuthApiService from "./services/auth-api-service"
 import TokenService from "./services/token-service.js"
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 export default class LogIn extends Component {
     constructor(props) {
@@ -92,7 +92,7 @@ export default class LogIn extends Component {
             <div className="log-in">
                 <h2>Log into your account!</h2>
                 <p className="demo">To try the demo:</p>
-                <p className="demo">username: DIYDemo</p>
+                <p className="demo">username: demo-email@gmail.com</p>
                 <p className="demo">password: Fabulous1</p>
                 <form className='log-in-form' onSubmit={this.loginUser}>
                     <label htmlFor="username">username:</label>
@@ -128,16 +128,16 @@ export default class LogIn extends Component {
                         />
                     )}
 
-                    <Link to= '/'>
+                    <NavLink to= '/'>
                         <button>Cancel</button>
-                    </Link>
+                    </NavLink>
                     <button type='submit' disabled={this.state.submitButtonDisabled}>
                         Submit
                     </button>
 
                 </form>
             
-                <Link to='/signup'>Need to create an account?</Link>
+                <NavLink to='/signup'>Need to create an account?</NavLink>
             </div>
         )
     }

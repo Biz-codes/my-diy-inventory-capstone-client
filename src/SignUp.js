@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import ValidationError from './ValidationError'
 import AuthApiService from './services/auth-api-service'
 import TokenService from './services/token-service.js'
@@ -219,16 +219,16 @@ export default class SignUp extends Component {
                             />
                         )}
                 
-                    <Link to= '/'>
+                    <NavLink to= '/'>
                         <button>Cancel</button>
-                    </Link>
+                    </NavLink>
                     <button type='submit' disabled={this.state.submitButtonDisabled}>
                         Submit
                     </button>
 
                 </form>
                 <div>
-                    <Link to='/users/login'>Already have an account?</Link>
+                    <NavLink to='/users/login'>Already have an account?</NavLink>
                 </div>
             </div>
         )
