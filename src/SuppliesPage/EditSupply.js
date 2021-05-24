@@ -172,7 +172,7 @@ export default class EditSupply extends Component {
               type="text"
               id="supply_name"
               name="supply_name"
-              defaultValue = {supply.supply_name}
+              defaultValue = {this.state.getById.supply_name}
               onChange={(e) => this.changeSupplyName(e.target.value)}
               required
             />
