@@ -4,81 +4,91 @@ import { NavLink } from 'react-router-dom'
 import TokenService from "../services/token-service";
 import ValidationError from '../ValidationError'
 
-export default class AddSupply extends Component {
+export default class AddProject extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      supply_name: {
+      project_name: {
         value: "",
         touched: false,
       },
-      details: {
+      delivery_date: {
         value: "",
         touched: false,
       },
-      quantity: {
+      supplies_needed: {
+        value: "",
+        touched: false,
+      },
+      tools_needed: {
+        value: "",
+        touched: false,
+      },
+      instructions: {
+        value: "",
+        touched: false,
+      },
+      done: {
         value: "",
         touched: false,
       },
     };
   }
 
-  changeSupplyName(supply_name) {
+  changeProjectName(project_name) {
     this.setState({
-      supply_name: { value: supply_name, touched: true },
+      project_name: { value: project_name, touched: true },
     });
   }
 
-  changeDetails(details) {
+  changeDeliveryDate(delivery_date) {
     this.setState({
-      details: { value: details, touched: true },
+      delivery_date: { value: delivery_date, touched: true },
     });
   }
 
-  changeQuantity(quantity) {
+  changeSuppliesNeeded(supplies_needed) {
     this.setState({
-      quantity: { value: quantity, touched: true },
+      supplies_needed: { value: supplies_needed, touched: true },
     });
   }
 
-  validateSupplyName() {
-    const supply_name = this.state.supply_name.value.trim();
-    if (supply_name.length === 0) {
-      return <p className="input-error">Supply name is required</p>;
-    } else if (supply_name.length < 2) {
+  changeToolsNeeded(tools_needed) {
+    this.setState({
+      tools_needed: { value: tools_needed, touched: true },
+    });
+  }
+
+  changeInstructions(instructions) {
+    this.setState({
+      instructions: { value: instructions, touched: true },
+    });
+  }
+
+  changeDone(done) {
+    this.setState({
+      done: { value: done, touched: true },
+    });
+  }
+
+  validateProjectName() {
+    const project_name = this.state.project_name.value.trim();
+    if (project_name.length === 0) {
+      return <p className="input-error">Project name is required</p>;
+    } else if (project_name.length < 2) {
       return (
         <p className="input-error">
-          Supply name must be at least 2 characters long
+          Project name must be at least 2 characters long
         </p>
       );
     }
   }
 
-  validateDetails() {
-    const details = this.state.details.value.trim();
-    if (details.length === 0) {
-      return (
-        <p className="input-error">Details about the supply are required</p>
-      );
-    } else if (details.length < 2) {
-      return (
-        <p className="input-error">
-          Details must be at least 2 characters long
-        </p>
-      );
-    }
-  }
-
-  validateQuantity() {
-    const quantity = this.state.quantity.value.trim();
-    if (quantity.length === 0) {
-      return <p className="input-error">Quantity is required</p>;
-    }
-  }
+  
 
   componentDidMount() {
     let currentUser = TokenService.getUserId();
-    // console.log(currentUser);
+    console.log(currentUser);
 
     //if the user is not logged in, send to landing page
     if (!TokenService.hasAuthToken()) {
@@ -86,7 +96,7 @@ export default class AddSupply extends Component {
     }
   }
 
-  addSupply(e) {
+  addProject(e) {
     e.preventDefault();
 
     const data = {};
@@ -99,17 +109,20 @@ export default class AddSupply extends Component {
 
     let user_id = TokenService.getUserId();
 
-    let { supply_name, details, quantity } = data;
+    let { project_name, delivery_date, supplies_needed, tools_needed, instructions, done } = data;
 
     let payload = {
       user_id: user_id,
-      supply_name: supply_name,
-      details: details,
-      quantity: quantity,
+      project_name: project_name,
+      delivery_date: delivery_date,
+      supplies_needed: supplies_needed,
+      tools_needed: tools_needed,
+      instructions: instructions,
+      done: done,
     }
     console.log(payload)
 
-    fetch(`${config.API_ENDPOINT}/supplies`, {
+    fetch(`${config.API_ENDPOINT}/projects`, {
         method: "POST",
         body: JSON.stringify(payload),
         headers: { "content-type": "application/json" },
@@ -117,7 +130,7 @@ export default class AddSupply extends Component {
 
         .then((res) => res.json())
         .then((resJson) => {
-          window.location = "/supplies";
+          window.location = "/projects";
         })
         .catch((err) => {
           console.log(err);
@@ -126,45 +139,61 @@ export default class AddSupply extends Component {
   }
 
   render() {
+    
     return (
-      <div className="add-supply">
-        <h3>Add a supply to your inventory!</h3>
-        <form className="add-supply-form" onSubmit={this.addSupply}>
-          <label htmlFor="supply_name">supply name:</label>
+    
+      <div className="add-project">
+      
+        <h3>Create a new DIY project!!</h3>
+        <form className="add-project-form" onSubmit={this.addProject}>
+          <label htmlFor="project_name">project name:</label>
           <input
             type="text"
-            id="supply_name"
-            name="supply_name"
-            onChange={(e) => this.changeSupplyName(e.target.value)}
+            id="project_name"
+            name="project_name"
+            onChange={(e) => this.changeProjectName(e.target.value)}
             required
           />
-          {this.state.supply_name.touched && (
-            <ValidationError message={this.validateSupplyName()} />
+          {this.state.project_name.touched && (
+            <ValidationError message={this.validateProjectName()} />
           )}
-          <label htmlFor="details">details:</label>
+          <label htmlFor="delivery_date">goal "delivery date":</label>
+          <input
+            type="date"
+            id="delivery_date"
+            name="delivery_date"
+            onChange={(e) => this.changeDeliveryDate(e.target.value)}    
+          />
+          <label htmlFor="supplies_needed">supplies needed:</label>
           <input
             type="text"
-            id="details"
-            name="details"
-            onChange={(e) => this.changeDetails(e.target.value)}
-            required
+            id="supplies_needed"
+            name="supplies_needed"
+            onChange={(e) => this.changeSuppliesNeeded(e.target.value)}
           />
-          {this.state.details.touched && (
-            <ValidationError message={this.validateDetails()} />
-          )}
-          <label htmlFor="quantity">quantity:</label>
+          <label htmlFor="tools_needed">tools needed:</label>
           <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            onChange={(e) => this.changeQuantity(e.target.value)}
-            required
+            type="text"
+            id="tools_needed"
+            name="tools_needed"
+            onChange={(e) => this.changeToolsNeeded(e.target.value)}
           />
-          {this.state.quantity.touched && (
-            <ValidationError message={this.validateQuantity()} />
-          )}
+          <label htmlFor="instructions">instructions:</label>
+          <input
+            type="text"
+            id="instructions"
+            name="instructions"
+            onChange={(e) => this.changeInstructions(e.target.value)}
+          />
+          <label htmlFor="done">done</label>
+          <input
+            type="checkbox"
+            id="done"
+            name="done"
+            onChange={(e) => this.changeDone(e.target.value)}
+          />
           <div className="buttons">
-            <NavLink to="/supplies">
+            <NavLink to="/projects">
               <button>Cancel</button>
             </NavLink>
             <button type="submit">Save</button>

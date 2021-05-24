@@ -4,12 +4,12 @@ import Nav from "../Nav";
 import config from "../config"
 import TokenService from "../services/token-service"
 
-class Supplies extends Component {
+class Projects extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      suppliesByUserId: [],
-      supplies: [],
+      projectsByUserId: [],
+      projects: [],
     };
   }
 
@@ -22,14 +22,14 @@ class Supplies extends Component {
     if (!TokenService.hasAuthToken()) {
       window.location = '/'
     }
-    let mySuppliesUrl = `${config.API_ENDPOINT}/supplies/my-supplies/${currentUser}`;
+    let myProjectsUrl = `${config.API_ENDPOINT}/projects/my-projects/${currentUser}`;
 
-    fetch(mySuppliesUrl)
-      .then((supplies) => supplies.json())
-      .then((supplies) => {
-        console.log(supplies)
+    fetch(myProjectsUrl)
+      .then((projects) => projects.json())
+      .then((projects) => {
+        console.log(projects)
         this.setState({
-          suppliesByUserId: supplies,
+          projectsByUserId: projects,
         });
         console.log(this.state);
       })
@@ -39,7 +39,7 @@ class Supplies extends Component {
   }
 
 
-  deleteSupply(event) {
+  deleteProject(event) {
     event.preventDefault();
 
     const data = {};
@@ -52,38 +52,51 @@ class Supplies extends Component {
 
     console.log(data);
 
-    let { supply_id } = data;
-    console.log(supply_id);
+    let { project_id } = data;
+    console.log(project_id);
 
-    fetch(`${config.API_ENDPOINT}/supplies/${supply_id}`, {
+    fetch(`${config.API_ENDPOINT}/supplies/${project_id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
       },
     }).then((response) => {
-      window.location = `/supplies`;
+      window.location = `/projects`;
     });
   }
 
   render() {
-    const showSupplies = this.state.suppliesByUserId.map((supply, key) => {
+    const showProjects = this.state.projectsByUserId.map((project, key) => {
       return (
-        <div className="supply-item" key={key}>
-          <h3>{supply.supply_name}</h3>
+        <div className="project-item" key={key}>
+          <h3>{project.project_name}</h3>
           <div className="specs">
             <div className="specs-column">
-              <p>Details: <br /> {supply.details}</p>
+              <p>goal "delivery date": <br /> {project.delivery_date.slice(0, 10)}</p>
             </div>
             <div className="specs-column">
-              <p>Quantity: <br /> {supply.quantity}</p>
+              <p>supplies needed: <br /> {project.supplies_needed}</p>
+            </div>
+            <div className="specs-column">
+              <p>tools needed: <br /> {project.tools_needed}</p>
+            </div>
+            <div className="specs-column">
+              <p>instructions: <br /> {project.instructions}</p>
+            </div>
+            <div>
+            {/* <form className="specs-column">
+              <label htmlFor="done">done</label> 
+              <input type="checkbox">{project.done}</input>
+              
+            </form> */}
             </div>
           </div>        
         
-          <NavLink to="/edit-supply">
+          <NavLink to="/edit-project">
             <button>Edit</button>
           </NavLink>
-          <form className="delete" onSubmit={this.deleteSupply}>
-            <input type="hidden" name="supply_id" defaultValue={supply.id}></input>          
+          <form className="delete" onSubmit={this.deleteProject}>
+            <input type="hidden" name="project_id" defaultValue={project.id}></input>          
             <button type="submit" className="delete">
               Delete
             </button>
@@ -94,24 +107,25 @@ class Supplies extends Component {
     })
 
     return (
-      <div className="supplies" >
+      <div className="projects" >
         <div className="nested-nav">
           <div className="page-heading">
-            <h2 className="page-title">My DIY Supplies</h2>
+            <h2 className="page-title">My DIY Projects</h2>
           </div>
           <div className="page-heading">
             <Nav />
         </div>
 
-        <div className="supply-items">
-          {showSupplies}
+        <div className="project-items">
+          {showProjects}
         </div>
         
         <div>
 
           <button>
-          <NavLink to="/add-supply">Add Supply</NavLink>
-        </button></div>
+          <NavLink to="/add-project">Add Project</NavLink>
+        </button>
+        </div>
       </div>
         </div>
     )
@@ -120,4 +134,4 @@ class Supplies extends Component {
     
     
 
-export default Supplies;
+export default Projects;

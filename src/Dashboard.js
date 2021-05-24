@@ -46,9 +46,12 @@ class Dashboard extends Component {
             </NavLink>
           </div>
           <div className="projects-entrance">
-            <button className="entrance-button">
-              My DIY <br /> Projects <br /> (COMING <br /> SOON!)
+            <NavLink to="/projects">
+              <button className="entrance-button">
+              My DIY <br /> Projects
             </button>
+            </NavLink>
+            
           </div>
           <div className="tools-entrance">
             <NavLink to="/tools">
