@@ -102,7 +102,7 @@ export default class EditSupply extends Component {
       .catch((error) => this.setState({ error }));
   }
 
-  updateItem(event) {
+  updateSupply(event) {
     // console.log('hello there')
     event.preventDefault();
     const data = {};
