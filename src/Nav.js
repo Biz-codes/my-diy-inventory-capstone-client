@@ -30,10 +30,15 @@ export default function Nav() {
           <FontAwesomeIcon icon={faTasks} className="nav-icon" /> projects
         </li>
         <li>
-          <FontAwesomeIcon icon={faTools} className="nav-icon"/> tools
+          <NavLink to='/tools'>
+            <FontAwesomeIcon icon={faTools} className="nav-icon"/> tools
+          </NavLink>
         </li>
         <li>
-          <FontAwesomeIcon icon={faFly} className="nav-icon"/> logout
+          <NavLink to='/'>
+            <FontAwesomeIcon icon={faFly} className="nav-icon"/> logout
+          </NavLink>
+          
         </li>
       </ul>
     

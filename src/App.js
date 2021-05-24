@@ -9,7 +9,7 @@ import Supplies from "./SuppliesPage/Supplies";
 import "./App.css";
 import AddSupply from "./SuppliesPage/AddSupply";
 import EditSupply from './SuppliesPage/EditSupply'
-import supplies from './dummy'
+import Tools from "./ToolsPage/Tools";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub} from "@fortawesome/free-brands-svg-icons"
@@ -34,6 +34,7 @@ class App extends Component {
               <Route path="/supplies" component={Supplies} />
               <Route path="/add-supply" component={AddSupply} />
               <Route path="/edit-supply" component={EditSupply} />
+              <Route path="/tools" component={Tools} />
             </Switch>
   
             <footer>

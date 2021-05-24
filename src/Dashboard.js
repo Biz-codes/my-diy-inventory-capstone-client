@@ -51,10 +51,12 @@ class Dashboard extends Component {
             </button>
           </div>
           <div className="tools-entrance">
-            <button className="entrance-button">
-              My DIY <br /> Tools <br /> (COMING <br />
-              SOON!)
-            </button>
+            <NavLink to="/tools">
+              <button className="entrance-button">
+                My DIY <br /> Tools
+              </button>
+            </NavLink>
+            
           </div>
         </div>
         <footer>

@@ -1,129 +1,211 @@
-import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
-
-import PropTypes from 'prop-types'
-
+import React, { Component } from "react";
+import config from "../config";
+import { NavLink } from "react-router-dom";
+import TokenService from "../services/token-service";
+import ValidationError from "../ValidationError";
 
 export default class EditSupply extends Component {
-    static propTypes = {
-        history: PropTypes.shape({
-          push: PropTypes.func,
-        }).isRequired,
-      };
-
-      handleClickCancel = () => {
-                this.props.history.push('/supplies')
-              };
-        
-
-    render() {
-        return (
-        <div>
-            <h2>COMING SOON</h2>
-            <div className='buttons'>
-                     <button type='button' onClick={this.handleClickCancel}>
-                         Cancel
-                     </button>
-                     {/* <button type='submit'>
-                         Save
-                     </button> */}
-                 </div>
-        </div>
-        )
-    }
-
-    
-}
-
-
-
-      
-//       componentDidMount() {
-//         const  editSupply = (supply_id) => {
-//         console.log(supply_id)
-//         const value= { 
-//         editSupply
-//       }
-      
-
-//     }
-// }
-//    static contextType = DIYContext;
-
-//     state = {
-//         id: '',
-//         supply_name: '',
-//         details: '',
-//         quantity: 1,
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       supply_name: {
+//         value: "",
+//         touched: false,
+//       },
+//       details: {
+//         value: "",
+//         touched: false,
+//       },
+//       quantity: {
+//         value: "",
+//         touched: false,
+//       },
 //     };
+//   }
 
-//     // componentDidMount() {
-//     //     const { supplyId } = this.props.match.params;
-//     //     this.setState({
-//     //         id: this.state.id,
-//     //         supply_name: this.state.supply_name,
-//     //         details: this.state.details,
-//     //         quantity: this.state.quantity,
-//     //     })
-//     // }
-    
-//     handleEditSupply = (e) => {
-//         const { name, value } = e.target;
-//         this.setState({ [name]: value })
+//   changeSupplyName(supply_name) {
+//     this.setState({
+//       supply_name: { value: supply_name, touched: true },
+//     });
+//   }
+
+//   changeDetails(details) {
+//     this.setState({
+//       details: { value: details, touched: true },
+//     });
+//   }
+
+//   changeQuantity(quantity) {
+//     this.setState({
+//       quantity: { value: quantity, touched: true },
+//     });
+//   }
+
+//   validateSupplyName() {
+//     const supply_name = this.state.supply_name.value.trim();
+//     if (supply_name.length === 0) {
+//       return <p className="input-error">Supply name is required</p>;
+//     } else if (supply_name.length < 2) {
+//       return (
+//         <p className="input-error">
+//           Supply name must be at least 2 characters long
+//         </p>
+//       );
+//     }
+//   }
+
+//   validateDetails() {
+//     const details = this.state.details.value.trim();
+//     if (details.length === 0) {
+//       return (
+//         <p className="input-error">Details about the supply are required</p>
+//       );
+//     } else if (details.length < 2) {
+//       return (
+//         <p className="input-error">
+//           Details must be at least 2 characters long
+//         </p>
+//       );
+//     }
+//   }
+
+//   validateQuantity() {
+//     const quantity = this.state.quantity.value.trim();
+//     if (quantity === null) {
+//       return <p className="input-error">Quantity is required</p>;
+//     }
+//   }
+
+//   componentDidMount() {
+//     let currentUser = TokenService.getUserId();
+//     // console.log(currentUser);
+
+//     //if the user is not logged in, send him to landing page
+//     if (!TokenService.hasAuthToken()) {
+//       window.location = "/";
 //     }
 
-//     handleSubmit = (e) => {
-//         e.preventDefault();
-//         const { supply_id } = this.props.match.params
-//         console.log(supply_id)
-//         const { id, supply_name, details, quantity } = e.target;
-//         const editedSupply = {
-            
-//             supply_name: supply_name.value,
-//             details: details.value,
-//             quantity: quantity.value
-//         }
-//         console.log(editedSupply);
-//         this.context.handleEditSupply(editedSupply)
-        
+//     const supply_id = this.props.match.params.supply_id;
+
+//     let getSupplySpecsUrl = `${config.API_ENDPOINT}/supplies/${supply_id}`;
+
+//     fetch(getSupplySpecsUrl)
+//       .then((supplySpecs) => supplySpecs.json())
+//       .then((supplySpecs) => {
+//         // console.log(supplySpecs)
+//         this.setState({
+//           supplySpecs: supplySpecs,
+//         });
+//         // console.log(this.state);
+//       })
+
+//       .catch((error) => this.setState({ error }));
+//   }
+
+//   updateItem(event) {
+//     // console.log('hello there')
+//     event.preventDefault();
+//     const data = {};
+
+//     const formData = new FormData(event.target);
+
+//     for (let value of formData) {
+//       data[value[0]] = value[1];
 //     }
+
+//     let user_id = TokenService.getUserId();
+
+//     let { supply_name, details, quantity } = data;
+
+//     let payload = {
+//       user_id: user_id,
+//       supply_name: supply_name,
+//       details: details,
+//       quantity: quantity,
+//     };
+//     console.log(payload);
+
+//     //     console.log(this.props)
+
+//     let { supply_id } = data;
+//     console.log(supply_id);
+
+//     fetch(`${config.API_ENDPOINT}/supplies/${supply_id}`, {
+//       method: "PATCH",
+//       headers: {
+//         "content-type": "application/json",
+//       },
+//       body: JSON.stringify(payload),
+//     })
+//       .then((response) => response.json())
+//       .then((responseJson) => {
+//         window.location = "/supplies";
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   }
+
+  render() {
+  
+    // const showSupplySpecs = this.state.getById((supply, key) => {
+
     
-//     
-//     render() {
-//         const { supplyId, supply_name, details, quantity } = this.state
-//         return (
-            
-//             <div className='edit-form'> 
-//             <form onSubmit={e => this.handleSubmit(e)}>
-//                 <h3>Edit this supply:</h3>
-                
-//                     <label htmlFor="supply_name">supply name:</label>
-//                     <input
-//                         type='text'
-//                         name='supply_name'
-//                         value={this.state.supply_name}
-//                         onChange={this.handleEditSupply}
-//                     />
-//                     <label htmlFor='details'>details</label>
-//                     <input
-//                         type='text'
-//                         name='details'
-//                         value={this.context.value}
-//                         onChange={this.handleEditSupply}
-//                     />
-//                     <label htmlFor='quantity'>quantity</label>
-//                     <input 
-//                         type='number'
-//                         name='quantity'
-//                         value={this.context.value}
-//                         onChange={this.handleEditSupply}
-//                     />
-                
-                
-//                 
-                
-//             </form>
-//             </div>
-//         )
-//     }
-// }
+    return (    
+        <div className="edit-supply" >
+        {/* key={key} */}
+            <h3>COMING SOON</h3>
+          {/* <h3>Update this supply.</h3>
+          <form className="edit-supply-form" onSubmit={this.updateSupply}>
+            <label htmlFor="supply_name">supply name:</label>
+            <input
+              type="text"
+              id="supply_name"
+              name="supply_name"
+              defaultValue = {supply.supply_name}
+              onChange={(e) => this.changeSupplyName(e.target.value)}
+              required
+            />
+            {this.state.supply_name.touched && (
+              <ValidationError message={this.validateSupplyName()} />
+            )}
+            <label htmlFor="details">details:</label>
+            <input
+              type="text"
+              id="details"
+              name="details"
+              onChange={(e) => this.changeDetails(e.target.value)}
+              required
+            />
+            {this.state.details.touched && (
+              <ValidationError message={this.validateDetails()} />
+            )}
+            <label htmlFor="quantity">quantity:</label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              onChange={(e) => this.changeQuantity(e.target.value)}
+              required
+            />
+            {this.state.quantity.touched && (
+              <ValidationError message={this.validateQuantity()} />
+            )} */}
+            <div className="buttons">
+              <NavLink to="/supplies">
+                <button>Cancel</button>
+              </NavLink>
+              {/* <button type="submit">Save</button> */}
+            </div>
+          {/* </form> */}
+        </div>
+    )
+//   })
+
+//   return (
+//       <div>
+//           { showSupplySpecs }
+//       </div>
+//   )
+}
+}
