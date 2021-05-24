@@ -7,6 +7,8 @@ import ValidationError from "../ValidationError";
 export default class EditSupply extends Component {
   constructor(props) {
     super(props);
+    console.log(props)
+    console.log(props.location.supply_id)
     this.state = {
       supply_name: {
         value: "",
@@ -85,7 +87,8 @@ export default class EditSupply extends Component {
       window.location = "/";
     }
 
-    const supply_id = this.props.match.params.supply_id;
+    
+    const supply_id = this.props.location.supply_id;
 
     let getSupplySpecsUrl = `${config.API_ENDPOINT}/supplies/${supply_id}`;
 

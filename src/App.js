@@ -38,7 +38,7 @@ class App extends Component {
               <Route path="/dashboard" component={Dashboard} />
               <Route path="/supplies" component={Supplies} />
               <Route path="/add-supply" component={AddSupply} />
-              <Route path="/edit-supply" component={EditSupply} />
+              <Route path="/edit-supply/" component={EditSupply} />
               <Route path="/tools" component={Tools} />
               <Route path="/add-tool" component={AddTool} />
               <Route path="/projects" component={Projects} />

@@ -16,7 +16,7 @@ class Projects extends Component {
   componentDidMount() {
 
     let currentUser = TokenService.getUserId();
-    console.log(currentUser)
+    // console.log(currentUser)
 
     //if the user is not logged in, send him to landing page
     if (!TokenService.hasAuthToken()) {
@@ -27,11 +27,11 @@ class Projects extends Component {
     fetch(myProjectsUrl)
       .then((projects) => projects.json())
       .then((projects) => {
-        console.log(projects)
+        // console.log(projects)
         this.setState({
           projectsByUserId: projects,
         });
-        console.log(this.state);
+        // console.log(this.state);
       })
 
       .catch((error) => this.setState({ error }));

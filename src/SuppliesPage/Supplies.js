@@ -16,7 +16,7 @@ class Supplies extends Component {
   componentDidMount() {
 
     let currentUser = TokenService.getUserId();
-    console.log(currentUser)
+    // console.log(currentUser)
 
     //if the user is not logged in, send him to landing page
     if (!TokenService.hasAuthToken()) {
@@ -31,7 +31,7 @@ class Supplies extends Component {
         this.setState({
           suppliesByUserId: supplies,
         });
-        console.log(this.state);
+        // console.log(this.state);
       })
 
       .catch((error) => this.setState({ error }));
@@ -53,7 +53,7 @@ class Supplies extends Component {
     console.log(data);
 
     let { supply_id } = data;
-    console.log(supply_id);
+    // console.log(supply_id);
 
     fetch(`${config.API_ENDPOINT}/supplies/${supply_id}`, {
       method: "DELETE",
@@ -79,7 +79,10 @@ class Supplies extends Component {
             </div>
           </div>        
         
-          <NavLink to="/edit-supply">
+          <NavLink to={
+            {pathname: "/edit-supply",
+            supply_id: this.state.supply_id}
+          }>
             <button>Edit</button>
           </NavLink>
           <form className="delete" onSubmit={this.deleteSupply}>
