@@ -27,7 +27,7 @@ class Supplies extends Component {
     fetch(mySuppliesUrl)
       .then((supplies) => supplies.json())
       .then((supplies) => {
-        console.log(supplies)
+        // console.log(supplies)
         this.setState({
           suppliesByUserId: supplies,
         });
@@ -67,7 +67,7 @@ class Supplies extends Component {
 
   render() {
     const showSupplies = this.state.suppliesByUserId.map((supply, key) => {
-      console.log(supply)
+      // console.log(supply)
       return (
         <div className="supply-item" key={key}>
           <h3>{supply.supply_name}</h3>

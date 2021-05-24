@@ -116,7 +116,7 @@ export default class LogIn extends Component {
                         type="password" 
                         name="password"
                         id="password"
-                        placeholder='Create a password.' 
+                        placeholder='Enter your password.' 
                         onChange={(e) =>
                             this.changePassword(e.target.value)
                         }

@@ -5,13 +5,17 @@ import TokenService from "../services/token-service";
 import ValidationError from "../ValidationError";
 
 export default class EditSupply extends Component {
-  
   constructor(props) {
-    console.log("hello")
+    console.log("hello");
     super(props);
 
+
+      console.log(props.location.supply_id)
+    
     this.state = {
-      supply_id: props.location.supply_id,
+     
+
+
       supply_name: {
         value: "",
         touched: false,
@@ -81,7 +85,7 @@ export default class EditSupply extends Component {
   }
 
   componentDidMount() {
-    let currentUser = TokenService.getUserId();
+    // let currentUser = TokenService.getUserId();
     // console.log(currentUser);
 
     //if the user is not logged in, send him to landing page
@@ -89,19 +93,18 @@ export default class EditSupply extends Component {
       window.location = "/";
     }
 
-    
-    const supply_id = window.location.supply_id;
+    let supply_id = this.props.location.supply_id;
 
-    let getSupplySpecsUrl = `${config.API_ENDPOINT}/supplies/${supply_id}`;
+    // let supply_id = this.props.match.params.supply_id
+
+    let getSupplySpecsUrl = `${config.API_ENDPOINT}/supplies/${supply_id}`
 
     fetch(getSupplySpecsUrl)
-      .then((getById) => getById.json())
       .then((getById) => {
-        // console.log(getById)
+        console.log(getById);
         this.setState({
           getById: getById,
         });
-        // console.log(this.state);
       })
 
       .catch((error) => this.setState({ error }));
@@ -109,7 +112,7 @@ export default class EditSupply extends Component {
 
   // getById(event) {
   //   event.preventDefault;
-    
+
   // }
 
   updateSupply(event) {
@@ -157,65 +160,58 @@ export default class EditSupply extends Component {
   }
 
   render() {
-  let showSupplySpecs = ''
-    showSupplySpecs =  
-
-    
-       
-        <div className="edit-supply" >
-        
-            {/* <h3>COMING SOON</h3> */}
-          <h3>Update this supply.</h3>
-          <form className="edit-supply-form" onSubmit={this.updateSupply}>
-            <label htmlFor="supply_name">supply name:</label>
-            <input
-              type="text"
-              id="supply_name"
-              name="supply_name"
-              defaultValue = {this.state.getById.supply_name}
-              onChange={(e) => this.changeSupplyName(e.target.value)}
-              required
-            />
-            {this.state.supply_name.touched && (
-              <ValidationError message={this.validateSupplyName()} />
-            )}
-            <label htmlFor="details">details:</label>
-            <input
-              type="text"
-              id="details"
-              name="details"
-              onChange={(e) => this.changeDetails(e.target.value)}
-              required
-            />
-            {this.state.details.touched && (
-              <ValidationError message={this.validateDetails()} />
-            )}
-            <label htmlFor="quantity">quantity:</label>
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              onChange={(e) => this.changeQuantity(e.target.value)}
-              required
-            />
-            {this.state.quantity.touched && (
-              <ValidationError message={this.validateQuantity()} />
-            )}
-            <div className="buttons">
-              <NavLink to="/supplies">
-                <button>Cancel</button>
-              </NavLink>
-              <button type="submit">Save</button>
-            </div>
-          </form>
-        </div>
-    
-  
-
-  return (
-      <div>
-          { showSupplySpecs }
+    let showSupplySpecs = "";
+    showSupplySpecs = (
+      <div className="edit-supply">
+        {/* <h3>COMING SOON</h3> */}
+        <h3>Update this supply.</h3>
+        <form className="edit-supply-form" onSubmit={this.updateSupply}>
+          <label htmlFor="supply_name">supply name:</label>
+          <input
+            type="text"
+            id="supply_name"
+            name="supply_name"
+            defaultValue={this.state.supply_name}
+            onChange={(e) => this.changeSupplyName(e.target.value)}
+            required
+          />
+          {this.state.supply_name.touched && (
+            <ValidationError message={this.validateSupplyName()} />
+          )}
+          <label htmlFor="details">details:</label>
+          <input
+            type="text"
+            id="details"
+            name="details"
+            defaultValue={this.state.details}
+            onChange={(e) => this.changeDetails(e.target.value)}
+            required
+          />
+          {this.state.details.touched && (
+            <ValidationError message={this.validateDetails()} />
+          )}
+          <label htmlFor="quantity">quantity:</label>
+          <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            defaultValue={this.state.quantity}
+            onChange={(e) => this.changeQuantity(e.target.value)}
+            required
+          />
+          {this.state.quantity.touched && (
+            <ValidationError message={this.validateQuantity()} />
+          )}
+          <div className="buttons">
+            <NavLink to="/supplies">
+              <button>Cancel</button>
+            </NavLink>
+            <button type="submit">Save</button>
+          </div>
+        </form>
       </div>
-  )
-}
+    );
+
+    return <div>{showSupplySpecs}</div>;
+  }
 }
