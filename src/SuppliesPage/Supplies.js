@@ -67,6 +67,7 @@ class Supplies extends Component {
 
   render() {
     const showSupplies = this.state.suppliesByUserId.map((supply, key) => {
+      console.log(supply)
       return (
         <div className="supply-item" key={key}>
           <h3>{supply.supply_name}</h3>
@@ -81,7 +82,7 @@ class Supplies extends Component {
         
           <NavLink to={
             {pathname: "/edit-supply",
-            supply_id: this.state.supply_id}
+            supply_id: supply.id}
           }>
             <button>Edit</button>
           </NavLink>

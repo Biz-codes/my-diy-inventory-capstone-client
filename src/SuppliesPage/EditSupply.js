@@ -5,11 +5,13 @@ import TokenService from "../services/token-service";
 import ValidationError from "../ValidationError";
 
 export default class EditSupply extends Component {
+  
   constructor(props) {
+    console.log("hello")
     super(props);
-    console.log(props)
-    console.log(props.location.supply_id)
+
     this.state = {
+      supply_id: props.location.supply_id,
       supply_name: {
         value: "",
         touched: false,
@@ -88,22 +90,27 @@ export default class EditSupply extends Component {
     }
 
     
-    const supply_id = this.props.location.supply_id;
+    const supply_id = window.location.supply_id;
 
     let getSupplySpecsUrl = `${config.API_ENDPOINT}/supplies/${supply_id}`;
 
     fetch(getSupplySpecsUrl)
-      .then((supplySpecs) => supplySpecs.json())
-      .then((supplySpecs) => {
+      .then((getById) => supplySpecs.json())
+      .then((getById) => {
         // console.log(supplySpecs)
         this.setState({
-          supplySpecs: supplySpecs,
+          getById: getById,
         });
         // console.log(this.state);
       })
 
       .catch((error) => this.setState({ error }));
   }
+
+  // getById(event) {
+  //   event.preventDefault;
+    
+  // }
 
   updateSupply(event) {
     // console.log('hello there')
