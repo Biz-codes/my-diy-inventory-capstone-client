@@ -42,7 +42,7 @@ class App extends Component {
               <Route path="/tools" component={Tools} />
               <Route path="/add-tool" component={AddTool} />
               <Route path="/projects" component={Projects} />
-              <Route path="add-project" component={AddProject} />
+              <Route path="/add-project" component={AddProject} />
             </Switch>
   
             <footer>

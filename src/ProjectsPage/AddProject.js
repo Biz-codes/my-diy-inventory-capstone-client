@@ -29,8 +29,8 @@ export default class AddProject extends Component {
         touched: false,
       },
       done: {
-        value: "",
-        touched: false,
+        done: false,
+        // touched: false,
       },
     };
   }
@@ -65,9 +65,9 @@ export default class AddProject extends Component {
     });
   }
 
-  changeDone(done) {
+  toggleDoneState(done) {
     this.setState({
-      done: { value: done, touched: true },
+      true: false
     });
   }
 
@@ -83,6 +83,8 @@ export default class AddProject extends Component {
       );
     }
   }
+    
+    
 
   
 
@@ -130,7 +132,7 @@ export default class AddProject extends Component {
 
         .then((res) => res.json())
         .then((resJson) => {
-          window.location = "/projects";
+          // window.location = "/projects";
         })
         .catch((err) => {
           console.log(err);
@@ -190,7 +192,8 @@ export default class AddProject extends Component {
             type="checkbox"
             id="done"
             name="done"
-            onChange={(e) => this.changeDone(e.target.value)}
+            value = {this.state.done}
+            onCheck={(e) => this.toggleDoneState()}
           />
           <div className="buttons">
             <NavLink to="/projects">

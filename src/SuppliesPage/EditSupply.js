@@ -5,16 +5,16 @@ import TokenService from "../services/token-service";
 import ValidationError from "../ValidationError";
 
 export default class EditSupply extends Component {
-  constructor(props) {
-    console.log("hello");
-    super(props);
+  // constructor(props) {
+  //   console.log("hello");
+  //   super(props);
 
 
-      console.log(props.location.supply_id)
+      // console.log(props.location.supply_id)
     
-    this.state = {
-     
-      getById: {},
+    // this.state = {
+      state = {
+  
 
       supply_name: {
         value: "",
@@ -29,7 +29,7 @@ export default class EditSupply extends Component {
         touched: false,
       },
     };
-  }
+  // }
 
   changeSupplyName(supply_name) {
     this.setState({
@@ -93,33 +93,28 @@ export default class EditSupply extends Component {
       window.location = "/";
     }
 
-    // let supply_id = this.props.location.supply_id;
+    let supply_id = this.props.location.supply_id;
 
-    const supply_id = this.props.match.params.supply_id;
+    // let supply_id = this.props.match.params.supply_id
 
     let getSupplySpecsUrl = `${config.API_ENDPOINT}/supplies/${supply_id}`
 
-  //   fetch(getSupplySpecsUrl)
-  //     .then((getById) => {
-  //       console.log(getById);
-  //       this.setState({
-  //         getById: getById,
-  //       });
-  //     })
+    fetch(getSupplySpecsUrl)
+      .then(res => res.json())
+      .then(({supply_name, details, quantity}) => {
+        this.setState({
+          supply_name: {value: supply_name, touched: this.state.supply_name.touched}, 
+          details: {value: details, touched: this.state.details.touched},
+          quantity: {value: quantity, touched: this.state.quantity.touched},
+        })
+      })
 
-  //     .catch((error) => this.setState({ error }));
-  // }
-
-  fetch(getSupplySpecsUrl)
-  .then((getById) => getById.json())
-  .then((getById) => {
-    console.log(getById);
-  })
-  .catch((error) => this.setState({error}))
-    
+      .catch((error) => this.setState({ error }));
   }
 
-  updateSupply(event) {
+  
+
+  updateSupply = (event) => {
     // console.log('hello there')
     event.preventDefault();
     const data = {};
@@ -144,21 +139,18 @@ export default class EditSupply extends Component {
 
     //     console.log(this.props)
 
-    // let { supply_id } = data;
-    // console.log(supply_id);
 
-    const supply_id = window.location.href.split("/")[4]
-
-    fetch(`${config.API_ENDPOINT}/supplies/${supply_id}`, {
+    fetch(`${config.API_ENDPOINT}/supplies/${this.props.location.supply_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(payload),
     })
-      .then((response) => response.json())
-      .then((responseJson) => {
-        window.location = "/supplies";
+      // .then((response) => response.json())
+      .then(() => {
+        // window.location = "/supplies";
+        this.props.history.push('/supplies')
       })
       .catch((err) => {
         console.log(err);
@@ -167,7 +159,7 @@ export default class EditSupply extends Component {
 
   render() {
     let showSupplySpecs = "";
-    showSupplySpecs = 
+    showSupplySpecs = (
       <div className="edit-supply">
         {/* <h3>COMING SOON</h3> */}
         <h3>Update this supply.</h3>
@@ -177,7 +169,7 @@ export default class EditSupply extends Component {
             type="text"
             id="supply_name"
             name="supply_name"
-            defaultValue={this.state.getById.supply_name}
+            value={this.state.supply_name.value}
             onChange={(e) => this.changeSupplyName(e.target.value)}
             required
           />
@@ -189,7 +181,7 @@ export default class EditSupply extends Component {
             type="text"
             id="details"
             name="details"
-            defaultValue={this.state.getById.details}
+            value={this.state.details.value}
             onChange={(e) => this.changeDetails(e.target.value)}
             required
           />
@@ -201,7 +193,7 @@ export default class EditSupply extends Component {
             type="number"
             id="quantity"
             name="quantity"
-            defaultValue={this.state.getById.quantity}
+            defaultValue={this.state.quantity.value}
             onChange={(e) => this.changeQuantity(e.target.value)}
             required
           />
@@ -216,12 +208,8 @@ export default class EditSupply extends Component {
           </div>
         </form>
       </div>
-    
-
-    return (
-    <div>
-    {showSupplySpecs}
-    </div>
     );
-}
+
+    return <div>{showSupplySpecs}</div>;
+  }
 }
