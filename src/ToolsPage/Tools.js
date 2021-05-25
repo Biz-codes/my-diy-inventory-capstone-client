@@ -79,7 +79,10 @@ class Tools extends Component {
             </div>
           </div>        
         
-          <NavLink to="/edit-tool">
+          <NavLink to={
+            {pathname: "/edit-tool",
+            tool_id: tool.id}
+          }>
             <button>Edit</button>
           </NavLink>
           <form className="delete" onSubmit={this.deleteTool}>

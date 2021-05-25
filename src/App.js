@@ -5,18 +5,17 @@ import SignUp from "./SignUp";
 import LogIn from "./LogIn"
 import Dashboard from "./Dashboard";
 import Supplies from "./SuppliesPage/Supplies";
-// import Tools from "./ToolsPage/Tools";
-import "./App.css";
 import AddSupply from "./SuppliesPage/AddSupply";
 import EditSupply from './SuppliesPage/EditSupply'
 import Tools from "./ToolsPage/Tools";
 import AddTool from "./ToolsPage/AddTool";
+import EditTool from "./ToolsPage/EditTool"
 import Projects from "./ProjectsPage/Projects";
 import AddProject from "./ProjectsPage/AddProject";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub} from "@fortawesome/free-brands-svg-icons"
-
+import "./App.css";
 
 
 
@@ -41,6 +40,7 @@ class App extends Component {
               <Route path="/edit-supply" component={EditSupply} />
               <Route path="/tools" component={Tools} />
               <Route path="/add-tool" component={AddTool} />
+              <Route path="/edit-tool" component={EditTool} />
               <Route path="/projects" component={Projects} />
               <Route path="/add-project" component={AddProject} />
             </Switch>
