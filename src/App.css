@@ -105,11 +105,26 @@ h4 {
 input,
 select,
 button {
-    border: 1px solid black;
+    border: 2px solid black;
     padding: 10px 25px;
     margin: 5px;
     border-radius: 5px;
     color: black;
+    font-family: 'Special Elite', cursive;
+    font-size: 75%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 125px;
+}
+
+input {
+  width: 90%;
 }
 
 button:hover {
@@ -117,15 +132,13 @@ button:hover {
 }
 
 button[type=submit] {
-  /* border: 2px solid black; */
+  border: 2px solid black;
 }
 
 button[type=submit]:hover {
   color: #bd1e0f;
 }
-a button {
-width: 90%
-}
+
 
 label {
   display: block;
@@ -182,9 +195,9 @@ h4 {
   color: #f0530a;
 }
 
-header.nested {
+/* header.nested {
   display: float;
-}
+} */
 
 /* -------------------------------------
 Content styles (Main Module)
@@ -265,10 +278,12 @@ button.landing-button {
 
 .page-heading {
   display: flex;
+  width: 98%;
   margin-bottom: 0;
-  padding: 10px;
-  border: 2px solid #13498a;;
-  color: black;
+  padding: 20px;
+  /* border: 2px solid #13498a; */
+  background-color: #13498a;
+  color: #ebe6e2;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
@@ -282,6 +297,20 @@ button.landing-button {
   text-align: left;
   font-size: 20px;
   
+}
+
+.nav-icons li {
+  padding: 10px;
+  color: #ebe6e2;
+}
+
+.nav-icons li a {
+  
+  color: #ebe6e2;
+}
+
+.nav-icons li a:hover {
+  color: #bd1e0f;
 }
 
 /* Dashboard styles */
@@ -357,30 +386,95 @@ button.entrance-button {
   font-size: 100%;
   font-family: 'Special Elite', cursive;
   border-radius: 10px;
+  width: 175px;
 }
 
 /* Supplies styles */
 
-div.supplies {
+div.supplies,
+div.add-supply,
+div.edit-supply {
+  background-image: url(sewing-supplies.jpg);
+}
+
+div.tools, 
+div.add-tool,
+div.edit-tool {
+  background-image: url(carpenter-tools.jpg);
+}
+
+div.projects,
+div.add-project,
+div.edit-project {
+  background-image: url(garden-project.jpg)
+}
+
+.add-supply-form,
+.edit-supply-form,
+.add-tool-form,
+.edit-tool-form,
+.add-project-form,
+.edit-project-form {
+  background-color: #ebe6e2;
+  padding: 20px;
+  margin: 20px;
+}
+.supply-items,
+.tool-items,
+.project-items {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-right: 20px;
+  width: 100%
+}
+
+.supply-item,
+.tool-item,
+.project-item {
+  background-color: #ebe6e2;
+  border-radius: 5px;
+  padding: 10px;
+  width: 45%;
 }
 
 .supply-item {
   border: 3px solid #0ad1f0;
-  border-radius: 5px;
-  padding: 10px;
 }
 
-div.specs {
+.tool-item {
+  border: 3px solid #f0530a
+}
+
+.project-item {
+  border: 3px solid #59eca3
+}
+
+div.specs,
+div.project-specs {
   display: flex;
   margin: 5px;
 }
 
-div.specs-column {
+div.supply-specs-column,
+div.tool-specs-column,
+div.project-specs-column {
   text-align: left;
-  border-left: 1px dashed #0ad1f0;
-  border-right: 1px dashed #0ad1f0;
   padding: 10px;
+}
+
+div.supply-specs-column {
+  border: 1px dashed #0ad1f0;
+  
+}
+
+div.tool-specs-column {
+  border: 1px dashed #f0530a;
+  
+}
+
+div.project-specs-column {
+  border: 1px dashed #59eca3;
 }
 
 /* -------------------------------------
@@ -389,18 +483,18 @@ Footer styles (Main Module)
 */
 
 footer {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 15px;
   border: 0px;
   color: #13498a;
-  
+  font-size: 75%;
 }
 
 footer ul li {
-  display: inline-block;
-  
+  display: inline-block;  
   width: auto;
   padding: 5px 10px;
+  font-size: 150%;
 }
 
 footer a {
@@ -432,6 +526,16 @@ This is the ideal way to built websites because it is much easier to adapt from 
       font-size: 90%;
     }
 
+    /* input {
+      width: 150px;
+    } */
+
+    
+
+    button {
+      width: 100px;
+    }
+
     div.landing-buttons {
       flex-direction: column;
     }
@@ -454,12 +558,30 @@ This is the ideal way to built websites because it is much easier to adapt from 
 
     }
 
+    button.entrance-button {
+      width: 150px;
+    }
 
     .nav-icons {
       flex-direction: column;
       
     }
-   
+
+    .supply-items,
+    .tool-items,
+    .project-items {
+      flex-direction: column;
+    }
+
+    .supply-item,
+    .tool-item,
+    .project-item {
+      width: 100%
+    }
+
+    div.project-specs {
+      flex-direction: column;
+    }
 
 }
 
@@ -471,6 +593,10 @@ This is the ideal way to built websites because it is much easier to adapt from 
     }
 
     
+
+    button {
+      width: 125px;
+    }
 }
 
 /*Android landscape*/
@@ -480,16 +606,16 @@ This is the ideal way to built websites because it is much easier to adapt from 
         font-size: 26px;
     }
 
-    /* div.supplies {
-      flex-direction: row;
-    } */
-
-    /* .nested-nav {
-      flex-direction: row;
-    } */
-
     div.page-heading {
       margin: 10px;
+    }
+
+    button.entrance-button {
+      width: 175px;
+    }
+    
+    div.project-specs {
+      flex-direction: row;
     }
     
 }
@@ -508,10 +634,21 @@ This is the ideal way to built websites because it is much easier to adapt from 
       flex-direction: row;
     }
 
+
 .nav-icons {
       flex-direction: row;
       justify-content: space-between;
-      font-size: 18px;
+      /* font-size: 18px; */
+  }
+
+  .supply-items,
+  .tool-items {
+    flex-direction: row;
+  }
+
+  .supply-item,
+  .tool-item {
+    width: 45%
   }
 }
 
@@ -533,15 +670,9 @@ This is the ideal way to built websites because it is much easier to adapt from 
   }
 
   .nav-icons {
-    font-size: 26px;
+    font-size: 20px;
   }
 
-}
-
-@media only screen and (min-width: 1400px) {
-  .nav-icons {
-    font-size: 32px;
-  }
 }
 
 /*large desktop*/

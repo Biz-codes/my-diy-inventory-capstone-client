@@ -3,6 +3,8 @@ import config from "../config";
 import { NavLink } from 'react-router-dom'
 import TokenService from "../services/token-service";
 import ValidationError from '../ValidationError'
+import { faSave, faStepBackward } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class AddSupply extends Component {
   constructor(props) {
@@ -128,8 +130,9 @@ export default class AddSupply extends Component {
   render() {
     return (
       <div className="add-supply">
-        <h3>Add a supply to your inventory!</h3>
+        
         <form className="add-supply-form" onSubmit={this.addSupply}>
+          <h3>Add a supply to your inventory!</h3>
           <label htmlFor="supply_name">supply name:</label>
           <input
             type="text"
@@ -165,9 +168,13 @@ export default class AddSupply extends Component {
           )}
           <div className="buttons">
             <NavLink to="/supplies">
-              <button>Cancel</button>
+              <button>
+                <FontAwesomeIcon icon={faStepBackward} /> Cancel
+              </button>
             </NavLink>
-            <button type="submit">Save</button>
+            <button type="submit">
+              <FontAwesomeIcon icon={faSave} /> Save
+            </button>
           </div>
         </form>
       </div>

@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import Nav from "../Nav";
 import config from "../config"
 import TokenService from "../services/token-service"
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Tools extends Component {
   constructor(props) {
@@ -71,14 +73,14 @@ class Tools extends Component {
         <div className="tool-item" key={key}>
           <h3>{tool.tool_name}</h3>
           <div className="specs">
-            <div className="specs-column">
+            <div className="tool-specs-column">
               <p>Details: <br /> {tool.details}</p>
             </div>
-            <div className="specs-column">
+            <div className="tool-specs-column">
               <p>Quantity: <br /> {tool.quantity}</p>
             </div>
           </div>        
-        
+        <div className="buttons">
           <NavLink to={
             {pathname: "/edit-tool",
             tool_id: tool.id}
@@ -91,6 +93,8 @@ class Tools extends Component {
               Delete
             </button>
           </form>
+        </div>
+          
         </div>       
         
       );
@@ -113,7 +117,9 @@ class Tools extends Component {
         <div>
 
           <button>
-          <NavLink to="/add-tool">Add tool</NavLink>
+          <NavLink to="/add-tool">
+          <FontAwesomeIcon icon={faPlus} /> Add tool
+          </NavLink>
         </button></div>
       </div>
         </div>

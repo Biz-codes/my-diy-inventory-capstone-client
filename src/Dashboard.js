@@ -29,7 +29,7 @@ class Dashboard extends Component {
       <div className="Dashboard">
         <div className="nested-nav">
           <div className="page-heading">
-            <h2 className="page-title">My DIY Dashboard {currentUser}</h2>
+            <h2 className="page-title">My DIY Dashboard</h2>
           </div>
           <div className="page-heading">
             <Nav />

@@ -3,6 +3,8 @@ import config from "../config";
 import { NavLink } from "react-router-dom";
 import TokenService from "../services/token-service";
 import ValidationError from "../ValidationError";
+import { faSave, faStepBackward } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class EditSupply extends Component {
   // constructor(props) {
@@ -161,9 +163,8 @@ export default class EditSupply extends Component {
     let showSupplySpecs = "";
     showSupplySpecs = (
       <div className="edit-supply">
-        {/* <h3>COMING SOON</h3> */}
-        <h3>Update this supply.</h3>
         <form className="edit-supply-form" onSubmit={this.updateSupply}>
+          <h3>Update this supply:</h3>
           <label htmlFor="supply_name">supply name:</label>
           <input
             type="text"
@@ -201,10 +202,14 @@ export default class EditSupply extends Component {
             <ValidationError message={this.validateQuantity()} />
           )}
           <div className="buttons">
-            <NavLink to="/supplies">
-              <button>Cancel</button>
+          <NavLink to="/supplies">
+              <button>
+                <FontAwesomeIcon icon={faStepBackward} /> Cancel
+              </button>
             </NavLink>
-            <button type="submit">Save</button>
+            <button type="submit">
+              <FontAwesomeIcon icon={faSave} /> Save
+            </button>
           </div>
         </form>
       </div>
@@ -213,3 +218,4 @@ export default class EditSupply extends Component {
     return <div>{showSupplySpecs}</div>;
   }
 }
+

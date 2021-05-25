@@ -3,6 +3,8 @@ import config from "../config";
 import { NavLink } from 'react-router-dom'
 import TokenService from "../services/token-service";
 import ValidationError from '../ValidationError'
+import { faSave, faStepBackward } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class AddProject extends Component {
   constructor(props) {
@@ -29,8 +31,8 @@ export default class AddProject extends Component {
         touched: false,
       },
       done: {
-        done: false,
-        // touched: false,
+        value: false,
+        touched: false,
       },
     };
   }
@@ -84,7 +86,35 @@ export default class AddProject extends Component {
     }
   }
     
-    
+  validateSuppliesNeeded() {
+    const supplies_needed = this.state.supplies_needed.value.trim();
+    if (supplies_needed.length === 0) {
+      return (
+        <p className="input-error">Supplies needed are required</p>
+      );
+    } else if (supplies_needed.length < 2) {
+      return (
+        <p className="input-error">
+          Supplies needed must be at least 2 characters long
+        </p>
+      );
+    }
+  }
+
+  validateToolsNeeded() {
+    const tools_needed = this.state.tools_needed.value.trim();
+    if (tools_needed.length === 0) {
+      return (
+        <p className="input-error">Supplies needed are required</p>
+      );
+    } else if (tools_needed.length < 2) {
+      return (
+        <p className="input-error">
+          Supplies needed must be at least 2 characters long
+        </p>
+      );
+    }
+  }
 
   
 
@@ -197,9 +227,13 @@ export default class AddProject extends Component {
           />
           <div className="buttons">
             <NavLink to="/projects">
-              <button>Cancel</button>
+              <button>
+                <FontAwesomeIcon icon={faStepBackward} /> Cancel
+              </button>
             </NavLink>
-            <button type="submit">Save</button>
+            <button type="submit">
+              <FontAwesomeIcon icon={faSave} /> Save
+            </button>
           </div>
         </form>
       </div>

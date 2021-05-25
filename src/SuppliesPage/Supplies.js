@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import Nav from "../Nav";
 import config from "../config"
 import TokenService from "../services/token-service"
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Supplies extends Component {
   constructor(props) {
@@ -72,14 +74,15 @@ class Supplies extends Component {
         <div className="supply-item" key={key}>
           <h3>{supply.supply_name}</h3>
           <div className="specs">
-            <div className="specs-column">
+            <div className="supply-specs-column">
               <p>Details: <br /> {supply.details}</p>
             </div>
-            <div className="specs-column">
+            <div className="supply-specs-column">
               <p>Quantity: <br /> {supply.quantity}</p>
             </div>
           </div>        
         
+        <div className="buttons">
           <NavLink to={
             {pathname: "/edit-supply",
             supply_id: supply.id}
@@ -92,6 +95,7 @@ class Supplies extends Component {
               Delete
             </button>
           </form>
+          </div>
         </div>       
         
       );
@@ -114,7 +118,9 @@ class Supplies extends Component {
         <div>
 
           <button>
-          <NavLink to="/add-supply">Add Supply</NavLink>
+          <NavLink to="/add-supply">
+          <FontAwesomeIcon icon={faPlus} /> Add Supply
+          </NavLink>
         </button></div>
       </div>
         </div>

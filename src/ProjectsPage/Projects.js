@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import Nav from "../Nav";
 import config from "../config"
 import TokenService from "../services/token-service"
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Projects extends Component {
   constructor(props) {
@@ -70,28 +72,28 @@ class Projects extends Component {
       return (
         <div className="project-item" key={key}>
           <h3>{project.project_name}</h3>
-          <div className="specs">
-            <div className="specs-column">
-              <p>goal "delivery date": <br /> {project.delivery_date.slice(0, 10)}</p>
+          <div className="project-specs">
+            <div className="project-specs-column">
+              <p>goal <br />"delivery date": <br /> {project.delivery_date.slice(0, 10)}</p>
             </div>
-            <div className="specs-column">
+            <div className="project-specs-column">
               <p>supplies needed: <br /> {project.supplies_needed}</p>
             </div>
-            <div className="specs-column">
+            <div className="project-specs-column">
               <p>tools needed: <br /> {project.tools_needed}</p>
             </div>
-            <div className="specs-column">
+            <div className="project-specs-column">
               <p>instructions: <br /> {project.instructions}</p>
             </div>
             <div>
-            {/* <form className="specs-column">
+            {/* <form className="project-specs-column">
               <label htmlFor="done">done</label> 
               <input type="checkbox">{project.done}</input>
               
             </form> */}
             </div>
           </div>        
-        
+        <div className="buttons">
           <NavLink to="/edit-project">
             <button>Edit</button>
           </NavLink>
@@ -101,6 +103,8 @@ class Projects extends Component {
               Delete
             </button>
           </form>
+        </div>
+          
         </div>       
         
       );
@@ -123,7 +127,9 @@ class Projects extends Component {
         <div>
 
           <button>
-          <NavLink to="/add-project">Add Project</NavLink>
+          <NavLink to="/add-project">
+          <FontAwesomeIcon icon={faPlus} /> Add Project
+          </NavLink>
         </button>
         </div>
       </div>

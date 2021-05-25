@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom'
 import ValidationError from './ValidationError'
 import AuthApiService from './services/auth-api-service'
 import TokenService from './services/token-service.js'
+import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class SignUp extends Component {
 
@@ -223,7 +225,7 @@ export default class SignUp extends Component {
                         <button>Cancel</button>
                     </NavLink>
                     <button type='submit' disabled={this.state.submitButtonDisabled}>
-                        Submit
+                        <FontAwesomeIcon icon={faDoorOpen} /> Submit
                     </button>
 
                 </form>

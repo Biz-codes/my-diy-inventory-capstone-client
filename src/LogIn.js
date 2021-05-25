@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import ValidationError from "./ValidationError"
 import AuthApiService from "./services/auth-api-service"
 import TokenService from "./services/token-service.js"
+import { faDoorOpen, faStepBackward } from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class LogIn extends Component {
     constructor(props) {
@@ -129,10 +131,12 @@ export default class LogIn extends Component {
                     )}
 
                     <NavLink to= '/'>
-                        <button>Cancel</button>
+                        <button>
+                        <FontAwesomeIcon icon={faStepBackward} /> Cancel
+                        </button>
                     </NavLink>
                     <button type='submit' disabled={this.state.submitButtonDisabled}>
-                        Submit
+                        <FontAwesomeIcon icon={faDoorOpen} /> Submit
                     </button>
 
                 </form>

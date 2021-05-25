@@ -12,6 +12,7 @@ import AddTool from "./ToolsPage/AddTool";
 import EditTool from "./ToolsPage/EditTool"
 import Projects from "./ProjectsPage/Projects";
 import AddProject from "./ProjectsPage/AddProject";
+import EditProject from "./ProjectsPage/EditProject";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub} from "@fortawesome/free-brands-svg-icons"
@@ -43,6 +44,7 @@ class App extends Component {
               <Route path="/edit-tool" component={EditTool} />
               <Route path="/projects" component={Projects} />
               <Route path="/add-project" component={AddProject} />
+              <Route path="/edit-project" component={EditProject} />
             </Switch>
   
             <footer>

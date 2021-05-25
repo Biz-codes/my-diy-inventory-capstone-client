@@ -3,6 +3,8 @@ import config from "../config";
 import { NavLink } from "react-router-dom";
 import TokenService from "../services/token-service";
 import ValidationError from "../ValidationError";
+import { faSave, faStepBackward } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class EditTool extends Component {
   // constructor(props) {
@@ -161,10 +163,11 @@ export default class EditTool extends Component {
     let showToolSpecs = "";
     showToolSpecs = (
       <div className="edit-tool">
-        {/* <h3>COMING SOON</h3> */}
-        <h3>Update this tool.</h3>
+        
+        
         <form className="edit-tool-form" onSubmit={this.updateTool}>
-          <label htmlFor="tool_name">supply name:</label>
+          <h3 >Update this tool:</h3>
+          <label htmlFor="tool_name">tool name:</label>
           <input
             type="text"
             id="tool_name"
@@ -201,10 +204,14 @@ export default class EditTool extends Component {
             <ValidationError message={this.validateQuantity()} />
           )}
           <div className="buttons">
-            <NavLink to="/tools">
-              <button>Cancel</button>
+          <NavLink to="/tools">
+              <button>
+                <FontAwesomeIcon icon={faStepBackward} /> Cancel
+              </button>
             </NavLink>
-            <button type="submit">Save</button>
+            <button type="submit">
+              <FontAwesomeIcon icon={faSave} /> Save
+            </button>
           </div>
         </form>
       </div>

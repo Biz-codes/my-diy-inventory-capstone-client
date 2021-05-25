@@ -3,6 +3,8 @@ import config from "../config";
 import { NavLink } from 'react-router-dom'
 import TokenService from "../services/token-service";
 import ValidationError from '../ValidationError'
+import { faSave, faStepBackward } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class AddTool extends Component {
   constructor(props) {
@@ -128,8 +130,9 @@ export default class AddTool extends Component {
   render() {
     return (
       <div className="add-tool">
-        <h3>Add a tool to your inventory!</h3>
+        
         <form className="add-tool-form" onSubmit={this.addTool}>
+          <h3>Add a tool to your inventory!</h3>
           <label htmlFor="tool_name">tool name:</label>
           <input
             type="text"
@@ -165,9 +168,13 @@ export default class AddTool extends Component {
           )}
           <div className="buttons">
             <NavLink to="/tools">
-              <button>Cancel</button>
+              <button>
+                <FontAwesomeIcon icon={faStepBackward} /> Cancel
+              </button>
             </NavLink>
-            <button type="submit">Save</button>
+            <button type="submit">
+              <FontAwesomeIcon icon={faSave} /> Save
+            </button>
           </div>
         </form>
       </div>
