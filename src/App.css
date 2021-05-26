@@ -684,7 +684,7 @@ This is the ideal way to built websites because it is much easier to adapt from 
 /*large desktop*/
 /* @media only screen and (min-width: 1600px) {
     body {
-        /* border: 3px solid yellow; */
+        border: 3px solid yellow;
     }
 
 } */
