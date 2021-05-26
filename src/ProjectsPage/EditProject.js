@@ -197,7 +197,7 @@ export default class EditProject extends Component {
       // .then((response) => response.json())
       .then(() => {
         // window.location = "/projects";
-        this.props.history.push('/projects')
+        // this.props.history.push('/projects')
       })
       .catch((err) => {
         console.log(err);

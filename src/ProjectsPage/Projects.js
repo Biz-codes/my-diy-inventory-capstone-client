@@ -57,7 +57,7 @@ class Projects extends Component {
     let { project_id } = data;
     console.log(project_id);
 
-    fetch(`${config.API_ENDPOINT}/supplies/${project_id}`, {
+    fetch(`${config.API_ENDPOINT}/projects/${project_id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -85,12 +85,8 @@ class Projects extends Component {
             <div className="project-specs-column">
               <p>instructions: <br /> {project.instructions}</p>
             </div>
-            <div>
-            {/* <form className="project-specs-column">
-              <label htmlFor="done">done</label> 
-              <input type="checkbox">{project.done}</input>
-              
-            </form> */}
+            <div className="project-specs-column">
+              <p>done? <br /> {project.done}</p>
             </div>
           </div>        
         <div className="buttons">

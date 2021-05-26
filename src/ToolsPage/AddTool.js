@@ -119,7 +119,7 @@ export default class AddTool extends Component {
 
         .then((res) => res.json())
         .then((resJson) => {
-          window.location = "/tools";
+          this.props.history.push('/tools')
         })
         .catch((err) => {
           console.log(err);

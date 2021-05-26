@@ -31,7 +31,7 @@ export default class AddProject extends Component {
         touched: false,
       },
       done: {
-        value: false,
+        value: "",
         touched: false,
       },
     };
@@ -67,9 +67,9 @@ export default class AddProject extends Component {
     });
   }
 
-  toggleDoneState(done) {
+  changeDone(done) {
     this.setState({
-      true: false
+      done: { value: done, touched: true },
     });
   }
 
@@ -162,7 +162,7 @@ export default class AddProject extends Component {
 
         .then((res) => res.json())
         .then((resJson) => {
-          // window.location = "/projects";
+          this.props.history.push('/projects')
         })
         .catch((err) => {
           console.log(err);
@@ -176,8 +176,9 @@ export default class AddProject extends Component {
     
       <div className="add-project">
       
-        <h3>Create a new DIY project!!</h3>
+        
         <form className="add-project-form" onSubmit={this.addProject}>
+          <h3>Create a new DIY project!!</h3>
           <label htmlFor="project_name">project name:</label>
           <input
             type="text"
@@ -217,14 +218,40 @@ export default class AddProject extends Component {
             name="instructions"
             onChange={(e) => this.changeInstructions(e.target.value)}
           />
-          <label htmlFor="done">done</label>
-          <input
-            type="checkbox"
+          <label htmlFor="done">done?</label>
+          <select
             id="done"
             name="done"
-            value = {this.state.done}
-            onCheck={(e) => this.toggleDoneState()}
-          />
+            required
+            >
+              <option value="" disabled>
+                  choose project status
+                </option>
+                {this.state.done == "to-do myself" ? (
+                  <option value="to-do myself" selected>
+                  to-do myself
+                  </option>
+                ) : (
+                  <option value="to-do myself">to-do myself</option>
+                )}
+                {this.state.done == "doin' it myself" ? (
+                  <option value="doin' it myself" selected>
+                  doin' it myself
+                  </option>
+                ) : (
+                  <option value="doin' it myself">doin' it myself</option>
+                )}
+                {this.state.done == "DONE it myself!" ? (
+                  <option value="DONE it myself!" selected>
+                    DONE it myself!
+                  </option>
+                ) : (
+                  <option value="DONE it myself!">
+                    DONE it myself!
+                  </option>
+                )}
+            </select>            
+        
           <div className="buttons">
             <NavLink to="/projects">
               <button>
