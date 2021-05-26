@@ -74,23 +74,32 @@ class Projects extends Component {
           <h3>{project.project_name}</h3>
           <div className="project-specs">
             <div className="project-specs-column">
-              <p>goal <br />"delivery date": <br /> {project.delivery_date.slice(0, 10)}</p>
+              <p className="underline">goal <br />"delivery date":</p> 
+              <hr />
+              <p> {project.delivery_date.slice(0, 10)}</p>
             </div>
             <div className="project-specs-column">
-              <p>supplies needed: <br /> {project.supplies_needed}</p>
+              <p className="underline">supplies needed: </p>
+              <p> {project.supplies_needed}</p>
             </div>
             <div className="project-specs-column">
-              <p>tools needed: <br /> {project.tools_needed}</p>
+              <p className="underline">tools needed: </p> 
+              <p>{project.tools_needed}</p>
             </div>
             <div className="project-specs-column">
-              <p>instructions: <br /> {project.instructions}</p>
+              <p className="underline">instructions: </p>
+              <p> {project.instructions}</p>
             </div>
             <div className="project-specs-column">
-              <p>done? <br /> {project.done}</p>
+              <p className="underline">done? </p> 
+              <p>{project.done}</p>
             </div>
           </div>        
         <div className="buttons">
-          <NavLink to="/edit-project">
+        <NavLink to={
+            {pathname: "/edit-project",
+            project_id: project.id}
+          }>
             <button>Edit</button>
           </NavLink>
           <form className="delete" onSubmit={this.deleteProject}>

@@ -39,7 +39,7 @@ export default class EditProject extends Component {
         touched: false,
       },
       done: {
-        value: false,
+        value: "",
         touched: false,
       }
     };
@@ -75,9 +75,9 @@ export default class EditProject extends Component {
     });
   }
 
-  toggleDoneState(done) {
+  changeDone(done) {
     this.setState({
-      true: false
+      done: { value: done, touched: true },
     });
   }
 
@@ -94,35 +94,35 @@ export default class EditProject extends Component {
     }
   }
 
-  // validateSuppliesNeeded() {
-  //   const supplies_needed = this.state.supplies_needed.value.trim();
-  //   if (supplies_needed.length === 0) {
-  //     return (
-  //       <p className="input-error">Supplies needed are required</p>
-  //     );
-  //   } else if (supplies_needed.length < 2) {
-  //     return (
-  //       <p className="input-error">
-  //         Supplies needed must be at least 2 characters long
-  //       </p>
-  //     );
-  //   }
-  // }
+  validateSuppliesNeeded() {
+    const supplies_needed = this.state.supplies_needed.value.trim();
+    if (supplies_needed.length === 0) {
+      return (
+        <p className="input-error">Supplies needed are required</p>
+      );
+    } else if (supplies_needed.length < 2) {
+      return (
+        <p className="input-error">
+          Supplies needed must be at least 2 characters long
+        </p>
+      );
+    }
+  }
 
-  // validateToolsNeeded() {
-  //   const tools_needed = this.state.tools_needed.value.trim();
-  //   if (tools_needed.length === 0) {
-  //     return (
-  //       <p className="input-error">Supplies needed are required</p>
-  //     );
-  //   } else if (tools_needed.length < 2) {
-  //     return (
-  //       <p className="input-error">
-  //         Supplies needed must be at least 2 characters long
-  //       </p>
-  //     );
-  //   }
-  // }
+  validateToolsNeeded() {
+    const tools_needed = this.state.tools_needed.value.trim();
+    if (tools_needed.length === 0) {
+      return (
+        <p className="input-error">Supplies needed are required</p>
+      );
+    } else if (tools_needed.length < 2) {
+      return (
+        <p className="input-error">
+          Supplies needed must be at least 2 characters long
+        </p>
+      );
+    }
+  }
 
 
   componentDidMount() {
@@ -138,6 +138,7 @@ export default class EditProject extends Component {
 
     // let project_id = this.props.match.params.project_id
 
+    console.log(project_id)
     let getProjectSpecsUrl = `${config.API_ENDPOINT}/projects/${project_id}`
 
     fetch(getProjectSpecsUrl)
@@ -145,7 +146,7 @@ export default class EditProject extends Component {
       .then(({project_name, delivery_date, supplies_needed, tools_needed, instructions, done}) => {
         this.setState({
           project_name: {value: project_name, touched: this.state.project_name.touched},
-          delivery_date: {value: delivery_date, touched: this.state.delivery_date.touched}, 
+          delivery_date: {value: delivery_date.slice(0, 10), touched: this.state.delivery_date.touched}, 
           supplies_needed: {value: supplies_needed, touched: this.state.supplies_needed.touched},
           tools_needed: {value: tools_needed, touched: this.state.tools_needed.touched},
           instructions: {value: instructions, touched: this.state.instructions.touched},
@@ -197,7 +198,7 @@ export default class EditProject extends Component {
       // .then((response) => response.json())
       .then(() => {
         // window.location = "/projects";
-        // this.props.history.push('/projects')
+        this.props.history.push('/projects')
       })
       .catch((err) => {
         console.log(err);
@@ -264,14 +265,39 @@ export default class EditProject extends Component {
             value={this.state.instructions.value}
             onChange={(e) => this.changeInstructions(e.target.value)}
           />
-          <label htmlFor="done">done</label>
-          <input
-            type="checkbox"
+          <label htmlFor="done">done?</label>
+          <select
             id="done"
             name="done"
-            value = {this.state.done.value}
-            onCheck={(e) => this.toggleDoneState()}
-          />
+            required
+            >
+              <option value="" disabled>
+                  choose project status
+                </option>
+                {this.state.done == "to-do myself" ? (
+                  <option value="to-do myself" selected>
+                  to-do myself
+                  </option>
+                ) : (
+                  <option value="to-do myself">to-do myself</option>
+                )}
+                {this.state.done == "doin' it myself" ? (
+                  <option value="doin' it myself" selected>
+                  doin' it myself
+                  </option>
+                ) : (
+                  <option value="doin' it myself">doin' it myself</option>
+                )}
+                {this.state.done == "DONE it myself!" ? (
+                  <option value="DONE it myself!" selected>
+                    DONE it myself!
+                  </option>
+                ) : (
+                  <option value="DONE it myself!">
+                    DONE it myself!
+                  </option>
+                )}
+            </select>            
           <div className="buttons">
           <NavLink to="/projects">
               <button>

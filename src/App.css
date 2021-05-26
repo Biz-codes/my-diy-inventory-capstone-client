@@ -145,6 +145,10 @@ label {
   margin: 10px;
 }
 
+p.underline {
+  text-decoration: underline;
+}
+
 /*
 The clearfix Hack: If an element is taller than the element containing it, and it is floated, it will "overflow" outside of its container
 https://www.w3schools.com/css/css_float_clear.asp
