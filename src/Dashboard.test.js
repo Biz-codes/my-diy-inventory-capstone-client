@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
+import Dashboard from "./Dashboard";
 
-describe(`App component`, () => {
+describe(`Dashboard component`, () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
       <BrowserRouter>
-        <App />
+        <Dashboard />
       </BrowserRouter>,
       div
     );
