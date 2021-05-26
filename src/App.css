@@ -524,7 +524,7 @@ This is the ideal way to built websites because it is much easier to adapt from 
 /*iPhone portrait*/
 @media only screen and (min-width: 320px) {
     body {
-        border: 3px solid purple;
+        /* border: 3px solid purple; */
         font-size: 20px;
     }
 
@@ -594,7 +594,7 @@ This is the ideal way to built websites because it is much easier to adapt from 
 /*iPhone landscape*/
 @media only screen and (min-width: 480px) {
     body {
-        border: 3px solid green;
+        /* border: 3px solid green; */
         font-size: 24px;
     }
 
@@ -608,7 +608,7 @@ This is the ideal way to built websites because it is much easier to adapt from 
 /*Android landscape*/
 @media only screen and (min-width: 640px) {
     body {
-        border: 3px solid pink;
+        /* border: 3px solid pink; */
         font-size: 26px;
     }
 
@@ -629,7 +629,7 @@ This is the ideal way to built websites because it is much easier to adapt from 
 /*iPad potrait*/
 @media only screen and (min-width: 768px) {
     body {
-        border: 3px solid red;
+        /* border: 3px solid red; */
     }
 
     div.landing-buttons {
@@ -661,7 +661,7 @@ This is the ideal way to built websites because it is much easier to adapt from 
 /*iPad landscape / small laptop*/
 @media only screen and (min-width: 1024px) {
     body {
-        border: 3px solid blue;
+        /* border: 3px solid blue; */
         font-size: 30px;
     }
 
@@ -682,9 +682,9 @@ This is the ideal way to built websites because it is much easier to adapt from 
 }
 
 /*large desktop*/
-@media only screen and (min-width: 1600px) {
+/* @media only screen and (min-width: 1600px) {
     body {
-        border: 3px solid yellow;
+        /* border: 3px solid yellow; */
     }
 
-}
+} */
