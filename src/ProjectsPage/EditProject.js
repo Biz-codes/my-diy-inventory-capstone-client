@@ -94,35 +94,35 @@ export default class EditProject extends Component {
     }
   }
 
-  validateSuppliesNeeded() {
-    const supplies_needed = this.state.supplies_needed.value.trim();
-    if (supplies_needed.length === 0) {
-      return (
-        <p className="input-error">Supplies needed are required</p>
-      );
-    } else if (supplies_needed.length < 2) {
-      return (
-        <p className="input-error">
-          Supplies needed must be at least 2 characters long
-        </p>
-      );
-    }
-  }
+  // validateSuppliesNeeded() {
+  //   const supplies_needed = this.state.supplies_needed.value.trim();
+  //   if (supplies_needed.length === 0) {
+  //     return (
+  //       <p className="input-error">Supplies needed are required</p>
+  //     );
+  //   } else if (supplies_needed.length < 2) {
+  //     return (
+  //       <p className="input-error">
+  //         Supplies needed must be at least 2 characters long
+  //       </p>
+  //     );
+  //   }
+  // }
 
-  validateToolsNeeded() {
-    const tools_needed = this.state.tools_needed.value.trim();
-    if (tools_needed.length === 0) {
-      return (
-        <p className="input-error">Supplies needed are required</p>
-      );
-    } else if (tools_needed.length < 2) {
-      return (
-        <p className="input-error">
-          Supplies needed must be at least 2 characters long
-        </p>
-      );
-    }
-  }
+  // validateToolsNeeded() {
+  //   const tools_needed = this.state.tools_needed.value.trim();
+  //   if (tools_needed.length === 0) {
+  //     return (
+  //       <p className="input-error">Supplies needed are required</p>
+  //     );
+  //   } else if (tools_needed.length < 2) {
+  //     return (
+  //       <p className="input-error">
+  //         Supplies needed must be at least 2 characters long
+  //       </p>
+  //     );
+  //   }
+  // }
 
 
   componentDidMount() {
@@ -270,6 +270,7 @@ export default class EditProject extends Component {
             id="done"
             name="done"
             value={this.state.done.value}
+            onChange={(e) => this.changeDone(e.target.value)}
             required
             >
               <option value="" disabled>
