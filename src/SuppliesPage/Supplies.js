@@ -32,7 +32,7 @@ class Supplies extends Component {
         // console.log(supplies)
         this.setState({
           suppliesByUserId: supplies,
-        });
+        })
         // console.log(this.state);
       })
 

@@ -12,12 +12,12 @@ Doin' It Yourself!!!
 
 
 
-### 1. Working Prototype (to do later)
-(Example) You can access a working prototype of the React app here: https://your-app-client.herokuapp.com/ and Node app here: https://your-app-server.herokuapp.com/
+### 1. Working Prototype (to do now)
+(Example) You can access a working prototype of the React app here: https://my-diy-inventory.vercel.app/ and Node app here: https://my-diy-inventory.herokuapp.com/
 
 
 
-### 2. User Stories (to do now)
+### 2. User Stories 
 This app is for two types of users: a visitor and a logged-in user
 
 ###### Landing Page (Importance - High) (Est: 0.5h)
@@ -63,17 +63,16 @@ This app is for two types of users: a visitor and a logged-in user
 
 
 
-### 3. Functionality (to do now)
+### 3. Functionality 
 The app's functionality (v1.0) includes:
-* use a demo version of the "My DIY Dashboard" and "My DIY Supplies" pages
-* add supplies to the "My DIY Supplies" inventory 
-* navigate between pages
-* edit a supply
-* delete a supply
-* 
-* 
-* 
-* use accessibility features such as text-to-speech and navigation via keyboard
+* All users can access a demo account to try the app.
+* All users can create an account.
+* All users can click on contact information links for the app creator.
+* Logged-in users can view their saved supplies, tools and projects. a
+* Logged-in users can add, edit and delete inventory items (supplies, tools and projects).
+* Logged-in users can navigate between the Landing page and their Dashboard, Supplies, Tools and Projects pages - using top navigation.
+* Logged-in users can log out to return to the Landing page.
+* All users can use accessibility features such as text-to-speech and navigation via keyboard.
 
 
 
@@ -99,25 +98,21 @@ User Flows, page 2
 
 ### 6. Front-end Structure - React Components Map (to do later)
 * __index.js__ (stateless)
-    * __DIYContext__
     * __App.js__ (stateful)
         * __Landing.js__ (stateless) - gets the _"prop name"_ and the _"callback prop name"_ from the __App.js__
-            * __LogIn.js__ (stateful) -
-            * __SignUp.js__ (stateful) -
+            * __LogIn.js__ (stateful)
+            * __SignUp.js__ (stateful)
             * __Dashboard.js__ (stateless)
                 * __Nav.js__ (stateless)
-                * __Supplies.js__  (stateful) -
+                * __Supplies.js__  (stateful)
                     * __AddSupply.js__ (stateful)
-                    * __SupplyItem.js__ (stateless)
-                        * __EditSupply.js__ (stateful)
+                    * __EditSupply.js__ (stateful)
                 * __Tools.js__ (stateful)
                     * __AddTool.js__ (stateful)
-                    * __ToolItem.js__ (stateless)
-                        * __EditTool.js__ (stateful)
+                    * __EditTool.js__ (stateful)
                 * __Projects.js__ (stateful)
                     * __AddProject.js__ (stateful))
-                    * __ProjectItem.js__ (stateless)
-                        * __EditProject.js__ (stateful)
+                    * __EditProject.js__ (stateful)
 
 
 
@@ -170,14 +165,15 @@ User Flows, page 2
 ```js
     // req.body
     {
-        "user_name": "demo@gmail.com",
-        "password": "Password1"
+        "name": "Demo User",
+        "username": "demo-email@gmail.com",
+        "password": "Fabulous1"
     }
 
     // res.body
     {
     "authToken": String,
-        "userId": 1
+    "userId": 4
     }
 ```
 
