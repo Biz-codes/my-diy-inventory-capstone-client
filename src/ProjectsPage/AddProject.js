@@ -162,7 +162,7 @@ export default class AddProject extends Component {
 
         .then((res) => res.json())
         .then((resJson) => {
-          this.props.history.push('/projects')
+          window.location = '/projects'
         })
         .catch((err) => {
           console.log(err);
