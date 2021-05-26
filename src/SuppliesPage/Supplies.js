@@ -29,6 +29,14 @@ class Supplies extends Component {
     fetch(mySuppliesUrl)
       .then((supplies) => supplies.json())
       .then((supplies) => {
+        return supplies.sort((a, b) => {
+          let result = 0
+          if(a.supply_name > b.supply_name) return 1
+          if(a.supply_name < b.supply_name) return -1
+          return result
+        })
+      })
+      .then((supplies) => {
         // console.log(supplies)
         this.setState({
           suppliesByUserId: supplies,
