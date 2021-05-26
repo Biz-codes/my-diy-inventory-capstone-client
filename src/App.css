@@ -88,6 +88,7 @@ a {
 
 a:hover {
   color: #bd1e0f;
+  
 }
 
 h1,
@@ -196,7 +197,7 @@ h3 {
 
 h4 {
   font-size: 150%;
-  color: #f0530a;
+  color: #E64F0A;
 }
 
 /* header.nested {
@@ -314,7 +315,8 @@ button.landing-button {
 }
 
 .nav-icons li a:hover {
-  color: #bd1e0f;
+  /* color: #bd1e0f; */
+  color: #f0e981;
 }
 
 /* Dashboard styles */
@@ -348,7 +350,7 @@ div.supplies-entrance::before {
       bottom: 0px;
       left: 0px;
   border-radius: 20px;
-  border: 2px solid #0ad1f0
+  border: 2px solid #0891A6
 }
 
 div.tools-entrance::before {
@@ -364,7 +366,7 @@ div.tools-entrance::before {
       bottom: 0px;
       left: 0px;
   border-radius: 20px;
-  border: 2px solid #f0530a
+  border: 2px solid #E64F0A
 }
 
 div.projects-entrance::before {
@@ -380,7 +382,7 @@ div.projects-entrance::before {
       bottom: 0px;
       left: 0px;
   border-radius: 20px;
-  border: 2px solid #59eca3
+  border: 2px solid #139654
 }
 
 button.entrance-button {
@@ -443,15 +445,15 @@ div.edit-project {
 }
 
 .supply-item {
-  border: 3px solid #0ad1f0;
+  border: 3px solid #0891A6;
 }
 
 .tool-item {
-  border: 3px solid #f0530a
+  border: 3px solid #E64F0A
 }
 
 .project-item {
-  border: 3px solid #59eca3
+  border: 3px solid #139654
 }
 
 div.specs,
@@ -468,17 +470,17 @@ div.project-specs-column {
 }
 
 div.supply-specs-column {
-  border: 1px dashed #0ad1f0;
+  border: 1px dashed #0891A6;
   
 }
 
 div.tool-specs-column {
-  border: 1px dashed #f0530a;
+  border: 1px dashed #E64F0A;
   
 }
 
 div.project-specs-column {
-  border: 1px dashed #59eca3;
+  border: 1px dashed #139654;
 }
 
 /* -------------------------------------
@@ -508,7 +510,7 @@ footer a {
 }
 
 footer a:hover {
-  color: #0ad1f0;
+  color: #0891A6;
 }
 
 
