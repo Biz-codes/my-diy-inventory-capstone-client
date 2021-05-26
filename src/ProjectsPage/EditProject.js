@@ -269,6 +269,7 @@ export default class EditProject extends Component {
           <select
             id="done"
             name="done"
+            value={this.state.done.value}
             required
             >
               <option value="" disabled>
