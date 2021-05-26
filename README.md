@@ -99,7 +99,7 @@ User Flows, page 2
 ### 6. Front-end Structure - React Components Map (to do later)
 * __index.js__ (stateless)
     * __App.js__ (stateful)
-        * __Landing.js__ (stateless) - gets the _"prop name"_ and the _"callback prop name"_ from the __App.js__
+        * __Landing.js__ (stateless)
             * __LogIn.js__ (stateful)
             * __SignUp.js__ (stateful)
             * __Dashboard.js__ (stateless)

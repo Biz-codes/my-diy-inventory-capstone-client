@@ -172,9 +172,9 @@ export default class AddSupply extends Component {
                 <FontAwesomeIcon icon={faStepBackward} /> Cancel
               </button>
             </NavLink>
-            <button type="submit">
+            <input type="submit">
               <FontAwesomeIcon icon={faSave} /> Save
-            </button>
+            </input>
           </div>
         </form>
       </div>
