@@ -151,8 +151,8 @@ export default class EditTool extends Component {
     })
       // .then((response) => response.json())
       .then(() => {
-        // window.location = "/tools";
-        this.props.history.push('/tools')
+        window.location = "/tools";
+        // this.props.history.push('/tools')
       })
       .catch((err) => {
         console.log(err);

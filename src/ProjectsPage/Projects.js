@@ -29,6 +29,14 @@ class Projects extends Component {
     fetch(myProjectsUrl)
       .then((projects) => projects.json())
       .then((projects) => {
+        return projects.sort((a, b) => {
+          let result = 0
+          if(a.project_name > b.project_name) return 1
+          if(a.project_name < b.project_name) return -1
+          return result
+        })
+      })
+      .then((projects) => {
         // console.log(projects)
         this.setState({
           projectsByUserId: projects,

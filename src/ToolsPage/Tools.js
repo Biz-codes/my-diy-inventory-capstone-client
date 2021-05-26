@@ -29,6 +29,14 @@ class Tools extends Component {
     fetch(myToolsUrl)
       .then((tools) => tools.json())
       .then((tools) => {
+        return tools.sort((a, b) => {
+          let result = 0
+          if(a.tool_name > b.tool_name) return 1
+          if(a.tool_name < b.tool_name) return -1
+          return result
+        })
+      })
+      .then((tools) => {
         console.log(tools)
         this.setState({
           toolsByUserId: tools,

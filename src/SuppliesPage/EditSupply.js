@@ -151,8 +151,8 @@ export default class EditSupply extends Component {
     })
       // .then((response) => response.json())
       .then(() => {
-        // window.location = "/supplies";
-        this.props.history.push('/supplies')
+        window.location = "/supplies";
+        // this.props.history.push('/supplies')
       })
       .catch((err) => {
         console.log(err);

@@ -119,7 +119,7 @@ export default class AddSupply extends Component {
 
         .then((res) => res.json())
         .then((resJson) => {
-          this.props.history.push('/supplies')
+          window.location = '/supplies'
         })
         .catch((err) => {
           console.log(err);
