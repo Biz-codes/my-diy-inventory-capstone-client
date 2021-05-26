@@ -122,6 +122,7 @@ button {
 
 button {
   width: 125px;
+  background-color: #ebe6e2;
 }
 
 input {
@@ -350,7 +351,7 @@ div.supplies-entrance::before {
       bottom: 0px;
       left: 0px;
   border-radius: 20px;
-  border: 2px solid #0891A6
+  border: 2px solid #0ad1f0
 }
 
 div.tools-entrance::before {
@@ -366,7 +367,7 @@ div.tools-entrance::before {
       bottom: 0px;
       left: 0px;
   border-radius: 20px;
-  border: 2px solid #E64F0A
+  border: 2px solid #f0530a
 }
 
 div.projects-entrance::before {
@@ -382,7 +383,7 @@ div.projects-entrance::before {
       bottom: 0px;
       left: 0px;
   border-radius: 20px;
-  border: 2px solid #139654
+  border: 2px solid #59eca3
 }
 
 button.entrance-button {
@@ -445,15 +446,15 @@ div.edit-project {
 }
 
 .supply-item {
-  border: 3px solid #0891A6;
+  border: 3px solid #0ad1f0;
 }
 
 .tool-item {
-  border: 3px solid #E64F0A
+  border: 3px solid #f0530a
 }
 
 .project-item {
-  border: 3px solid #139654
+  border: 3px solid #59eca3
 }
 
 div.specs,
