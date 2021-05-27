@@ -201,9 +201,9 @@ h4 {
   color: #E64F0A;
 }
 
-/* header.nested {
-  display: float;
-} */
+.hidden {
+  visibility: hidden;
+}
 
 /* -------------------------------------
 Content styles (Main Module)

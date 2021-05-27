@@ -310,6 +310,7 @@ export default class EditProject extends Component {
               <FontAwesomeIcon icon={faSave} /> Save
             </button>
           </div>
+          <input type="submit" className="hidden"></input>
         </form>
       </div>
     );

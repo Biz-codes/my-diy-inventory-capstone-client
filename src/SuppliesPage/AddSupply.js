@@ -166,6 +166,7 @@ export default class AddSupply extends Component {
           {this.state.quantity.touched && (
             <ValidationError message={this.validateQuantity()} />
           )}
+          
           <div className="buttons">
             <NavLink to="/supplies">
               <button>
@@ -176,6 +177,7 @@ export default class AddSupply extends Component {
               <FontAwesomeIcon icon={faSave} /> Save
             </button>
           </div>
+          <input type="submit" className="hidden"></input>
         </form>
       </div>
     );

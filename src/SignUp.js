@@ -229,6 +229,7 @@ export default class SignUp extends Component {
                     <button type='submit' disabled={this.state.submitButtonDisabled}>
                         <FontAwesomeIcon icon={faDoorOpen} /> Submit
                     </button>
+                    <input type="submit" className="hidden"></input>
 
                 </form>
                 <div>
