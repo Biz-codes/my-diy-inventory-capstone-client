@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import config from "../config";
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 import TokenService from "../services/token-service";
-import ValidationError from '../ValidationError'
-import { faSave, faStepBackward } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ValidationError from "../ValidationError";
+import { faSave, faStepBackward } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class AddTool extends Component {
   constructor(props) {
@@ -59,9 +59,7 @@ export default class AddTool extends Component {
   validateDetails() {
     const details = this.state.details.value.trim();
     if (details.length === 0) {
-      return (
-        <p className="input-error">Details about the tool are required</p>
-      );
+      return <p className="input-error">Details about the tool are required</p>;
     } else if (details.length < 2) {
       return (
         <p className="input-error">
@@ -108,29 +106,26 @@ export default class AddTool extends Component {
       tool_name: tool_name,
       details: details,
       quantity: quantity,
-    }
-    console.log(payload)
+    };
+    // console.log(payload)
 
     fetch(`${config.API_ENDPOINT}/tools`, {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: { "content-type": "application/json" },
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: { "content-type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((resJson) => {
+        window.location = "/tools";
       })
-
-        .then((res) => res.json())
-        .then((resJson) => {
-          window.location = '/tools'
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-    
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
     return (
       <div className="add-tool">
-        
         <form className="add-tool-form" onSubmit={this.addTool}>
           <h3>Add a tool to your inventory!</h3>
           <label htmlFor="tool_name">tool name:</label>

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import config from "../config";
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 import TokenService from "../services/token-service";
-import ValidationError from '../ValidationError'
-import { faSave, faStepBackward } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ValidationError from "../ValidationError";
+import { faSave, faStepBackward } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class AddProject extends Component {
   constructor(props) {
@@ -85,42 +85,10 @@ export default class AddProject extends Component {
       );
     }
   }
-    
-  // validateSuppliesNeeded() {
-  //   const supplies_needed = this.state.supplies_needed.value.trim();
-  //   if (supplies_needed.length === 0) {
-  //     return (
-  //       <p className="input-error">Supplies needed are required</p>
-  //     );
-  //   } else if (supplies_needed.length < 2) {
-  //     return (
-  //       <p className="input-error">
-  //         Supplies needed must be at least 2 characters long
-  //       </p>
-  //     );
-  //   }
-  // }
-
-  // validateToolsNeeded() {
-  //   const tools_needed = this.state.tools_needed.value.trim();
-  //   if (tools_needed.length === 0) {
-  //     return (
-  //       <p className="input-error">Supplies needed are required</p>
-  //     );
-  //   } else if (tools_needed.length < 2) {
-  //     return (
-  //       <p className="input-error">
-  //         Supplies needed must be at least 2 characters long
-  //       </p>
-  //     );
-  //   }
-  // }
-
-  
 
   componentDidMount() {
-    let currentUser = TokenService.getUserId();
-    console.log(currentUser);
+    // let currentUser = TokenService.getUserId();
+    // console.log(currentUser);
 
     //if the user is not logged in, send to landing page
     if (!TokenService.hasAuthToken()) {
@@ -141,7 +109,14 @@ export default class AddProject extends Component {
 
     let user_id = TokenService.getUserId();
 
-    let { project_name, delivery_date, supplies_needed, tools_needed, instructions, done } = data;
+    let {
+      project_name,
+      delivery_date,
+      supplies_needed,
+      tools_needed,
+      instructions,
+      done,
+    } = data;
 
     let payload = {
       user_id: user_id,
@@ -151,32 +126,26 @@ export default class AddProject extends Component {
       tools_needed: tools_needed,
       instructions: instructions,
       done: done,
-    }
-    console.log(payload)
+    };
+    // console.log(payload)
 
     fetch(`${config.API_ENDPOINT}/projects`, {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: { "content-type": "application/json" },
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: { "content-type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((resJson) => {
+        window.location = "/projects";
       })
-
-        .then((res) => res.json())
-        .then((resJson) => {
-          window.location = '/projects'
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-    
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
-    
     return (
-    
       <div className="add-project">
-      
-        
         <form className="add-project-form" onSubmit={this.addProject}>
           <h3>Create a new DIY project!!</h3>
           <label htmlFor="project_name">project name:</label>
@@ -195,7 +164,7 @@ export default class AddProject extends Component {
             type="date"
             id="delivery_date"
             name="delivery_date"
-            onChange={(e) => this.changeDeliveryDate(e.target.value)}    
+            onChange={(e) => this.changeDeliveryDate(e.target.value)}
           />
           <label htmlFor="supplies_needed">supplies needed:</label>
           <input
@@ -224,35 +193,33 @@ export default class AddProject extends Component {
             name="done"
             onChange={(e) => this.changeDone(e.target.value)}
             required
-            >
-              <option value="" disabled>
-                  choose project status
-                </option>
-                {this.state.done == "to-do myself" ? (
-                  <option value="to-do myself" selected>
-                  to-do myself
-                  </option>
-                ) : (
-                  <option value="to-do myself">to-do myself</option>
-                )}
-                {this.state.done == "doin' it myself" ? (
-                  <option value="doin' it myself" selected>
-                  doin' it myself
-                  </option>
-                ) : (
-                  <option value="doin' it myself">doin' it myself</option>
-                )}
-                {this.state.done == "DONE it myself!" ? (
-                  <option value="DONE it myself!" selected>
-                    DONE it myself!
-                  </option>
-                ) : (
-                  <option value="DONE it myself!">
-                    DONE it myself!
-                  </option>
-                )}
-            </select>            
-        
+          >
+            <option value="" disabled>
+              choose project status
+            </option>
+            {this.state.done == "to-do myself" ? (
+              <option value="to-do myself" selected>
+                to-do myself
+              </option>
+            ) : (
+              <option value="to-do myself">to-do myself</option>
+            )}
+            {this.state.done == "doin' it myself" ? (
+              <option value="doin' it myself" selected>
+                doin' it myself
+              </option>
+            ) : (
+              <option value="doin' it myself">doin' it myself</option>
+            )}
+            {this.state.done == "DONE it myself!" ? (
+              <option value="DONE it myself!" selected>
+                DONE it myself!
+              </option>
+            ) : (
+              <option value="DONE it myself!">DONE it myself!</option>
+            )}
+          </select>
+
           <div className="buttons">
             <NavLink to="/projects">
               <button>

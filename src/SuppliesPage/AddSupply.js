@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import config from "../config";
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 import TokenService from "../services/token-service";
-import ValidationError from '../ValidationError'
-import { faSave, faStepBackward } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ValidationError from "../ValidationError";
+import { faSave, faStepBackward } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class AddSupply extends Component {
   constructor(props) {
@@ -108,29 +108,26 @@ export default class AddSupply extends Component {
       supply_name: supply_name,
       details: details,
       quantity: quantity,
-    }
-    console.log(payload)
+    };
+    // console.log(payload)
 
     fetch(`${config.API_ENDPOINT}/supplies`, {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: { "content-type": "application/json" },
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: { "content-type": "application/json" },
+    })
+      .then((res) => res.json())
+      .then((resJson) => {
+        window.location = "/supplies";
       })
-
-        .then((res) => res.json())
-        .then((resJson) => {
-          window.location = '/supplies'
-        })
-        .catch((err) => {
-          console.log(err);
-        })
-    
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
     return (
       <div className="add-supply">
-        
         <form className="add-supply-form" onSubmit={this.addSupply}>
           <h3>Add a supply to your inventory!</h3>
           <label htmlFor="supply_name">supply name:</label>
@@ -166,7 +163,7 @@ export default class AddSupply extends Component {
           {this.state.quantity.touched && (
             <ValidationError message={this.validateQuantity()} />
           )}
-          
+
           <div className="buttons">
             <NavLink to="/supplies">
               <button>

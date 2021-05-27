@@ -1,18 +1,15 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Nav from "./Nav";
-import TokenService from "./services/token-service.js"
+import TokenService from "./services/token-service.js";
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-     
-    };
+    this.state = {};
   }
 
   componentDidMount() {
-    
     let currentUser = TokenService.getUserId();
     // console.log(currentUser)
 
@@ -20,7 +17,6 @@ class Dashboard extends Component {
     if (!TokenService.hasAuthToken()) {
       window.location = "/";
     }
-    
   }
 
   render() {
@@ -48,10 +44,9 @@ class Dashboard extends Component {
           <div className="projects-entrance">
             <NavLink to="/projects">
               <button className="entrance-button">
-              My DIY <br /> Projects
-            </button>
+                My DIY <br /> Projects
+              </button>
             </NavLink>
-            
           </div>
           <div className="tools-entrance">
             <NavLink to="/tools">
@@ -59,7 +54,6 @@ class Dashboard extends Component {
                 My DIY <br /> Tools
               </button>
             </NavLink>
-            
           </div>
         </div>
         <footer>

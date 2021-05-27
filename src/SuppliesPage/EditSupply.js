@@ -3,35 +3,24 @@ import config from "../config";
 import { NavLink } from "react-router-dom";
 import TokenService from "../services/token-service";
 import ValidationError from "../ValidationError";
-import { faSave, faStepBackward } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSave, faStepBackward } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class EditSupply extends Component {
-  // constructor(props) {
-  //   console.log("hello");
-  //   super(props);
-
-
-      // console.log(props.location.supply_id)
-    
-    // this.state = {
-      state = {
-  
-
-      supply_name: {
-        value: "",
-        touched: false,
-      },
-      details: {
-        value: "",
-        touched: false,
-      },
-      quantity: {
-        value: "",
-        touched: false,
-      },
-    };
-  // }
+  state = {
+    supply_name: {
+      value: "",
+      touched: false,
+    },
+    details: {
+      value: "",
+      touched: false,
+    },
+    quantity: {
+      value: "",
+      touched: false,
+    },
+  };
 
   changeSupplyName(supply_name) {
     this.setState({
@@ -97,24 +86,23 @@ export default class EditSupply extends Component {
 
     let supply_id = this.props.location.supply_id;
 
-    // let supply_id = this.props.match.params.supply_id
-
-    let getSupplySpecsUrl = `${config.API_ENDPOINT}/supplies/${supply_id}`
+    let getSupplySpecsUrl = `${config.API_ENDPOINT}/supplies/${supply_id}`;
 
     fetch(getSupplySpecsUrl)
-      .then(res => res.json())
-      .then(({supply_name, details, quantity}) => {
+      .then((res) => res.json())
+      .then(({ supply_name, details, quantity }) => {
         this.setState({
-          supply_name: {value: supply_name, touched: this.state.supply_name.touched}, 
-          details: {value: details, touched: this.state.details.touched},
-          quantity: {value: quantity, touched: this.state.quantity.touched},
-        })
+          supply_name: {
+            value: supply_name,
+            touched: this.state.supply_name.touched,
+          },
+          details: { value: details, touched: this.state.details.touched },
+          quantity: { value: quantity, touched: this.state.quantity.touched },
+        });
       })
 
       .catch((error) => this.setState({ error }));
   }
-
-  
 
   updateSupply = (event) => {
     // console.log('hello there')
@@ -137,10 +125,7 @@ export default class EditSupply extends Component {
       details: details,
       quantity: quantity,
     };
-    console.log(payload);
-
-    //     console.log(this.props)
-
+    // console.log(payload);
 
     fetch(`${config.API_ENDPOINT}/supplies/${this.props.location.supply_id}`, {
       method: "PATCH",
@@ -149,15 +134,13 @@ export default class EditSupply extends Component {
       },
       body: JSON.stringify(payload),
     })
-      // .then((response) => response.json())
       .then(() => {
         window.location = "/supplies";
-        // this.props.history.push('/supplies')
       })
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   render() {
     let showSupplySpecs = "";
@@ -202,7 +185,7 @@ export default class EditSupply extends Component {
             <ValidationError message={this.validateQuantity()} />
           )}
           <div className="buttons">
-          <NavLink to="/supplies">
+            <NavLink to="/supplies">
               <button>
                 <FontAwesomeIcon icon={faStepBackward} /> Cancel
               </button>
@@ -219,4 +202,3 @@ export default class EditSupply extends Component {
     return <div>{showSupplySpecs}</div>;
   }
 }
-

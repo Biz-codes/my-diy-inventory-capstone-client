@@ -3,47 +3,36 @@ import config from "../config";
 import { NavLink } from "react-router-dom";
 import TokenService from "../services/token-service";
 import ValidationError from "../ValidationError";
-import { faSave, faStepBackward } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSave, faStepBackward } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class EditProject extends Component {
-  // constructor(props) {
-  //   console.log("hello");
-  //   super(props);
-
-
-      // console.log(props.location.project_id)
-    
-    // this.state = {
-      state = {
-  
-
-      project_name: {
-        value: "",
-        touched: false,
-      },
-      delivery_date: {
-        value: "",
-        touched: false,
-      },
-      supplies_needed: {
-        value: "",
-        touched: false,
-      },
-      tools_needed: {
-        value: "",
-        touched: false,
-      },
-      instructions: {
-        value: "",
-        touched: false,
-      },
-      done: {
-        value: "",
-        touched: false,
-      }
-    };
-  // }
+  state = {
+    project_name: {
+      value: "",
+      touched: false,
+    },
+    delivery_date: {
+      value: "",
+      touched: false,
+    },
+    supplies_needed: {
+      value: "",
+      touched: false,
+    },
+    tools_needed: {
+      value: "",
+      touched: false,
+    },
+    instructions: {
+      value: "",
+      touched: false,
+    },
+    done: {
+      value: "",
+      touched: false,
+    },
+  };
 
   changeProjectName(project_name) {
     this.setState({
@@ -94,37 +83,6 @@ export default class EditProject extends Component {
     }
   }
 
-  // validateSuppliesNeeded() {
-  //   const supplies_needed = this.state.supplies_needed.value.trim();
-  //   if (supplies_needed.length === 0) {
-  //     return (
-  //       <p className="input-error">Supplies needed are required</p>
-  //     );
-  //   } else if (supplies_needed.length < 2) {
-  //     return (
-  //       <p className="input-error">
-  //         Supplies needed must be at least 2 characters long
-  //       </p>
-  //     );
-  //   }
-  // }
-
-  // validateToolsNeeded() {
-  //   const tools_needed = this.state.tools_needed.value.trim();
-  //   if (tools_needed.length === 0) {
-  //     return (
-  //       <p className="input-error">Supplies needed are required</p>
-  //     );
-  //   } else if (tools_needed.length < 2) {
-  //     return (
-  //       <p className="input-error">
-  //         Supplies needed must be at least 2 characters long
-  //       </p>
-  //     );
-  //   }
-  // }
-
-
   componentDidMount() {
     // let currentUser = TokenService.getUserId();
     // console.log(currentUser);
@@ -136,28 +94,48 @@ export default class EditProject extends Component {
 
     let project_id = this.props.location.project_id;
 
-    // let project_id = this.props.match.params.project_id
-
-    console.log(project_id)
-    let getProjectSpecsUrl = `${config.API_ENDPOINT}/projects/${project_id}`
+    // console.log(project_id);
+    let getProjectSpecsUrl = `${config.API_ENDPOINT}/projects/${project_id}`;
 
     fetch(getProjectSpecsUrl)
-      .then(res => res.json())
-      .then(({project_name, delivery_date, supplies_needed, tools_needed, instructions, done}) => {
-        this.setState({
-          project_name: {value: project_name, touched: this.state.project_name.touched},
-          delivery_date: {value: delivery_date.slice(0, 10), touched: this.state.delivery_date.touched}, 
-          supplies_needed: {value: supplies_needed, touched: this.state.supplies_needed.touched},
-          tools_needed: {value: tools_needed, touched: this.state.tools_needed.touched},
-          instructions: {value: instructions, touched: this.state.instructions.touched},
-          done: {value: done, touched: this.state.done.touched},
-        })
-      })
+      .then((res) => res.json())
+      .then(
+        ({
+          project_name,
+          delivery_date,
+          supplies_needed,
+          tools_needed,
+          instructions,
+          done,
+        }) => {
+          this.setState({
+            project_name: {
+              value: project_name,
+              touched: this.state.project_name.touched,
+            },
+            delivery_date: {
+              value: delivery_date.slice(0, 10),
+              touched: this.state.delivery_date.touched,
+            },
+            supplies_needed: {
+              value: supplies_needed,
+              touched: this.state.supplies_needed.touched,
+            },
+            tools_needed: {
+              value: tools_needed,
+              touched: this.state.tools_needed.touched,
+            },
+            instructions: {
+              value: instructions,
+              touched: this.state.instructions.touched,
+            },
+            done: { value: done, touched: this.state.done.touched },
+          });
+        }
+      )
 
       .catch((error) => this.setState({ error }));
   }
-
-  
 
   updateProject = (event) => {
     // console.log('hello there')
@@ -172,7 +150,14 @@ export default class EditProject extends Component {
 
     let user_id = TokenService.getUserId();
 
-    let { project_name, delivery_date, supplies_needed, tools_needed, instructions, done } = data;
+    let {
+      project_name,
+      delivery_date,
+      supplies_needed,
+      tools_needed,
+      instructions,
+      done,
+    } = data;
 
     let payload = {
       user_id: user_id,
@@ -181,12 +166,9 @@ export default class EditProject extends Component {
       supplies_needed: supplies_needed,
       tools_needed: tools_needed,
       instructions: instructions,
-      done: done
+      done: done,
     };
-    console.log(payload);
-
-    //     console.log(this.props)
-
+    // console.log(payload);
 
     fetch(`${config.API_ENDPOINT}/projects/${this.props.location.project_id}`, {
       method: "PATCH",
@@ -195,22 +177,18 @@ export default class EditProject extends Component {
       },
       body: JSON.stringify(payload),
     })
-      // .then((response) => response.json())
       .then(() => {
         window.location = "/projects";
-        // this.props.history.push('/projects')
       })
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   render() {
     let showProjectSpecs = "";
     showProjectSpecs = (
       <div className="edit-project">
-        
-        
         <form className="edit-project-form" onSubmit={this.updateProject}>
           <h3>Update your project:</h3>
           <label htmlFor="project_name">project name:</label>
@@ -231,7 +209,7 @@ export default class EditProject extends Component {
             id="delivery_date"
             name="delivery_date"
             value={this.state.delivery_date.value}
-            onChange={(e) => this.changeDeliveryDate(e.target.value)}    
+            onChange={(e) => this.changeDeliveryDate(e.target.value)}
           />
           <label htmlFor="supplies_needed">supplies needed:</label>
           <input
@@ -240,11 +218,7 @@ export default class EditProject extends Component {
             name="supplies_needed"
             value={this.state.supplies_needed.value}
             onChange={(e) => this.changeSuppliesNeeded(e.target.value)}
-            // required
           />
-          {/* {this.state.supplies_needed.touched && (
-            <ValidationError message={this.validateSuppliesNeeded()} />
-          )} */}
           <label htmlFor="tools_needed">tools needed:</label>
           <input
             type="text"
@@ -252,11 +226,7 @@ export default class EditProject extends Component {
             name="tools_needed"
             value={this.state.tools_needed.value}
             onChange={(e) => this.changeToolsNeeded(e.target.value)}
-            // required
           />
-          {/* {this.state.tools_needed.touched && (
-            <ValidationError message={this.validateQuantity()} />
-          )} */}
           <label htmlFor="instructions">instructions:</label>
           <input
             type="text"
@@ -272,36 +242,34 @@ export default class EditProject extends Component {
             value={this.state.done.value}
             onChange={(e) => this.changeDone(e.target.value)}
             required
-            >
-              <option value="" disabled>
-                  choose project status
-                </option>
-                {this.state.done == "to-do myself" ? (
-                  <option value="to-do myself" selected>
-                  to-do myself
-                  </option>
-                ) : (
-                  <option value="to-do myself">to-do myself</option>
-                )}
-                {this.state.done == "doin' it myself" ? (
-                  <option value="doin' it myself" selected>
-                  doin' it myself
-                  </option>
-                ) : (
-                  <option value="doin' it myself">doin' it myself</option>
-                )}
-                {this.state.done == "DONE it myself!" ? (
-                  <option value="DONE it myself!" selected>
-                    DONE it myself!
-                  </option>
-                ) : (
-                  <option value="DONE it myself!">
-                    DONE it myself!
-                  </option>
-                )}
-            </select>            
+          >
+            <option value="" disabled>
+              choose project status
+            </option>
+            {this.state.done == "to-do myself" ? (
+              <option value="to-do myself" selected>
+                to-do myself
+              </option>
+            ) : (
+              <option value="to-do myself">to-do myself</option>
+            )}
+            {this.state.done == "doin' it myself" ? (
+              <option value="doin' it myself" selected>
+                doin' it myself
+              </option>
+            ) : (
+              <option value="doin' it myself">doin' it myself</option>
+            )}
+            {this.state.done == "DONE it myself!" ? (
+              <option value="DONE it myself!" selected>
+                DONE it myself!
+              </option>
+            ) : (
+              <option value="DONE it myself!">DONE it myself!</option>
+            )}
+          </select>
           <div className="buttons">
-          <NavLink to="/projects">
+            <NavLink to="/projects">
               <button>
                 <FontAwesomeIcon icon={faStepBackward} /> Cancel
               </button>

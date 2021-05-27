@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Nav from "../Nav";
-import config from "../config"
-import TokenService from "../services/token-service"
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import config from "../config";
+import TokenService from "../services/token-service";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Supplies extends Component {
   constructor(props) {
@@ -16,13 +16,12 @@ class Supplies extends Component {
   }
 
   componentDidMount() {
-
     let currentUser = TokenService.getUserId();
     // console.log(currentUser)
 
     //if the user is not logged in, send him to landing page
     if (!TokenService.hasAuthToken()) {
-      window.location = '/'
+      window.location = "/";
     }
     let mySuppliesUrl = `${config.API_ENDPOINT}/supplies/my-supplies/${currentUser}`;
 
@@ -30,24 +29,20 @@ class Supplies extends Component {
       .then((supplies) => supplies.json())
       .then((supplies) => {
         return supplies.sort((a, b) => {
-          let result = 0
-          if(a.supply_name > b.supply_name) return 1
-          if(a.supply_name < b.supply_name) return -1
-          return result
-        })
+          let result = 0;
+          if (a.supply_name > b.supply_name) return 1;
+          if (a.supply_name < b.supply_name) return -1;
+          return result;
+        });
       })
       .then((supplies) => {
-        // console.log(supplies)
         this.setState({
           suppliesByUserId: supplies,
-        })
-        // console.log(this.state);
+        });
       })
 
       .catch((error) => this.setState({ error }));
-
   }
-
 
   deleteSupply(event) {
     event.preventDefault();
@@ -77,65 +72,64 @@ class Supplies extends Component {
 
   render() {
     const showSupplies = this.state.suppliesByUserId.map((supply, key) => {
-      // console.log(supply)
       return (
         <div className="supply-item" key={key}>
           <h3>{supply.supply_name}</h3>
           <div className="specs">
             <div className="supply-specs-column">
-              <p>Details: <br /> {supply.details}</p>
+              <p>
+                Details: <br /> {supply.details}
+              </p>
             </div>
             <div className="supply-specs-column">
-              <p>Quantity: <br /> {supply.quantity}</p>
+              <p>
+                Quantity: <br /> {supply.quantity}
+              </p>
             </div>
-          </div>        
-        
-        <div className="buttons">
-          <NavLink to={
-            {pathname: "/edit-supply",
-            supply_id: supply.id}
-          }>
-            <button>Edit</button>
-          </NavLink>
-          <form className="delete" onSubmit={this.deleteSupply}>
-            <input type="hidden" name="supply_id" defaultValue={supply.id}></input>          
-            <button type="submit" className="delete">
-              Delete
-            </button>
-          </form>
           </div>
-        </div>       
-        
+
+          <div className="buttons">
+            <NavLink to={{ pathname: "/edit-supply", supply_id: supply.id }}>
+              <button>Edit</button>
+            </NavLink>
+            <form className="delete" onSubmit={this.deleteSupply}>
+              <input
+                type="hidden"
+                name="supply_id"
+                defaultValue={supply.id}
+              ></input>
+              <button type="submit" className="delete">
+                Delete
+              </button>
+            </form>
+          </div>
+        </div>
       );
-    })
+    });
 
     return (
-      <div className="supplies" >
+      <div className="supplies">
         <div className="nested-nav">
           <div className="page-heading">
             <h2 className="page-title">My DIY Supplies</h2>
           </div>
           <div className="page-heading">
             <Nav />
-        </div>
+          </div>
 
-        <div className="supply-items">
-          {showSupplies}
-        </div>
-        
-        <div>
+          <div className="supply-items">{showSupplies}</div>
 
-          <button>
-          <NavLink to="/add-supply">
-          <FontAwesomeIcon icon={faPlus} /> Add Supply
-          </NavLink>
-        </button></div>
+          <div>
+            <button>
+              <NavLink to="/add-supply">
+                <FontAwesomeIcon icon={faPlus} /> Add Supply
+              </NavLink>
+            </button>
+          </div>
+        </div>
       </div>
-        </div>
-    )
+    );
   }
 }
-    
-    
 
 export default Supplies;

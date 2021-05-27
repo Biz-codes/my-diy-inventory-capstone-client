@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Nav from "../Nav";
-import config from "../config"
-import TokenService from "../services/token-service"
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import config from "../config";
+import TokenService from "../services/token-service";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Tools extends Component {
   constructor(props) {
@@ -16,13 +16,12 @@ class Tools extends Component {
   }
 
   componentDidMount() {
-
-    let currentUser = TokenService.getUserId();
-    console.log(currentUser)
+    // let currentUser = TokenService.getUserId();
+    // console.log(currentUser)
 
     //if the user is not logged in, send him to landing page
     if (!TokenService.hasAuthToken()) {
-      window.location = '/'
+      window.location = "/";
     }
     let myToolsUrl = `${config.API_ENDPOINT}/tools/my-tools/${currentUser}`;
 
@@ -30,24 +29,20 @@ class Tools extends Component {
       .then((tools) => tools.json())
       .then((tools) => {
         return tools.sort((a, b) => {
-          let result = 0
-          if(a.tool_name > b.tool_name) return 1
-          if(a.tool_name < b.tool_name) return -1
-          return result
-        })
+          let result = 0;
+          if (a.tool_name > b.tool_name) return 1;
+          if (a.tool_name < b.tool_name) return -1;
+          return result;
+        });
       })
       .then((tools) => {
-        console.log(tools)
         this.setState({
           toolsByUserId: tools,
         });
-        console.log(this.state);
       })
 
       .catch((error) => this.setState({ error }));
-
   }
-
 
   deleteTool(event) {
     event.preventDefault();
@@ -60,10 +55,9 @@ class Tools extends Component {
       data[value[0]] = value[1];
     }
 
-    console.log(data);
+    // console.log(data);
 
     let { tool_id } = data;
-    console.log(tool_id);
 
     fetch(`${config.API_ENDPOINT}/tools/${tool_id}`, {
       method: "DELETE",
@@ -82,57 +76,58 @@ class Tools extends Component {
           <h3>{tool.tool_name}</h3>
           <div className="specs">
             <div className="tool-specs-column">
-              <p>Details: <br /> {tool.details}</p>
+              <p>
+                Details: <br /> {tool.details}
+              </p>
             </div>
             <div className="tool-specs-column">
-              <p>Quantity: <br /> {tool.quantity}</p>
+              <p>
+                Quantity: <br /> {tool.quantity}
+              </p>
             </div>
-          </div>        
-        <div className="buttons">
-          <NavLink to={
-            {pathname: "/edit-tool",
-            tool_id: tool.id}
-          }>
-            <button>Edit</button>
-          </NavLink>
-          <form className="delete" onSubmit={this.deleteTool}>
-            <input type="hidden" name="tool_id" defaultValue={tool.id}></input>          
-            <button type="submit" className="delete">
-              Delete
-            </button>
-          </form>
+          </div>
+          <div className="buttons">
+            <NavLink to={{ pathname: "/edit-tool", tool_id: tool.id }}>
+              <button>Edit</button>
+            </NavLink>
+            <form className="delete" onSubmit={this.deleteTool}>
+              <input
+                type="hidden"
+                name="tool_id"
+                defaultValue={tool.id}
+              ></input>
+              <button type="submit" className="delete">
+                Delete
+              </button>
+            </form>
+          </div>
         </div>
-          
-        </div>       
-        
       );
-    })
+    });
 
     return (
-      <div className="tools" >
+      <div className="tools">
         <div className="nested-nav">
           <div className="page-heading">
             <h2 className="page-title">My DIY Tools</h2>
           </div>
           <div className="page-heading">
             <Nav />
-        </div>
+          </div>
 
-        <div className="tool-items">
-          {showTools}
-        </div>
-        
-        <div>
+          <div className="tool-items">{showTools}</div>
 
-          <button>
-          <NavLink to="/add-tool">
-          <FontAwesomeIcon icon={faPlus} /> Add tool
-          </NavLink>
-        </button></div>
+          <div>
+            <button>
+              <NavLink to="/add-tool">
+                <FontAwesomeIcon icon={faPlus} /> Add tool
+              </NavLink>
+            </button>
+          </div>
+        </div>
       </div>
-        </div>
-    )
-  }   
+    );
+  }
 }
 
 export default Tools;

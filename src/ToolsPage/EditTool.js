@@ -3,35 +3,24 @@ import config from "../config";
 import { NavLink } from "react-router-dom";
 import TokenService from "../services/token-service";
 import ValidationError from "../ValidationError";
-import { faSave, faStepBackward } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSave, faStepBackward } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class EditTool extends Component {
-  // constructor(props) {
-  //   console.log("hello");
-  //   super(props);
-
-
-      // console.log(props.location.tool_id)
-    
-    // this.state = {
-      state = {
-  
-
-      tool_name: {
-        value: "",
-        touched: false,
-      },
-      details: {
-        value: "",
-        touched: false,
-      },
-      quantity: {
-        value: "",
-        touched: false,
-      },
-    };
-  // }
+  state = {
+    tool_name: {
+      value: "",
+      touched: false,
+    },
+    details: {
+      value: "",
+      touched: false,
+    },
+    quantity: {
+      value: "",
+      touched: false,
+    },
+  };
 
   changeToolName(tool_name) {
     this.setState({
@@ -97,24 +86,23 @@ export default class EditTool extends Component {
 
     let tool_id = this.props.location.tool_id;
 
-    // let tool_id = this.props.match.params.tool_id
-
-    let getToolSpecsUrl = `${config.API_ENDPOINT}/tools/${tool_id}`
+    let getToolSpecsUrl = `${config.API_ENDPOINT}/tools/${tool_id}`;
 
     fetch(getToolSpecsUrl)
-      .then(res => res.json())
-      .then(({tool_name, details, quantity}) => {
+      .then((res) => res.json())
+      .then(({ tool_name, details, quantity }) => {
         this.setState({
-          tool_name: {value: tool_name, touched: this.state.tool_name.touched}, 
-          details: {value: details, touched: this.state.details.touched},
-          quantity: {value: quantity, touched: this.state.quantity.touched},
-        })
+          tool_name: {
+            value: tool_name,
+            touched: this.state.tool_name.touched,
+          },
+          details: { value: details, touched: this.state.details.touched },
+          quantity: { value: quantity, touched: this.state.quantity.touched },
+        });
       })
 
       .catch((error) => this.setState({ error }));
   }
-
-  
 
   updateTool = (event) => {
     // console.log('hello there')
@@ -137,10 +125,7 @@ export default class EditTool extends Component {
       details: details,
       quantity: quantity,
     };
-    console.log(payload);
-
-        // console.log(this.props)
-
+    // console.log(payload);
 
     fetch(`${config.API_ENDPOINT}/tools/${this.props.location.tool_id}`, {
       method: "PATCH",
@@ -149,24 +134,20 @@ export default class EditTool extends Component {
       },
       body: JSON.stringify(payload),
     })
-      // .then((response) => response.json())
       .then(() => {
         window.location = "/tools";
-        // this.props.history.push('/tools')
       })
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   render() {
     let showToolSpecs = "";
     showToolSpecs = (
       <div className="edit-tool">
-        
-        
         <form className="edit-tool-form" onSubmit={this.updateTool}>
-          <h3 >Update this tool:</h3>
+          <h3>Update this tool:</h3>
           <label htmlFor="tool_name">tool name:</label>
           <input
             type="text"
@@ -204,7 +185,7 @@ export default class EditTool extends Component {
             <ValidationError message={this.validateQuantity()} />
           )}
           <div className="buttons">
-          <NavLink to="/tools">
+            <NavLink to="/tools">
               <button>
                 <FontAwesomeIcon icon={faStepBackward} /> Cancel
               </button>
