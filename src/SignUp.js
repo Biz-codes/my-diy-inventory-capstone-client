@@ -164,7 +164,7 @@ export default class SignUp extends Component {
                         }
                         required
                     />
-                    {this.state.username.touched && (
+                    {this.state.name.touched && (
                             <ValidationError
                                 message={this.validateName()}
                             />
@@ -182,10 +182,10 @@ export default class SignUp extends Component {
                         required
                     />
                     {this.state.username.touched && (
-                        <ValidationError
-                            message={this.validateUsername()}
-                        />
-                    )}
+                            <ValidationError
+                                message={this.validateUsername()}
+                            />
+                        )}
                 
                     <label htmlFor="password">password:</label>
                     <input 
