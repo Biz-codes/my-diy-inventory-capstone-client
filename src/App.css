@@ -6,57 +6,55 @@ Basic rules to write CSS
 - write the css styles to define for the parent (outside) container and THEN the children (inside containers) of that parent and THEN the children (inside containers) of the child above
 */
 
-
 /* -------------------------------------
 CSS reset
 Is a short set of CSS rules that resets the styling of all HTML elements to a consistent baseline so the website will look the same on all browsers
 */
 
 * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    /* font-size: 100%; */
-    /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
-    box-sizing: border-box;
-    /*reset Chrome user agent styles*/
-    -webkit-margin-before: 0px;
-    -webkit-margin-after: 0px;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-before: 0px;
-    -webkit-padding-after: 0px;
-    -webkit-padding-start: 0px;
-    -webkit-padding-end: 0px;
-    /*reset Firefox user agent styles*/
-    -moz-margin-before: 0px;
-    -moz-margin-after: 0px;
-    -moz-margin-start: 0px;
-    -moz-margin-end: 0px;
-    -moz-padding-before: 0px;
-    -moz-padding-after: 0px;
-    -moz-padding-start: 0px;
-    -moz-padding-end: 0px;
-    /*reset Internet Explorer user agent styles*/
-    -ms-margin-before: 0px;
-    -ms-margin-after: 0px;
-    -ms-margin-start: 0px;
-    -ms-margin-end: 0px;
-    -ms-padding-before: 0px;
-    -ms-padding-after: 0px;
-    -ms-padding-start: 0px;
-    -ms-padding-end: 0px;
-    /*reset Opera user agent styles*/
-    -o-margin-before: 0px;
-    -o-margin-after: 0px;
-    -o-margin-start: 0px;
-    -o-margin-end: 0px;
-    -o-padding-before: 0px;
-    -o-padding-after: 0px;
-    -o-padding-start: 0px;
-    -o-padding-end: 0px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  /* font-size: 100%; */
+  /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
+  box-sizing: border-box;
+  /*reset Chrome user agent styles*/
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-before: 0px;
+  -webkit-padding-after: 0px;
+  -webkit-padding-start: 0px;
+  -webkit-padding-end: 0px;
+  /*reset Firefox user agent styles*/
+  -moz-margin-before: 0px;
+  -moz-margin-after: 0px;
+  -moz-margin-start: 0px;
+  -moz-margin-end: 0px;
+  -moz-padding-before: 0px;
+  -moz-padding-after: 0px;
+  -moz-padding-start: 0px;
+  -moz-padding-end: 0px;
+  /*reset Internet Explorer user agent styles*/
+  -ms-margin-before: 0px;
+  -ms-margin-after: 0px;
+  -ms-margin-start: 0px;
+  -ms-margin-end: 0px;
+  -ms-padding-before: 0px;
+  -ms-padding-after: 0px;
+  -ms-padding-start: 0px;
+  -ms-padding-end: 0px;
+  /*reset Opera user agent styles*/
+  -o-margin-before: 0px;
+  -o-margin-after: 0px;
+  -o-margin-start: 0px;
+  -o-margin-end: 0px;
+  -o-padding-before: 0px;
+  -o-padding-after: 0px;
+  -o-padding-start: 0px;
+  -o-padding-end: 0px;
 }
-
 
 /* -------------------------------------
 General styles (General Module, wrapping around the modules below)
@@ -68,9 +66,8 @@ font-family: 'Caveat', cursive;
 font-family: 'Special Elite', cursive; 
 font-family: 'Catamaran', sans-serif;*/
 
-
 body {
-  font-family: 'Annie Use Your Telescope', sans-serif;
+  font-family: "Annie Use Your Telescope", sans-serif;
   font-size: 30px;
   color: black;
   font-weight: bold;
@@ -88,7 +85,6 @@ a {
 
 a:hover {
   color: #bd1e0f;
-  
 }
 
 h1,
@@ -96,23 +92,23 @@ h2,
 h3,
 h5,
 h6 {
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
 }
 
 h4 {
-  font-family: 'Annie Use Your Telescope', sans-serif;
+  font-family: "Annie Use Your Telescope", sans-serif;
 }
 
 input,
 select,
 button {
-    border: 2px solid black;
-    padding: 10px 25px;
-    margin: 5px;
-    border-radius: 5px;
-    color: black;
-    font-family: 'Special Elite', cursive;
-    font-size: 75%;
+  border: 2px solid black;
+  padding: 10px 25px;
+  margin: 5px;
+  border-radius: 5px;
+  color: black;
+  font-family: "Special Elite", cursive;
+  font-size: 75%;
 }
 
 .buttons {
@@ -133,14 +129,13 @@ button:hover {
   color: #bd1e0f;
 }
 
-button[type=submit] {
+button[type="submit"] {
   border: 2px solid black;
 }
 
-button[type=submit]:hover {
+button[type="submit"]:hover {
   color: #bd1e0f;
 }
-
 
 label {
   display: block;
@@ -160,9 +155,6 @@ https://www.w3schools.com/css/css_float_clear.asp
   clear: both;
   display: table;
 }
-
-
-
 
 /* -------------------------------------
 Header styles (Main Module)
@@ -193,12 +185,12 @@ h2 {
 }
 
 h3 {
-  font-size: 90%
+  font-size: 90%;
 }
 
 h4 {
   font-size: 150%;
-  color: #E64F0A;
+  color: #e64f0a;
 }
 
 .hidden {
@@ -219,12 +211,12 @@ div {
 /* Landing styles */
 
 div.landing {
-  position: relative; 
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
 }
 
 div.landing::before {
@@ -236,14 +228,14 @@ div.landing::before {
   -o-background-size: cover;
   opacity: 0.5;
   position: absolute;
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }
 
 div.hook {
-  position: relative
+  position: relative;
 }
 
 div.landing-buttons {
@@ -261,7 +253,7 @@ button.demo-button {
   padding: 50px;
   font-size: 200%;
   border-radius: 10px;
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
 }
 
 button.landing-button {
@@ -271,12 +263,12 @@ button.landing-button {
   padding: 40px;
   font-size: 150%;
   border-radius: 10px;
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
 }
 
 /* Dashboard, Supplies, Tools, and Projects pages */
 
-.nested-nav {  
+.nested-nav {
   display: flex;
   padding: 0;
   flex-direction: column;
@@ -293,16 +285,13 @@ button.landing-button {
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-}  
-
-
+}
 
 .nav-icons {
   display: flex;
   list-style-type: none;
   text-align: left;
   font-size: 20px;
-  
 }
 
 .nav-icons li {
@@ -311,7 +300,6 @@ button.landing-button {
 }
 
 .nav-icons li a {
-  
   color: #ebe6e2;
 }
 
@@ -327,10 +315,10 @@ button.landing-button {
   flex-direction: column;
 }
 
-div.supplies-entrance, 
+div.supplies-entrance,
 div.tools-entrance,
 div.projects-entrance {
-  position: relative; 
+  position: relative;
   height: 15vh;
   display: flex;
   align-items: center;
@@ -346,12 +334,12 @@ div.supplies-entrance::before {
   -moz-background-size: cover;
   -o-background-size: cover;
   position: absolute;
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
   border-radius: 20px;
-  border: 2px solid #0ad1f0
+  border: 2px solid #0ad1f0;
 }
 
 div.tools-entrance::before {
@@ -362,12 +350,12 @@ div.tools-entrance::before {
   -moz-background-size: cover;
   -o-background-size: cover;
   position: absolute;
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
   border-radius: 20px;
-  border: 2px solid #f0530a
+  border: 2px solid #f0530a;
 }
 
 div.projects-entrance::before {
@@ -378,12 +366,12 @@ div.projects-entrance::before {
   -moz-background-size: cover;
   -o-background-size: cover;
   position: absolute;
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
   border-radius: 20px;
-  border: 2px solid #59eca3
+  border: 2px solid #59eca3;
 }
 
 button.entrance-button {
@@ -391,12 +379,12 @@ button.entrance-button {
   background-color: #ebe6e2;
   padding: 20px;
   font-size: 100%;
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
   border-radius: 10px;
   width: 175px;
 }
 
-/* Supplies styles */
+/* Supplies, Tools and Projects styles */
 
 div.supplies,
 div.add-supply,
@@ -404,7 +392,7 @@ div.edit-supply {
   background-image: url(sewing-supplies.jpg);
 }
 
-div.tools, 
+div.tools,
 div.add-tool,
 div.edit-tool {
   background-image: url(carpenter-tools.jpg);
@@ -413,7 +401,7 @@ div.edit-tool {
 div.projects,
 div.add-project,
 div.edit-project {
-  background-image: url(garden-project.jpg)
+  background-image: url(garden-project.jpg);
 }
 
 .add-supply-form,
@@ -433,7 +421,7 @@ div.edit-project {
   flex-direction: row;
   flex-wrap: wrap;
   margin-right: 20px;
-  width: 100%
+  width: 100%;
 }
 
 .supply-item,
@@ -450,11 +438,11 @@ div.edit-project {
 }
 
 .tool-item {
-  border: 3px solid #f0530a
+  border: 3px solid #f0530a;
 }
 
 .project-item {
-  border: 3px solid #59eca3
+  border: 3px solid #59eca3;
 }
 
 div.specs,
@@ -471,13 +459,11 @@ div.project-specs-column {
 }
 
 div.supply-specs-column {
-  border: 1px dashed #0891A6;
-  
+  border: 1px dashed #0891a6;
 }
 
 div.tool-specs-column {
-  border: 1px dashed #E64F0A;
-  
+  border: 1px dashed #e64f0a;
 }
 
 div.project-specs-column {
@@ -498,7 +484,7 @@ footer {
 }
 
 footer ul li {
-  display: inline-block;  
+  display: inline-block;
   width: auto;
   padding: 5px 10px;
   font-size: 150%;
@@ -514,138 +500,126 @@ footer a:hover {
   color: #0ad1f0;
 }
 
-
 /* -------------------------------------
 
 /* mobile first approach = (the website was built initialy for mobiles and it will be adapted for desktop)
 This is the ideal way to built websites because it is much easier to adapt from a small screen and low computing power (mobiles) to a large screen and high computing power (desktops)
 */
 
-
 /*iPhone portrait*/
 @media only screen and (min-width: 320px) {
-    body {
-        /* border: 3px solid purple; */
-        font-size: 20px;
-    }
+  body {
+    /* border: 3px solid purple; */
+    font-size: 20px;
+  }
 
-    header {
-      font-size: 90%;
-    }
+  header {
+    font-size: 90%;
+  }
 
-    /* input {
+  /* input {
       width: 150px;
     } */
 
-    
+  button {
+    width: 100px;
+  }
 
-    button {
-      width: 100px;
-    }
+  div.landing-buttons {
+    flex-direction: column;
+  }
 
-    div.landing-buttons {
-      flex-direction: column;
-    }
+  button.demo-button {
+    font-size: 150%;
+    padding: 30px;
+  }
 
-    button.demo-button {
-      font-size: 150%;
-      padding: 30px;
-    }
+  button.landing-button {
+    font-size: 120%;
+    padding: 30px;
+  }
 
-    button.landing-button {
-      font-size: 120%;
-      padding: 30px;
-    }
+  div.supplies-entrance,
+  div.tools-entrance,
+  div.projects-entrance {
+    height: 30vh;
+  }
 
-    
-    div.supplies-entrance, 
-    div.tools-entrance,
-    div.projects-entrance {
-      height: 30vh;
+  button.entrance-button {
+    width: 150px;
+  }
 
-    }
+  .nav-icons {
+    flex-direction: column;
+  }
 
-    button.entrance-button {
-      width: 150px;
-    }
+  .supply-items,
+  .tool-items,
+  .project-items {
+    flex-direction: column;
+  }
 
-    .nav-icons {
-      flex-direction: column;
-      
-    }
+  .supply-item,
+  .tool-item,
+  .project-item {
+    width: 100%;
+  }
 
-    .supply-items,
-    .tool-items,
-    .project-items {
-      flex-direction: column;
-    }
-
-    .supply-item,
-    .tool-item,
-    .project-item {
-      width: 100%
-    }
-
-    div.project-specs {
-      flex-direction: column;
-    }
-
+  div.project-specs {
+    flex-direction: column;
+  }
 }
 
 /*iPhone landscape*/
 @media only screen and (min-width: 480px) {
-    body {
-        /* border: 3px solid green; */
-        font-size: 24px;
-    }
+  body {
+    /* border: 3px solid green; */
+    font-size: 24px;
+  }
 
-    
-
-    button {
-      width: 125px;
-    }
+  button {
+    width: 125px;
+  }
 }
 
 /*Android landscape*/
 @media only screen and (min-width: 640px) {
-    body {
-        /* border: 3px solid pink; */
-        font-size: 26px;
-    }
+  body {
+    /* border: 3px solid pink; */
+    font-size: 26px;
+  }
 
-    div.page-heading {
-      margin: 10px;
-    }
+  div.page-heading {
+    margin: 10px;
+  }
 
-    button.entrance-button {
-      width: 175px;
-    }
-    
-    div.project-specs {
-      flex-direction: row;
-    }
-    
+  button.entrance-button {
+    width: 175px;
+  }
+
+  div.project-specs {
+    flex-direction: row;
+  }
 }
 
 /*iPad potrait*/
 @media only screen and (min-width: 768px) {
-    body {
-        /* border: 3px solid red; */
-    }
+  body {
+    /* border: 3px solid red; */
+  }
 
-    div.landing-buttons {
-      flex-direction: row;
-    }
+  div.landing-buttons {
+    flex-direction: row;
+  }
 
-    .inventory-buttons {
-      flex-direction: row;
-    }
+  .inventory-buttons {
+    flex-direction: row;
+  }
 
-
-.nav-icons {
-      flex-direction: row;
-      justify-content: space-between;
-      /* font-size: 18px; */
+  .nav-icons {
+    flex-direction: row;
+    justify-content: space-between;
+    /* font-size: 18px; */
   }
 
   .supply-items,
@@ -655,22 +629,22 @@ This is the ideal way to built websites because it is much easier to adapt from 
 
   .supply-item,
   .tool-item {
-    width: 45%
+    width: 45%;
   }
 }
 
 /*iPad landscape / small laptop*/
 @media only screen and (min-width: 1024px) {
-    body {
-        /* border: 3px solid blue; */
-        font-size: 30px;
-    }
+  body {
+    /* border: 3px solid blue; */
+    font-size: 30px;
+  }
 
   header h1 {
     font-size: 250%;
   }
 
-  button.demo-button, 
+  button.demo-button,
   button.landing-button {
     width: 250px;
     margin: 20px;
@@ -679,7 +653,6 @@ This is the ideal way to built websites because it is much easier to adapt from 
   .nav-icons {
     font-size: 20px;
   }
-
 }
 
 /*large desktop*/

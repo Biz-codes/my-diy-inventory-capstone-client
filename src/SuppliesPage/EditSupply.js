@@ -76,7 +76,7 @@ export default class EditSupply extends Component {
   }
 
   componentDidMount() {
-    // let currentUser = TokenService.getUserId();
+    let currentUser = TokenService.getUserId();
     // console.log(currentUser);
 
     //if the user is not logged in, send him to landing page
