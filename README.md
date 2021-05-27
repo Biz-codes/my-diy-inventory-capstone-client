@@ -90,19 +90,19 @@ Landing Page
 Sign Up Page
 ![Sign Up Page](/github-images/wireframes/sign-up-page.jpg)
 Log In Page
-![Log In Page](/github-images/wireframes/log-in-page.jpg)
+![Log In Page](/github-images/wireframes/log-in-page.jpeg)
 "My DIY Dashboard"
 !["My DIY Dashboard"](/github-images/wireframes/dashboard.jpg)
 "My DIY Supplies" & "My DIY Tools"
-!["My DIY Supplies" & "My DIY Tools"](/github-images/wireframes/supplies-tools.jpg)
+!["My DIY Supplies" & "My DIY Tools"](/github-images/wireframes/supplies-tools.jpeg)
 "My DIY Projects" 
 !["My DIY Projects"](/github-images/wireframes/projects.jpg)
 Add Supply & Add Tool
-![Add Supply & Add Tool](/github-images/wireframes/add-supply-tool.jpg)
+![Add Supply & Add Tool](/github-images/wireframes/add-supply-tool.jpeg)
 Add Project
 ![Add Project](/github-images/wireframes/add-project.jpg)
 Edit Supply & Edit Tool
-![Edit Supply & Edit Tool](/github-images/wireframes/edit-supply-tool.jpg)
+![Edit Supply & Edit Tool](/github-images/wireframes/edit-supply-tool.jpeg)
 Edit Project
 ![Edit Project](/github-images/wireframes/edit-project.jpg)
 
@@ -214,7 +214,7 @@ Landing Page
 ![Landing Page](/github-images/screenshots/landing-page.png)
 Sign Up Page
 ![Sign Up Page](/github-images/screenshots/sign-up-page.png)
-Sign Up Page
+Log In Page
 ![Log In Page](/github-images/screenshots/log-in-page.png)
 "My DIY Dashboard"
 !["My DIY Dashboard"](/github-images/screenshots/dashboard.png)
