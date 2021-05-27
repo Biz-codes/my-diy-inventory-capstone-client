@@ -12,8 +12,8 @@ Doin' It Yourself!!!
 
 
 
-### 1. Working Prototype (to do now)
-(Example) You can access a working prototype of the React app here: https://my-diy-inventory.vercel.app/ and Node app here: https://my-diy-inventory.herokuapp.com/
+### 1. Working Prototype
+You can access a working prototype of the React app here: https://my-diy-inventory.vercel.app/ and Node app here: https://my-diy-inventory.herokuapp.com/
 
 
 
@@ -161,7 +161,7 @@ Edit Project
 
 
 
-### 8. API Documentation (to do now)
+### 8. API Documentation
 #### API Overview
 ```text
     /api
@@ -172,6 +172,33 @@ Edit Project
     ├── /users
     │   └── POST
     │       └── /
+    ├── /supplies
+    |   └── GET
+    |       ├── /:user_id
+    |   └── POST
+    |       ├── /
+    |   └── DELETE
+    |       ├── /:supply_id
+    |   └── PATCH
+    |       └── /:supply_id
+    ├── /tools
+    |   └── GET
+    |       ├── /:user_id
+    |   └── POST
+    |       ├── /
+    |   └── DELETE
+    |       ├── /:supply_id
+    |   └── PATCH
+    |       └── /:supply_id
+    ├── projects
+    |   └── GET
+    |       ├── /:user_id
+    |   └── POST
+    |       ├── /
+    |   └── DELETE
+    |       ├── /:supply_id
+    |   └── PATCH
+    |       └── /:supply_id
 ```
 
 ##### POST `/api/auth/login`
@@ -185,8 +212,8 @@ Edit Project
 
     // res.body
     {
-    "authToken": String,
-    "userId": 4
+        "authToken": String,
+        "userId": 4
     }
 ```
 
@@ -194,17 +221,271 @@ Edit Project
 ```js
     // req.body
     {
-        "user_name": "demo@gmail.com",
-        "password": "123456"
+        "name": "Tin Woodsman",
+        "password": "Fabulous1",
+        "username": "no-heart@gmail.com"
     }
 
 
     // res.body
     {
-        "id": 1,
-        "user_name": "demo@gmail.com"
+        "id": 10,
+        "name": "Tin Woodsman",
+        "username": "no-heart@gmail.com"
     }
 ```
+
+##### GET `/api/supplies/:user_id`
+```js
+    // req.query
+        id: 2
+
+    // res.body
+    [
+        {
+            "id": 1,
+            "user_id": 2,
+            "supply_name": "fabric - cotton - jersey knit",
+            "details": "blue, yards",
+            "quantity": 3
+        },
+        {
+            "id": 4,
+            "user_id": 2,
+            "supply_name": "thread",
+            "details": "green, spools",
+            "quantity": 1
+        },
+        {
+            "id": 2,
+            "user_id": 2,
+            "supply_name": "nails",
+            "details": "...",
+            "quantity": 50
+        }
+    ]
+```
+
+##### POST `/api/supplies/`
+```js
+    // req.body
+    {
+        "user_id": 3,
+        "supply_name": "thread",
+        "details": "green, spools",
+        "quantity": 1
+    }
+
+
+    // res.body
+    {
+        "id": 20,
+        "user_id": 3,
+        "supply_name": "thread",
+        "details": "green, spools",
+        "quantity": 1
+    }
+```
+
+##### DELETE `/api/supplies/:supply_id`
+```js
+    // req.query
+    id: 3
+
+    // res.body
+    
+```
+
+##### PATCH `/api/supplies/:supply_id`
+```js
+    // req.body
+    {
+        "user_id": 2,
+        "supply_id": "dirt",
+        "details": "moo mix",
+        "quantity": 2
+    }
+    // res.body
+
+```
+
+##### GET `/api/tools/:user_id`
+```js
+    // req.query
+        id: 2
+
+    // res.body
+    [
+        {
+            "id": 2,
+            "user_id": 2,
+            "tool_name": "paintbrush",
+            "details": "large",
+            "quantity": 10
+        },
+        {
+            "id": 3,
+            "user_id": 2,
+            "tool_name": "sandpaper",
+            "details": "fine",
+            "quantity": 5
+        },
+        {
+            "id": 1,
+            "user_id": 2,
+            "tool_name": "hammer",
+            "details": "small, blue",
+            "quantity": 2
+        }
+    ]
+```
+
+##### POST `/api/tools/`
+```js
+    // req.body
+    {
+        "user_id": 3,
+        "tool_name": "origami paper",
+        "details": "multicolored sheets",
+        "quantity": 30
+    }
+
+
+    // res.body
+    {
+        "id": 14,
+        "user_id": 3,
+        "tool_name": "origami paper",
+        "details": "multicolored sheets",
+        "quantity": 30
+    }
+```
+
+##### DELETE `/api/tools/:tool_id`
+```js
+    // req.query
+    id: 5
+
+    // res.body
+    
+```
+
+##### PATCH `/api/tools/:tool_id`
+```js
+    // req.body
+    {
+        "user_id": 2,
+        "tool_name": "hammer",
+        "details": "small, blue",
+        "quantity": 3
+    }
+    // res.body
+
+```
+
+##### GET `/api/projects/:user_id`
+```js
+    // req.query
+        id: 2
+
+    // res.body
+    [
+        {
+            "id": 3,
+            "user_id": 3,
+            "project_name": "Raised Bed Garden",
+            "supplies_needed": "wood, screws, chicken wire",
+            "tools_needed": "drill, wire cutters",
+            "instructions": "1. Cut the boards, 2. Screw them together. 3. put dirt in.",
+            "delivery_date": "2021-05-02T00:00:00.000Z",
+            "done": "DONE it myself!"
+        },
+        {
+            "id": 5,
+            "user_id": 3,
+            "project_name": "Stormy Pants",
+            "supplies_needed": "blue thread, jersey knit cotton, pattern",
+            "tools_needed": "marking pen, pins, scissors, sewing machine, sewing machine needle",
+            "instructions": "cut the pattern and sew",
+            "delivery_date": "2021-09-30T00:00:00.000Z",
+            "done": "to-do myself"
+        },
+        {
+            "id": 1,
+            "user_id": 3,
+            "project_name": "Beehive shelves",
+            "supplies_needed": "wood, screws",
+            "tools_needed": "saw, ruler",
+            "instructions": "Cut, screw and build",
+            "delivery_date": "2021-05-14T00:00:00.000Z",
+            "done": "doin' it myself"
+        },
+        {
+            "id": 2,
+            "user_id": 3,
+            "project_name": "Herb garden",
+            "supplies_needed": "seeds, dirt",
+            "tools_needed": "shovel, trowel",
+            "instructions": "plant",
+            "delivery_date": "2021-05-15T00:00:00.000Z",
+            "done": "DONE it myself!"
+        }
+    ]
+```
+
+##### POST `/api/projects/`
+```js
+    // req.body
+    {
+        "user_id": 4,
+        "project_name": "Stormy Pants",
+        "supplies_needed": "blue thread, jersey knit cotton, pattern",
+        "tools_needed": "marking pen, pins, scissors, sewing machine, sewing machine needle",
+        "instructions": "...",
+        "delivery_date": "2021-09-30T04:00:00.000Z",
+        "done": "to-do myself"
+    }
+
+
+    // res.body
+    {
+        "id": 10,
+        "user_id": 4,
+        "project_name": "Stormy Pants",
+        "supplies_needed": "blue thread, jersey knit cotton, pattern",
+        "tools_needed": "marking pen, pins, scissors, sewing machine, sewing machine needle",
+        "instructions": "...",
+        "delivery_date": "2021-09-30T04:00:00.000Z",
+        "done": "to-do myself"
+    }
+```
+
+##### DELETE `/api/project/:project_id`
+```js
+    // req.query
+    id: 3
+
+    // res.body
+    
+```
+
+##### PATCH `/api/projects/:project_id`
+```js
+    // req.body
+    {
+        "user_id": 3,
+        "project_name": "Herb garden",
+        "supplies_needed": "seeds, dirt",
+        "tools_needed": "shovel, trowel",
+        "instructions": "plant",
+        "delivery_date": "2021-06-15T00:00:00.000Z",
+        "done": "DONE it myself"
+    }
+    // res.body
+
+```
+
+
 
 
 
