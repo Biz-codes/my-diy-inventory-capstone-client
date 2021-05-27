@@ -1,8 +1,8 @@
 # My DIY Inventory 
 Are you DIY-Fabulous?!
-Of couse you are!
+Of course you are!
 What about DIY-Organized?
-...
+.....
 When you start a project, do you find yourself scrambling to figure out what supplies you have around before you can get started?
 Do you ever get home from a supply run, only to realize that you overbought one thing but forgot to buy something else?
 Welcome to the virtual filing cabinet you have been needing to keep track of all your DIY supplies, tools and projects!
@@ -20,42 +20,42 @@ You can access a working prototype of the React app here: https://my-diy-invento
 ### 2. User Stories 
 This app is for two types of users: a visitor and a logged-in user
 
-###### Landing Page (Importance - High) (Est: 0.5h)
+###### Landing Page
 * as a visitor
 * I want to land on the main page of this application and click buttons,
 * so I can access a demo or go to the sign up page.
 
-###### Landing Page (Importance - High) (Est: 0.5h)
+###### Landing Page
 * as a returning user
 * I want to land on the main page of this application and use navigation
 * So I can get to my login.
 
-###### Sign Up Page (Importance - High) (Est: 3h)
+###### Sign Up Page
 * as a visitor
 * I want fill out and submit a form,
 * so I can sign up for an account.
 
-###### Login  Page (Importance - High) (Est: 3h)
+###### Login  Page
 * as a returning user
 * I want to enter my username and password,
 * So I can log in to my account.
 
-###### "My DIY Dashboard" Page (Importance - High) (Est: 2h)
+###### "My DIY Dashboard" Page
 * as a logged-in user
 * I want to click on icons to visit "My DIY Tools", "My DIY Supplies", or "My DIY Projects",
 * so I can access my stored information on those pages.
 
-###### "My DIY Tools" Page (Importance - High) (Est: 2h)
-* as a logged-in user
-* I want to manage a list of the tools I have saved, in alphabetical order, along with descriptions and quantities,
-* so I can manage which tools I have available for my project.
-
-###### "My DIY Supplies" Page (Importance - High) (Est: 2h)
+###### "My DIY Supplies" Page
 * as a logged-in user
 * I want to manage a list of the supplies I have saved, in alphabetical order, along with descriptions and quantities,
 * so I can manage what supplies I have available for my project.
 
-###### "My DIY Projects" Page (Importance - Medium) (Est: 2h)
+###### "My DIY Tools" Page
+* as a logged-in user
+* I want to manage a list of the tools I have saved, in alphabetical order, along with descriptions and quantities,
+* so I can manage which tools I have available for my project.
+
+###### "My DIY Projects" Page
 * as a logged-in user
 * I want to manage a list of the projects I have saved, in alphabetical order,
 * so I can click on them to manage project details.
