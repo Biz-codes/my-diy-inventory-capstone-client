@@ -83,20 +83,33 @@ The app's functionality (v1.0) includes:
 
 
 
-### 5. Wireframes (to do now)
-Landing Page, Sign Up Page, Log In Page, & "My DIY Dashboard" Page
+### 5. Wireframes
+Landing Page
 :-------------------------:
-![Landing Page, Sign Up Page, Log In Page, & "My DIY Dashboard" Page](/github-images/wireframes/landing-signup-login-dashboard-pages.jpg)
-"My DIY Tools" Page, "My DIY Supplies" Page, "My DIY Projects" Page, and Create/Edit Project Page
-!["My DIY Tools" Page, "My DIY Supplies" Page, "My DIY Projects" Page, and Create/Edit Project Page](/github-images/wireframes/tools-supplies-projects-create-edit-pages.jpg)
-User Flows, page 1
-![User Flows, page 1](/github-images/wireframes/user-flows-1.jpg)
-User Flows, page 2
-![User Flows, page 2](/github-images/wireframes/user-flows-2.jpg)
+![Landing Page](/github-images/wireframes/landing-page.jpg)
+Sign Up Page
+![Sign Up Page](/github-images/wireframes/sign-up-page.jpg)
+Log In Page
+![Log In Page](/github-images/wireframes/log-in-page.jpg)
+"My DIY Dashboard"
+!["My DIY Dashboard"](/github-images/wireframes/dashboard.jpg)
+"My DIY Supplies" & "My DIY Tools"
+!["My DIY Supplies" & "My DIY Tools"](/github-images/wireframes/supplies-tools.jpg)
+"My DIY Projects" 
+!["My DIY Projects"](/github-images/wireframes/projects.jpg)
+Add Supply & Add Tool
+![Add Supply & Add Tool](/github-images/wireframes/add-supply-tool.jpg)
+Add Project
+![Add Project](/github-images/wireframes/add-project.jpg)
+Edit Supply & Edit Tool
+![Edit Supply & Edit Tool](/github-images/wireframes/edit-supply-tool.jpg)
+Edit Project
+![Edit Project](/github-images/wireframes/edit-project.jpg)
 
 
 
-### 6. Front-end Structure - React Components Map (to do later)
+
+### 6. Front-end Structure - React Components Map
 * __index.js__ (stateless)
     * __App.js__ (stateful)
         * __Landing.js__ (stateless)
@@ -116,7 +129,7 @@ User Flows, page 2
 
 
 
-### 7. Back-end Structure - Business Objects (to do later)
+### 7. Back-end Structure - Business Objects
 * Users (database table)
     * id (auto-generated)
     * username (email validation)
@@ -142,13 +155,13 @@ User Flows, page 2
     * supplies_needed (text)
     * instructions (text)
     * delivery_date ()
-    * done (bool, default false)
+    * done (varchar255 NOT NULL)
 
     
 
 
 
-### 8. API Documentation (to do later)
+### 8. API Documentation (to do now)
 #### API Overview
 ```text
     /api
@@ -195,23 +208,40 @@ User Flows, page 2
 
 
 
-### 9. Screenshots (to do later)
-(Example) Landing Page
+### 9. Screenshots
+Landing Page
 :-------------------------:
-![Landing Page](/github-images/screenshots/landing-page-screenshot.png)
-Register Page
-![Register Page](/github-images/screenshots/register-page-screenshot.png)
+![Landing Page](/github-images/screenshots/landing-page.png)
+Sign Up Page
+![Sign Up Page](/github-images/screenshots/sign-up-page.png)
+Sign Up Page
+![Log In Page](/github-images/screenshots/log-in-page.png)
+"My DIY Dashboard"
+!["My DIY Dashboard"](/github-images/screenshots/dashboard.png)
+"My DIY Supplies"
+!["My DIY Supplies"](/github-images/screenshots/supplies.png)
+Add Supply
+![Add Supply](/github-images/screenshots/add-supply.png)
+Edit Supply
+![Edit Supply](/github-images/screenshots/edit-supply.png)
+"My DIY Tools"
+!["My DIY Tools"](/github-images/screenshots/tools.png)
+Add Tool
+![Add Tool](/github-images/screenshots/add-tool.png)
+Edit Tool
+![Edit Tool](/github-images/screenshots/edit-tool.png)
+"My DIY Projects"
+!["My DIY Projects"](/github-images/screenshots/projects.png)
+Add Project
+![Add Project](/github-images/screenshots/add-project.png)
+Edit Project
+![Edit Project](/github-images/screenshots/edit-project.png)
 
 
 
-### 10. Development Roadmap (to do later)
-This is v1.0 of the app, but future enhancements are expected to include:
-* add functionality to allow users to save their "My DIY Supplies" inventory into a database (v2.0)
-* add functionality to allow users to sign up for and log into an account (v2.1)
-* add functionality to allow users to create and save a "My DIY Tools" inventory into a database (v2.2)
-* add functionality to allow users to create and save a "My DIY Projects" inventory into a database(v2.3)
-* improve css styling and add images (v2.4)
-* add functionality to allow users to create a shopping list for items they are missing for a project (v3.1)
+### 10. Development Roadmap
+This is v2.0 of the app, but future enhancements are expected to include:
+* add functionality to allow users to create a shopping list for items they are missing for a project
 * add functionality for users to retrieve forgotten log in information
 * add functionality for users to upload pictures of their projects
 * add icons and/or images for common inventory items
@@ -220,7 +250,7 @@ This is v1.0 of the app, but future enhancements are expected to include:
 
 
 
-### 11. How to run it (done)
+### 11. How to run it
 Use command line to navigate into the project folder and run the following in terminal
 
 ##### Local React scripts
