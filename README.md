@@ -86,7 +86,7 @@ The app's functionality (v1.0) includes:
 ### 5. Wireframes
 Landing Page
 :-------------------------:
-![Landing Page](/github-images/wireframes/landing-page.jpg)
+![Landing Page](/github-images/wireframes/landing-page.jpeg)
 Sign Up Page
 ![Sign Up Page](/github-images/wireframes/sign-up-page.jpg)
 Log In Page
