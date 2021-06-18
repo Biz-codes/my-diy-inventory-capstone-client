@@ -3,16 +3,18 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Landing from "./Landing";
 import SignUp from "./SignUp";
 import LogIn from "./LogIn";
-import Dashboard from "./Dashboard";
-import Supplies from "./SuppliesPage/Supplies";
-import AddSupply from "./SuppliesPage/AddSupply";
-import EditSupply from "./SuppliesPage/EditSupply";
-import Tools from "./ToolsPage/Tools";
-import AddTool from "./ToolsPage/AddTool";
-import EditTool from "./ToolsPage/EditTool";
-import Projects from "./ProjectsPage/Projects";
-import AddProject from "./ProjectsPage/AddProject";
-import EditProject from "./ProjectsPage/EditProject";
+import Businesses from "./businesses/Businesses";
+import AddBus from "./businesses/AddBus";
+import EditBus from "./businesses/EditBus";
+import FilterBus from "./businesses/FilterBus";
+import Reviews from "./reviews/Reviews";
+import AddRev from "./reviews/AddRev";
+import EditRev from "./reviews/EditRev";
+import FilterRev from "./reviews/FilterRev"
+import MeFriendly from "./me-friendly/MeFriendly";
+import BusAdded from "./me-friendly/BusAdded";
+import RevBy from "./me-friendly/RevBy";
+import Remember from "./me-friendly/Remember";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -24,23 +26,23 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <header className="App-header">
-            <h1>My DIY Inventory</h1>
+            <h1>we-friendly</h1>
           </header>
 
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route path="/signup" component={SignUp} />
             <Route path="/users/login" component={LogIn} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/supplies" component={Supplies} />
-            <Route path="/add-supply" component={AddSupply} />
-            <Route path="/edit-supply" component={EditSupply} />
-            <Route path="/tools" component={Tools} />
-            <Route path="/add-tool" component={AddTool} />
-            <Route path="/edit-tool" component={EditTool} />
-            <Route path="/projects" component={Projects} />
-            <Route path="/add-project" component={AddProject} />
-            <Route path="/edit-project" component={EditProject} />
+            <Route path="/businesses" component={Businesses} />
+            <Route path="/reviews" component={Reviews} />
+            <Route path="/me-friendly" component={MeFriendly} />
+            <Route path="/add-business" component={AddBus} />
+            <Route path="/edit-business" component={EditBus} />
+            <Route path="/add-review" component={AddRev} />
+            <Route path="/edit-review" component={EditRev} />
+            <Route path="/added-by-me" component={BusAdded} />
+            <Route path="/written-by-me" component={RevBy} />
+            <Route path="/businesses-to-remember" component={Remember} />
           </Switch>
 
           <footer>
