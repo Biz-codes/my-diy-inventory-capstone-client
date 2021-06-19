@@ -5,7 +5,7 @@ What about DIY-Organized?
 .....
 When you start a project, do you find yourself scrambling to figure out what supplies you have around before you can get started?
 Do you ever get home from a supply run, only to realize that you overbought one thing but forgot to buy something else?
-Welcome to the virtual filing cabinet you have been needing to keep track of all your DIY supplies, tools and projects!
+Welcome to the virtual filing cabinet you have been needing to keep track of all your DIY supplies, tools and projects! 
 Whether you are a DIY Builder, Crafter, Artiste, Gardener, Baker, etcetera, a My DIY Inventory account will lessen your stressin' when organizing your projects,
 freeing up your creative brain to enjoy
 Doin' It Yourself!!!
@@ -18,7 +18,7 @@ You can access a working prototype of the React app here: https://my-diy-invento
 
 
 ### 2. User Stories 
-This app is for two types of users: a visitor and a logged-in user
+This app is for two types of users: a visitor and a logged-in user.
 
 ###### Landing Page
 * as a visitor
