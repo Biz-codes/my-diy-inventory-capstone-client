@@ -1,46 +1,30 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlaneArrival,
-  faCompass,
-  faWarehouse,
-  faTools,
-  faTasks,
-} from "@fortawesome/free-solid-svg-icons";
-import { faFly } from "@fortawesome/free-brands-svg-icons";
+import { faLightbulb } from "@fortawesome/free-regular-svg-icons";
+import { faTheaterMasks, faThumbtack, faFingerprint } from "@fortawesome/free-solid-svg-icons";
 
 export default function Nav() {
   return (
     <ul className="nav-icons">
       <li>
         <NavLink to="/">
-          <FontAwesomeIcon icon={faPlaneArrival} className="nav-icon" /> landing
+          <FontAwesomeIcon icon={faLightbulb} className="nav-icon" /> welcome
         </NavLink>
       </li>
       <li>
-        <NavLink to="/dashboard">
-          <FontAwesomeIcon icon={faCompass} className="nav-icon" /> dashboard
+        <NavLink to="/reviews">
+          <FontAwesomeIcon icon={faTheaterMasks} className="nav-icon" /> reviews
+        </NavLink>
+      </li>      
+      <li>
+        <NavLink to="/businesses">
+          <FontAwesomeIcon icon={faThumbtack} className="nav-icon" /> businesses
         </NavLink>
       </li>
       <li>
-        <NavLink to="/supplies">
-          <FontAwesomeIcon icon={faWarehouse} className="nav-icon" /> supplies
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/projects">
-          <FontAwesomeIcon icon={faTasks} className="nav-icon" /> projects
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/tools">
-          <FontAwesomeIcon icon={faTools} className="nav-icon" /> tools
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/">
-          <FontAwesomeIcon icon={faFly} className="nav-icon" /> logout
+        <NavLink to="/me-friendly">
+          <FontAwesomeIcon icon={faFingerprint} className="nav-icon" /> me-friendly
         </NavLink>
       </li>
     </ul>

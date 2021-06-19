@@ -6,12 +6,11 @@ import TokenService from "../services/token-service";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-class Supplies extends Component {
+class Businesses extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      suppliesByUserId: [],
-      supplies: [],
+      businesses: [],
     };
   }
 
@@ -23,113 +22,72 @@ class Supplies extends Component {
     if (!TokenService.hasAuthToken()) {
       window.location = "/";
     }
-    let mySuppliesUrl = `${config.API_ENDPOINT}/supplies/my-supplies/${currentUser}`;
+    let businessesUrl = `${config.API_ENDPOINT}/businesses`
 
-    fetch(mySuppliesUrl)
-      .then((supplies) => supplies.json())
-      .then((supplies) => {
-        return supplies.sort((a, b) => {
+    fetch(businessesUrl)
+      .then((businesses) => businesses.json())
+      .then((businesses) => {
+        return businesses.sort((a, b) => {
           let result = 0;
-          if (a.supply_name > b.supply_name) return 1;
-          if (a.supply_name < b.supply_name) return -1;
+          if (a.name > b.name) return 1;
+          if (a.name < b.name) return -1;
           return result;
         });
       })
-      .then((supplies) => {
+      .then((businesses) => {
         this.setState({
-          suppliesByUserId: supplies,
+          businesses: businesses,
         });
       })
 
       .catch((error) => this.setState({ error }));
   }
 
-  deleteSupply(event) {
-    event.preventDefault();
-
-    const data = {};
-
-    const formData = new FormData(event.target);
-
-    for (let value of formData) {
-      data[value[0]] = value[1];
-    }
-
-    console.log(data);
-
-    let { supply_id } = data;
-    // console.log(supply_id);
-
-    fetch(`${config.API_ENDPOINT}/supplies/${supply_id}`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-      },
-    }).then((response) => {
-      window.location = `/supplies`;
-    });
-  }
 
   render() {
-    const showSupplies = this.state.suppliesByUserId.map((supply, key) => {
+    const showBusinesses = this.state.businesses.map((business, key) => {
       return (
         <div className="supply-item" key={key}>
-          <h3>{supply.supply_name}</h3>
-          <div className="specs">
-            <div className="supply-specs-column">
-              <p>
-                Details: <br /> {supply.details}
-              </p>
-            </div>
-            <div className="supply-specs-column">
-              <p>
-                Quantity: <br /> {supply.quantity}
-              </p>
-            </div>
-          </div>
-
+          <h3>{business.name}</h3>
+          <p>{business.category}</p>
+          <p>{business.address}</p>
+          <p>{business.city}, {business.state} {business.zipcode}</p>
+          <p>{business.website}</p>
+          <p>reviews</p>
           <div className="buttons">
-            <NavLink to={{ pathname: "/edit-supply", supply_id: supply.id }}>
-              <button>Edit</button>
+            <NavLink to={{ pathname: "/add-review", business_id: business.id }}>
+              <button>write a review</button>
             </NavLink>
-            <form className="delete" onSubmit={this.deleteSupply}>
-              <input
-                type="hidden"
-                name="supply_id"
-                defaultValue={supply.id}
-              ></input>
-              <button type="submit" className="delete">
-                Delete
-              </button>
-            </form>
+            {/* <button className="remember">
+                remember
+            </button> */}
           </div>
         </div>
       );
     });
 
     return (
-      <div className="supplies">
-        <div className="nested-nav">
-          <div className="page-heading">
-            <h2 className="page-title">My DIY Supplies</h2>
-          </div>
-          <div className="page-heading">
-            <Nav />
-          </div>
-
-          <div className="supply-items">{showSupplies}</div>
-
-          <div>
+      <div className="businesses">
+        <Nav />
+        <div className="search">
+          Search form will go here.
+        </div>
+        <div className="results">
+          <h2>Results</h2>
+          {showBusinesses}
+        </div>        
+        <div>          
+          <NavLink to="/add-business">
             <button>
-              <NavLink to="/add-supply">
-                <FontAwesomeIcon icon={faPlus} /> Add Supply
-              </NavLink>
-            </button>
-          </div>
+              <FontAwesomeIcon icon={faPlus} />
+              <p>Add a business</p>
+            </button>    
+          </NavLink>
+          {/* <button>clear search</button> */}
         </div>
       </div>
     );
   }
 }
 
-export default Supplies;
+export default Businesses;

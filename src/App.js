@@ -26,7 +26,7 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <header className="App-header">
-            <h1>we-friendly</h1>
+            <h1>we - friendly</h1>
           </header>
 
           <Switch>
