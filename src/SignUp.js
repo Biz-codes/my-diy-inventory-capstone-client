@@ -68,10 +68,10 @@ export default class SignUp extends Component {
     const username = this.state.username.value.trim();
     if (username.length === 0) {
       return <p className="input-error">Username is required</p>;
-    } else if (username.length < 3) {
+    } else if (username.length < 2) {
       return (
         <p className="input-error">
-          Username must be at least 3 characters long
+          Username must be at least 2 characters long
         </p>
       );
     }
@@ -81,10 +81,10 @@ export default class SignUp extends Component {
     const password = this.state.password.value.trim();
     if (password.length === 0) {
       return <p className="input-error">Password is required</p>;
-    } else if (password.length < 8 || password.length > 16) {
+    } else if (password.length < 6 || password.length > 72) {
       return (
         <p className="input-error">
-          Password must be between 8 and 16 characters long
+          Password must be between 6 and 72 characters long
         </p>
       );
     } else if (!password.match(/[0-9]/)) {
@@ -158,7 +158,7 @@ export default class SignUp extends Component {
             type="text"
             name="username"
             id="username"
-            placeholder="Create a username."
+            placeholder="Enter a valid e-mail."
             onChange={(e) => this.changeUsername(e.target.value)}
             required
           />

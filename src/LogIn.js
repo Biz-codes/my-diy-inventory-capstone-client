@@ -39,10 +39,10 @@ export default class LogIn extends Component {
     const username = this.state.username.value.trim();
     if (username.length === 0) {
       return <p className="input-error">Username is required</p>;
-    } else if (username.length < 3) {
+    } else if (username.length < 2) {
       return (
         <p className="input-error">
-          Username must be at least 3 characters long
+          Username must be at least 2 characters long
         </p>
       );
     }
@@ -52,10 +52,10 @@ export default class LogIn extends Component {
     const password = this.state.password.value.trim();
     if (password.length === 0) {
       return <p className="input-error">Password is required</p>;
-    } else if (password.length < 8 || password.length > 16) {
+    } else if (password.length < 6 || password.length > 72) {
       return (
         <p className="input-error">
-          Password must be between 8 and 16 characters long
+          Password must be between 6 and 72 characters long
         </p>
       );
     } else if (!password.match(/[0-9]/)) {
@@ -77,7 +77,7 @@ export default class LogIn extends Component {
       .then((response) => {
         TokenService.saveAuthToken(response.authToken);
         TokenService.saveUserId(response.userId);
-        window.location = "/reviews";
+        window.location = "/dashboard";
       })
       .catch((err) => {
         console.log(err);
@@ -89,15 +89,15 @@ export default class LogIn extends Component {
       <div className="log-in">
         <h2>Log into your account!</h2>
         <p className="demo">To try the demo:</p>
-        <p className="demo">username: Demo</p>
-        <p className="demo">password: Friendly1</p>
+        <p className="demo">username: demo-email@gmail.com</p>
+        <p className="demo">password: Fabulous1</p>
         <form className="log-in-form" onSubmit={this.loginUser}>
           <label htmlFor="username">username:</label>
           <input
             type="text"
             name="username"
             id="username"
-            placeholder="Enter your username."
+            placeholder="Enter your e-mail."
             onChange={(e) => this.changeUsername(e.target.value)}
             required
           />

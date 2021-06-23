@@ -5,17 +5,29 @@ export default function Landing() {
   return (
     <div className="landing">
       <div className="hook">
-        <p>we-friendly is a crowd-sourced hub for voices from communities to share insight 
-          into which spaces are respectful, accessible and affirming! Find businesses and 
-          services that are -friendly toward folx who share aspects of YOUR lived experience. 
-          Discover what it's like to be visible in these spaces, and choose your favorite 
-          local venues to express your authentic self. Transform places in your community to 
-          be your own - to be welcoming to others like you. Make sure your community is 
-          supporting businesses and services that support people like you - however you 
-          identify. Then, when you travel, use we-friendly to find -friendly folx - even in 
-          unfamiliar locations. Together, we have financial power, so make your dollar count 
-          by supporting local businesses and services that support folx like you - near or 
-          far from home!</p>
+        <h4>Are you DIY-Fabulous?!</h4>
+        <p>Of course you are!</p>
+        <p>What about DIY-Organized?</p>
+        <p>. . . . .</p>
+        <p>
+          When you start a project, do you find yourself scrambling to figure
+          out what supplies you have around before you can get started?
+        </p>
+        <p>
+          Do you ever get home from a supply run, only to realize that you
+          overbought one thing but forgot to buy something else?
+        </p>
+        <p>
+          Welcome to the virtual filing cabinet you have been needing to keep
+          track of all your DIY supplies!
+        </p>
+        <p>
+          Whether you are a DIY Builder, Crafter, Artiste, Gardener, Baker,
+          etcetera, a My DIY Inventory account will lessen your stressin' when
+          organizing your projects,
+        </p>
+        <p>freeing up your creative brain to enjoy</p>
+        <h4>Doin' It Yourself!!!</h4>
       </div>
 
       <div className="landing-buttons" aria-live="polite">
@@ -31,7 +43,9 @@ export default function Landing() {
       </div>
 
       <footer>
-        
+        <a href="https://www.freepik.com/photos/wood">
+          Wood photo created by gpointstudio
+        </a>
       </footer>
     </div>
   );

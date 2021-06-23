@@ -67,8 +67,8 @@ font-family: 'Special Elite', cursive;
 font-family: 'Catamaran', sans-serif;*/
 
 body {
-  font-family: "Spectral", serif;
-  font-size: 20px;
+  font-family: "Annie Use Your Telescope", sans-serif;
+  font-size: 30px;
   color: black;
   font-weight: bold;
   background-color: #ebe6e2;
@@ -87,19 +87,16 @@ a:hover {
   color: #bd1e0f;
 }
 
-h1 {
-  font-family: "Homemade Apple", cursive;
-}
-
+h1,
 h2,
 h3,
 h5,
 h6 {
-  font-family: "Caveat", cursive;
+  font-family: "Special Elite", cursive;
 }
 
 h4 {
-  font-family: "Spectral", serif;
+  font-family: "Annie Use Your Telescope", sans-serif;
 }
 
 input,
@@ -110,8 +107,8 @@ button {
   margin: 5px;
   border-radius: 5px;
   color: black;
-  font-family: "Caveat", cursive;
-  font-size: 100%;
+  font-family: "Special Elite", cursive;
+  font-size: 75%;
 }
 
 .buttons {
@@ -184,11 +181,11 @@ header h1 {
 }
 
 h2 {
-  font-size: 200%;
+  font-size: 125%;
 }
 
 h3 {
-  font-size: 150%;
+  font-size: 90%;
 }
 
 h4 {
@@ -224,7 +221,7 @@ div.landing {
 
 div.landing::before {
   content: "";
-  /* background-image: url(hero.jpg); */
+  background-image: url(hero.jpg);
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -256,7 +253,7 @@ button.demo-button {
   padding: 50px;
   font-size: 200%;
   border-radius: 10px;
-  font-family: "Caveat", cursive;
+  font-family: "Special Elite", cursive;
 }
 
 button.landing-button {
@@ -266,7 +263,7 @@ button.landing-button {
   padding: 40px;
   font-size: 150%;
   border-radius: 10px;
-  font-family: "Caveat", cursive;
+  font-family: "Special Elite", cursive;
 }
 
 /* Dashboard, Supplies, Tools, and Projects pages */
@@ -331,7 +328,7 @@ div.projects-entrance {
 
 div.supplies-entrance::before {
   content: "";
-  /* background-image: url(sewing-supplies.jpg); */
+  background-image: url(sewing-supplies.jpg);
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -347,7 +344,7 @@ div.supplies-entrance::before {
 
 div.tools-entrance::before {
   content: "";
-  /* background-image: url(carpenter-tools.jpg); */
+  background-image: url(carpenter-tools.jpg);
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -363,7 +360,7 @@ div.tools-entrance::before {
 
 div.projects-entrance::before {
   content: "";
-  /* background-image: url(garden-project.jpg); */
+  background-image: url(garden-project.jpg);
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -382,14 +379,14 @@ button.entrance-button {
   background-color: #ebe6e2;
   padding: 20px;
   font-size: 100%;
-  font-family: "Caveat", cursive;
+  font-family: "Special Elite", cursive;
   border-radius: 10px;
   width: 175px;
 }
 
 /* Supplies, Tools and Projects styles */
 
-/* div.supplies,
+div.supplies,
 div.add-supply,
 div.edit-supply {
   background-image: url(sewing-supplies.jpg);
@@ -405,7 +402,7 @@ div.projects,
 div.add-project,
 div.edit-project {
   background-image: url(garden-project.jpg);
-} */
+}
 
 .add-supply-form,
 .edit-supply-form,
@@ -512,13 +509,13 @@ This is the ideal way to built websites because it is much easier to adapt from 
 /*iPhone portrait*/
 @media only screen and (min-width: 320px) {
   body {
-    border: 3px solid purple;
-    /* font-size: 20px; */
+    /* border: 3px solid purple; */
+    font-size: 20px;
   }
 
-  /* header {
+  header {
     font-size: 90%;
-  } */
+  }
 
   /* input {
       width: 150px;
@@ -533,12 +530,12 @@ This is the ideal way to built websites because it is much easier to adapt from 
   }
 
   button.demo-button {
-    /* font-size: 150%; */
+    font-size: 150%;
     padding: 30px;
   }
 
   button.landing-button {
-    /* font-size: 120%; */
+    font-size: 120%;
     padding: 30px;
   }
 
@@ -576,8 +573,8 @@ This is the ideal way to built websites because it is much easier to adapt from 
 /*iPhone landscape*/
 @media only screen and (min-width: 480px) {
   body {
-    border: 3px solid green;
-    /* font-size: 24px; */
+    /* border: 3px solid green; */
+    font-size: 24px;
   }
 
   button {
@@ -588,8 +585,8 @@ This is the ideal way to built websites because it is much easier to adapt from 
 /*Android landscape*/
 @media only screen and (min-width: 640px) {
   body {
-    border: 3px solid pink;
-    /* font-size: 26px; */
+    /* border: 3px solid pink; */
+    font-size: 26px;
   }
 
   div.page-heading {
@@ -608,7 +605,7 @@ This is the ideal way to built websites because it is much easier to adapt from 
 /*iPad potrait*/
 @media only screen and (min-width: 768px) {
   body {
-    border: 3px solid red;
+    /* border: 3px solid red; */
   }
 
   div.landing-buttons {
@@ -639,8 +636,8 @@ This is the ideal way to built websites because it is much easier to adapt from 
 /*iPad landscape / small laptop*/
 @media only screen and (min-width: 1024px) {
   body {
-    border: 3px solid blue;
-    font-size: 24px;
+    /* border: 3px solid blue; */
+    font-size: 30px;
   }
 
   header h1 {
@@ -659,9 +656,9 @@ This is the ideal way to built websites because it is much easier to adapt from 
 }
 
 /*large desktop*/
-@media only screen and (min-width: 1600px) {
+/* @media only screen and (min-width: 1600px) {
     body {
         border: 3px solid yellow;
     }
 
-}
+} */
